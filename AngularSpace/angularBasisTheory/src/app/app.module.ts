@@ -8,12 +8,14 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ServerComponent } from './server/server.component';
 import { ServersComponent } from './servers/servers.component';
+import { DirectiveExerciseComponent } from './directive-exercise/directive-exercise.component';
 
 @NgModule({
   declarations: [   //Se declaran los componentes que queremos que sean accesibles en toda la aplicacion
     AppComponent,
     ServerComponent,
-    ServersComponent
+    ServersComponent,
+    DirectiveExerciseComponent
   ],
   imports: [
     BrowserModule,
