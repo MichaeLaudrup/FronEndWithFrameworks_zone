@@ -1,0 +1,13 @@
+.navbar-toggler{
+    position: absolute; 
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 5%;
+    background-color: rgb(190, 190, 190);
+}
+
+.navbar-toggler svg {
+    height: 40px;
+    width: 40px;
+    color:rgb(0, 0, 0); 
+}
