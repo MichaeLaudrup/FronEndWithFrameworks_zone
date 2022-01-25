@@ -1,13 +1,30 @@
-.navbar-toggler{
-    position: absolute; 
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 5%;
-    background-color: rgb(190, 190, 190);
+
+
+
+
+
+@media screen and (max-width:460px) {
+    .header-down-xs{
+        position: fixed;
+        width:100%; 
+        bottom: 0%;
+    }
+
+    .navbar-toggler{
+        position:absolute; 
+        left:50%; 
+        top:50%; 
+        transform: translate(-50%,-50%);
+        
+    }
+
+    button:not(.collapsed){
+        position:relative; 
+        top:none; 
+        left:none; 
+        transform: none;
+        background-color: green;
+    }
+    
 }
 
-.navbar-toggler svg {
-    height: 40px;
-    width: 40px;
-    color:rgb(0, 0, 0); 
-}
