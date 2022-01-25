@@ -1,9 +1,43 @@
 
+body{
+    font-family: 'Merriweather', serif;
+}
+#navbarNav{
+    justify-content: flex-end;
+}
+
+.nav-link{
+    margin-left: 20px;
+    
+}
+.brand-name{
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transform: skewX(-12deg);
+}
+
+.brand-name::after{
+    content: "Finances";
+    font-size: .8rem;
+    position: absolute;
+    top:75%;
+    padding: .15rem .4rem; 
+    left: 20%; 
+    background-color: rgb(45, 45, 146); 
+    transform: skewX(-12deg);
+}
 
 
+@media screen and (max-width:576px) {
+    .navbar-nav{
+        align-items: center;
+    }
 
-
-@media screen and (max-width:460px) {
+    .nav-link:last-child{
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
     .header-down-xs{
         position: fixed;
         width:100%; 
@@ -12,18 +46,21 @@
 
     .navbar-toggler{
         position:absolute; 
-        left:50%; 
-        top:50%; 
-        transform: translate(-50%,-50%);
+        left:50%;
+        bottom: 10%;
+        transform: translate(-50%,0%);
         
     }
 
     button:not(.collapsed){
         position:relative; 
-        top:none; 
-        left:none; 
-        transform: none;
-        background-color: green;
+        bottom: 10%; 
+        left:50%; 
+        transition: none;
+    }
+
+    .brand-name{
+        margin-bottom: 10px;
     }
     
 }
