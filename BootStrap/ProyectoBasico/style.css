@@ -14,7 +14,7 @@ body{
     position: relative;
     text-transform: uppercase;
     letter-spacing: 2px;
-    transform: skewX(-12deg);
+    transform: skewX(-16deg);
 }
 
 .brand-name::after{
@@ -54,8 +54,6 @@ body{
 
     button:not(.collapsed){
         position:relative; 
-        bottom: 10%; 
-        left:50%; 
         transition: none;
     }
 
