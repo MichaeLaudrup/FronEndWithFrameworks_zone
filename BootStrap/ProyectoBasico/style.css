@@ -1,6 +1,12 @@
 
 body{
     font-family: 'Merriweather', serif;
+    min-height: 100vh;
+    position: relative;
+}
+
+h3{
+    margin-bottom: 2rem;
 }
 #navbarNav{
     justify-content: flex-end;
@@ -28,6 +34,62 @@ body{
     transform: skewX(-12deg);
 }
 
+.my-list{
+    list-style: none;
+}
+
+
+.send-email {
+    position:relative; 
+    border-radius: 15px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.send-email input {
+    width: 100%;
+    padding: .5rem;
+    
+}
+
+.send-email div {
+    position:absolute; 
+    background-color: rgb(45, 45, 146);
+    height: 100%;
+    right: 0%;
+    top:0%; 
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    
+}
+
+.date{
+    background-color: rgb(45, 45, 146); 
+    padding:.25rem; 
+    font-weight: bold;
+    margin-right: 1rem;
+    display: inline-block;
+    transform: skewX(-11deg);
+}
+
+footer{
+    position: relative;
+    width: 100%;
+    bottom:0%; 
+    background-color: #333536;
+}
+
+.about-us-footer{
+    font-size: 1.3rem;
+    line-height: 2;
+}
+
+.contact i {
+    color:rgb(150, 170, 207); 
+    font-size: 2rem;
+    margin-right: 1.5rem;
+}
 
 @media screen and (max-width:576px) {
     .navbar-nav{
@@ -42,6 +104,7 @@ body{
         position: fixed;
         width:100%; 
         bottom: 0%;
+        z-index: 2;
     }
 
     .navbar-toggler{
@@ -59,6 +122,10 @@ body{
 
     .brand-name{
         margin-bottom: 10px;
+    }
+
+    footer{
+        margin-bottom: 4rem;
     }
     
 }
