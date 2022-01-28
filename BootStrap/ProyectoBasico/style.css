@@ -13,18 +13,17 @@
     --color-terciario-oscuro: #b37636; 
     --color-terciario-claro: #ffcb94; 
 
-
-
 }
 
 .navbar{
-    background-color: #072146;
+    background-color: var(--color-primario-oscuro);
 }
 
 body{
     font-family: 'Merriweather', serif;
     min-height: 100vh;
     position: relative;
+
 }
 
 h3{
@@ -53,7 +52,7 @@ h3{
     top:75%;
     padding: .15rem .4rem; 
     left: 20%; 
-    background-color: rgb(45, 45, 146); 
+    background-color: var(--color-primario-claro); 
     transform: skewX(-12deg);
 }
 
@@ -66,6 +65,7 @@ h3{
     position:relative; 
     overflow: hidden;
     width: 100%;
+    border-radius: 4px;
 }
 
 .send-email input {
@@ -78,7 +78,7 @@ h3{
     text-align: center;
     justify-content: center;
     position:absolute; 
-    background-color: var(--color-secundario-claro);
+    background-color: var(--color-terciario);
     height: 100%;
     right: 0%;
     top:0%; 
@@ -100,7 +100,8 @@ footer{
     position: relative;
     width: 100%;
     bottom:0%; 
-    background-color: #072146;
+    background-color: var(--color-primario-oscuro);
+    color:white; 
 }
 
 .about-us-footer{
