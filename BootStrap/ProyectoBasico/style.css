@@ -1,4 +1,21 @@
+:root {
+    --color-primario: #003a70; 
+    --color-primario-oscuro: #002e5a;
+    --color-primario-claro: #4d759b;
 
+
+    --color-secundario: #fcc419;
+    --color-secundario-oscuro: #b08912; 
+    --color-secundario-claro: #fee28c; 
+
+
+    --color-terciario:#ffa94d; 
+    --color-terciario-oscuro: #b37636; 
+    --color-terciario-claro: #ffcb94; 
+
+
+
+}
 
 .navbar{
     background-color: #072146;
@@ -61,7 +78,7 @@ h3{
     text-align: center;
     justify-content: center;
     position:absolute; 
-    background-color: rgb(230, 181, 77);
+    background-color: var(--color-secundario-claro);
     height: 100%;
     right: 0%;
     top:0%; 
