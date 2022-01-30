@@ -28,6 +28,8 @@ body{
 
 h3{
     margin-bottom: 2rem;
+    color: var(--color-terciario-claro);
+    font-variant: small-caps;
 }
 #navbarNav{
     justify-content: flex-end;
@@ -55,6 +57,17 @@ h3{
     background-color: var(--color-primario-claro); 
     transform: skewX(-12deg);
 }
+
+
+.banner-row{
+    max-height: calc(100vh - 60px);
+}
+
+.banner-box {
+    background-color: var(--color-terciario-claro);
+}
+
+
 
 .my-list{
     list-style: none;
@@ -110,7 +123,7 @@ footer{
 }
 
 .contact i {
-    color:rgb(150, 170, 207); 
+    color:var(--color-terciario-claro);  
     font-size: 2rem;
     margin-right: 1.5rem;
 }
