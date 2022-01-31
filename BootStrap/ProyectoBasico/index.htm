@@ -53,16 +53,20 @@
     </header>
 
     <div class="container-fluid">
-      <div class="row overflow-hidden banner-row ">
-        <div class="col-12 p-0 position-relative">
-          <picture>
+      <div class="row overflow-hidden banner-row position-relative ">
+        <div class="col-12 p-0 ">
+          <picture class="banner-picture">
             <source srcset="./pics/banner1.jpg" media="(min-width:1200px)">
             <source srcset="./pics/banner_md.jpg" media="(min-width:800px)">
             <source srcset="./pics/banner_sm.jpg" media="(min-width:300px)">
             <img width="100%" height="auto" src="./pics/banner1.jpg" alt="" />
           </picture>
-          <div class="col-10 banner-box position-absolute top-50 start-50 translate-middle">
-            <p class="banner-text  text-dark fs-1 text-center">No trabajes por el dinero, haz que el dinero trabaje para ti.</p>
+          <div class="col-10 banner-box text-center">
+            <p class="banner-text  text-dark fs-2 ">
+              <span>No trabajes para el dinero,</span><br>
+              <span class="line-2">Haz que el dinero trabaje para ti </span>
+            </p>
+            <button class="custom-btn">Me apunto</button>
           </div>
           
         </div>
@@ -71,16 +75,76 @@
 
 
 
-    <main style="color:white; background-color: white;">
+    <main class="container">
+      <h2 class="text-center">Servicios</h2>
+      <div class="row row-cols-1 row-cols-md-3 g-5">
+        <div class="col">
+          <div class="card h-100">
+            <img src="./pics/target_1.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">An item</li>
+              <li class="list-group-item">A second item</li>
+              <li class="list-group-item">A third item</li>
+            </ul>
+            <div class="card-body">
+              <a href="#" class="card-link">Card link</a>
+              <a href="#" class="card-link">Another link</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <img src="./pics/target_2.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">An item</li>
+              <li class="list-group-item">A second item</li>
+              <li class="list-group-item">A third item</li>
+            </ul>
+            <div class="card-body">
+              <a href="#" class="card-link">Card link</a>
+              <a href="#" class="card-link">Another link</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-100">
+            <img src="./pics/target_3.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">An item</li>
+              <li class="list-group-item">A second item</li>
+              <li class="list-group-item">A third item</li>
+            </ul>
+            <div class="card-body">
+              <a href="#" class="card-link">Card link</a>
+              <a href="#" class="card-link">Another link</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
     </main>
     <footer>
-      <div class="container-fluid">
+      <div class="container">
         <div class="row">
           <div class="col-12 col-lg-4 p-4" style="color:rgb(209, 209, 209)">
             <h3>Sobre Atlantic Finances</h3>
-            <p class="about-us-footer">Atlantic Finances es una web aplicación desarrollada que sirve de apoyo para introducirse y desarrollarse en el mundo de la compra venta de acciones búrsatiles.
+            <p class="about-us-footer text-light">Atlantic Finances es una web aplicación desarrollada que sirve de apoyo para introducirse y desarrollarse en el mundo de la compra venta de acciones búrsatiles.
             </p>
-            <div class="contact">
+            <div class="contact text-light">
               <p>
                 <i class="las la-phone"></i><span>+34 678 909 876</span>
               </p>
@@ -99,7 +163,7 @@
           </div>
           <div class="col-12 col-lg-4 p-4 " style="color:rgb(209, 209, 209)">
             <h3>Ultimas actualizaciones de la webapp</h3>
-            <ul class="my-list">
+            <ul class="my-list text-light">
               <li class="mb-2"><span class="date">25-01-2022</span> Se ha creado el navegador de la página web</li>
               <li class="mb-2"><span class="date">26-01-2022</span> Se ha creado el footer de la web app. </li>
               <li class="mb-2"><span class="date">26-01-2022</span> Se añade información a la wiki finanzas. </li>
