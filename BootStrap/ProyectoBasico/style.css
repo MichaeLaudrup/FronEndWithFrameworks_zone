@@ -82,7 +82,57 @@ h3{
 }
 
 .banner-box .line-2{
-    transform: translate(20%);
+    animation: fromRight 2s ease-in-out;
+    backface-visibility: hidden;
+}
+.banner-box .line-1{
+    animation: fromLeft 2s ease-in-out;
+    backface-visibility: hidden;
+}
+
+
+@keyframes fromRight {
+    0%{
+        opacity: 0;
+        transform: translateX(-250%);
+    }
+
+    90%{
+        transform: translateX(40%);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
+
+@keyframes fromLeft {
+    0%{
+        opacity: 0;
+        transform: translateX(250%);
+    }
+
+    90%{
+        transform: translateX(-40%);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
+
+@keyframes fromBottom { 
+    0%{
+        opacity: 0;
+        transform: translateY(400%);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translateY(0%);
+    }
 }
 
 .banner-box span::before{
@@ -105,28 +155,66 @@ h3{
 .custom-btn {
     background-color: var(--color-terciario);
     padding: .5rem 4rem;
-    border:none; 
+    border:none;
+    
+}
+
+.custom-btn-animated{
+    animation: fromBottom 2s ease-in-out; 
 }
 
 
 main.container{
     padding: 8rem 0rem;
+    text-align: center;
 }
 
-main.container h2{
+.services-title{
+    position: relative;
     font-size: 3.5rem;
     padding: 2rem;
+    display: inline-block;
+    margin-bottom: 3rem;
+
+}
+
+.services-title::after {
+    content: "Premium"; 
+    display: block;
+    position: absolute;
+    padding: .5rem;
+    font-size: 1rem;
+    font-variant: small-caps;
+    bottom:0%;
+    right: 0%; 
+    background-color: var(--color-terciario);
 }
 
 .card-img-top{
-    max-height: 250px;
+    max-height: 290px;
 }
 
-
+.card-body{
+    min-height: 150px;
+}
 
 .my-list{
     list-style: none;
 }
+
+.card-1{
+    animation: fromRight 2s ease-in-out;
+}
+
+.card-2{
+    animation-fill-mode: backwards;
+    animation: fromBottom 2s ease-in-out 1s;
+}
+
+.card-3{
+    animation: fromLeft 2s ease-in-out;
+}
+
 
 
 .send-email {
