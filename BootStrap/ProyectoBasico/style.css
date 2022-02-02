@@ -15,8 +15,8 @@
 
 }
 
-.navbar{
-    background-color: var(--color-primario-oscuro);
+header .navbar{
+    background-image: linear-gradient(30deg, black,rgb(19, 19, 19));
 }
 
 body{
@@ -28,7 +28,6 @@ body{
 
 h3{
     margin-bottom: 2rem;
-    color: var(--color-secundario-claro);
     font-variant: small-caps;
 }
 #navbarNav{
@@ -36,9 +35,9 @@ h3{
     font-size: .9rem;
 }
 
-.nav-link{
+.nav-link:link, .nav-link:visited{
     margin-left: 20px;
-    
+    color: var(--color-terciario-claro) !important; 
 }
 .brand-name{
     font-size: 1rem;
@@ -135,6 +134,16 @@ h3{
     }
 }
 
+@keyframes appear {
+    0%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+    }
+}
+
 .banner-box span::before{
     content: "";
     position:absolute; 
@@ -207,8 +216,9 @@ main.container{
 }
 
 .card-2{
+
+    animation: appear 2s ease-in-out 2s; 
     animation-fill-mode: backwards;
-    animation: fromBottom 2s ease-in-out 1s;
 }
 
 .card-3{
@@ -245,19 +255,26 @@ main.container{
 }
 
 .date{
-    color: rgba(199, 199, 199, 0.733);
+    text-align: left;
+    width: 100%;
     padding:.25rem; 
     font-weight: bold;
     margin-right: 1rem;
-    display: inline-block;
+    display: block;
+    margin-top: 2rem;
+    line-height: 2;
 }
 
 footer{
     position: relative;
     width: 100%;
     bottom:0%; 
-    background-color: var(--color-primario-oscuro);
+    background-image: linear-gradient(12deg, black,rgb(27, 27, 27));
     color:white; 
+}
+
+footer h3 {
+    min-height: 25px;
 }
 
 .about-us-footer{
@@ -269,6 +286,47 @@ footer{
     color:var(--color-terciario-claro);  
     font-size: 2rem;
     margin-right: 1.5rem;
+}
+
+.col-card {
+    min-height: 500px;
+}
+
+.chat-card {
+    position: absolute; 
+    right: 3%;
+    bottom:12%; 
+    transition-property: opacity ,visibility, transform;
+    transition-timing-function: ease-in-out;
+    transition-duration:.2s; 
+    
+}
+
+.chat-card h5 {
+    padding:.75rem; 
+}
+
+.chat-hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: scale(.1);
+}
+
+.btn-chat{
+    position: relative;
+    left: 92%;
+    top:91%;
+    color:black; 
+    background-color: var(--color-terciario);
+    font-size: 1.2rem;
+}
+
+
+.conversation-container{
+    border-top: solid 1px rgba(70, 70, 70, 0.541); 
+    border-bottom: solid 1px rgba(70, 70, 70, 0.507);
+    min-height: 350px;
 }
 
 @media screen and (max-width:576px) {
