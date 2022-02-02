@@ -294,7 +294,7 @@ footer h3 {
 
 .chat-card {
     position: absolute; 
-    right: 2%;
+    right: 3%;
     bottom:12%; 
     transition-property: opacity ,visibility, transform;
     transition-timing-function: ease-in-out;
@@ -315,7 +315,7 @@ footer h3 {
 
 .btn-chat{
     position: relative;
-    left: 90%;
+    left: 92%;
     top:91%;
     color:black; 
     background-color: var(--color-terciario);
