@@ -1,112 +1,44 @@
 
 
-const not_understood = "No te he entendido, ¿Podrias ser más explicito? "; 
+const not_understood = "No te he entendido, ¿Podrías reformular la pregunta? "; 
 
+const baseDeConocimiento = [
+    ///1
+    { 
+        pregunta: "cuales son los metodos de pago?",
+        repuesta: "Puedes pagar con tarjeta de crédito o mediante transferencia bancaria",
+        palabrasClave: ["pagar", "pago", "metodo de pago", "forma de pago", "forma de pagar", "tarjeta", "credito", "tarjeta credito", "metodo", "forma"],
+        respuestaConPregunta: true,
+    },
+    ///2
+    {
+        pregunta: "que tipo de servicios o productos puedo ofrecerte? ",
+        repuesta: "Entre nuestros productos o servicios mas destacados están asesoramiento financiero y el core inteligente Zeus que predice comportamientos en bolsa.",
+        palabrasClave: ["servicios", "productos", "ofertas", "oferta", "servicio", "producto"],
+        respuestaConPregunta: true,
+    },
+    ///3
+    {
+        pregunta: "como puedes adquirir acciones búrsatiles? ",
+        repuesta: "Para adquirir acciones búrsatiles necesitas un intermediaro o broker. Este te cobrara comisiones por hacer operaciones ",
+        palabrasClave: ["acciones", "bursatiles", "accion", "bursatil", "adquirir acciones", "conseguir acciones", "comprar acciones", "invertir" ]
+    },
+    ///4
+    {
+        pregunta: "como puedes invertir en oro? ",
+        repuesta: "Para invertir en oro puedes hablar con uno de nuestros profesionales y que te asesore más personalmente. ",
+        palabrasClave: ["invertir", "oro" ]
+    },
+    ///5
+    { 
+        pregunta: "Saludo",
+        repuesta: "¡Hola! Bienvenido, ¿En que puedo ayudarte? ",
+        palabrasClave: ["hola", "buenos", "dias", "saludos", "ey", "eyy", "ey!"],
+        respuestaConPregunta: true,
+    },
+    
+]
 
-var cbQuestions = [
-    ["hola", "Buenas!", "Buenos días", "buenas tardes", "buenas noches"],
-    ["quien eres", "eres humano?", "eres un bot?", "eres una persona o un bot?"],
-];
-
-// Posibles respuestas correspondientes a disparadores 
-
-var cbAnswers = [
-    ["Hola!, ¿qué deseas saber?", "Buenas!, ¿qué deseas saber", "Buenos días. ¿Qué deseas saber", "Buenas tardes. ¿Qué deseas saber", "Buenas noches. ¿Qué deseas saber"],
-    ["Soy un bot", "No. Soy un bot", "Sí, lo soy", "Soy un bot"],
-];
-
-// Para cualquier otra entrada de usuario 
-
-var cbAlternatives = [
-    "Continuar...",
-    "Intentar de nuevo",
-];
-
-function similarity(s1, s2) {
-    var longer = s1;
-    var shorter = s2;
-    if (s1.length < s2.length) {
-        longer = s2;
-        shorter = s1;
-    }
-    var longerLength = longer.length;
-    if (longerLength == 0) {
-        return 1.0;
-    }
-    return (longerLength - editDistance(longer, shorter)) / parseFloat(longerLength);
-}
-
-function editDistance(s1, s2) {
-    s1 = s1.toLowerCase();
-    s2 = s2.toLowerCase();
-
-    var costs = new Array();
-    for (var i = 0; i <= s1.length; i++) {
-        var lastValue = i;
-        for (var j = 0; j <= s2.length; j++) {
-            if (i == 0)
-                costs[j] = j;
-            else {
-                if (j > 0) {
-                    var newValue = costs[j - 1];
-                    if (s1.charAt(i - 1) != s2.charAt(j - 1))
-                        newValue = Math.min(Math.min(newValue, lastValue),
-                            costs[j]) + 1;
-                    costs[j - 1] = lastValue;
-                    lastValue = newValue;
-                }
-            }
-        }
-        if (i > 0)
-            costs[s2.length] = lastValue;
-    }
-    return costs[s2.length];
-}
-
-var inputField = document.getElementById("input")
-inputField.addEventListener("keydown", function (e) {
-    if (e.code === "Enter") {
-        var input = inputField.value;
-        inputField.value = "";
-        compare(input);
-    }
-});
-
-function compare(input) {
-    var msg;
-    for (var x = 0; x < cbQuestions.length; x++) {
-        for (var y = 0; y < cbQuestions[x].length; y++) {
-            var pct = similarity(input, cbQuestions[x][y]);
-
-            if (pct > 0.85) {
-                addChatEntry(input, cbAnswers[x][y]);
-            }
-        }
-    }
-
-}
-
-function addChatEntry(input, msg) {
-    var messagesContainer = document.getElementById("messages");
-
-    var userDiv = document.createElement("div");
-    userDiv.id = "user";
-    userDiv.className = "user response";
-    userDiv.innerHTML = `Yo: ${input}`;
-    messagesContainer.appendChild(userDiv);
-
-    var botDiv = document.createElement("div");
-    var botText = document.createElement("span");
-    botDiv.id = "bot";
-    botDiv.className = "bot response";
-    botText.innerText = "Escribiendo...";
-    botDiv.appendChild(botText);
-    messagesContainer.appendChild(botDiv);
-
-    setTimeout(() => {
-        botText.innerText = `Bot: ${msg}`;
-      }, 2000);
-}
 const frases = ["La información de pago esta en nuestra pagina web"]
 let index = 0; 
 
@@ -114,8 +46,60 @@ const conversation = document.querySelector('.conversation-container');
 const waitingRow = document.querySelector('.thinking'); 
 
 
-const generarRespuestas = function(){
-    createNewConvertationLine(frases[index], true); 
+const cleanMessage = function(message){
+    let palabras = message.trim().split(" "); 
+    palabras.forEach((palabra, index) => {
+        palabras[index] = palabra.toLowerCase(); 
+    }); 
+    //transformar acentos, hacer cada palabra minuscula, eliminar determinantes
+    return palabras; 
+}
+
+
+const procesarInformacion = function (message) {
+    console.log(message); 
+    let palabrasClaveMensaje = cleanMessage(message);
+
+    let posiblesPreguntas = []; 
+    let numCoincidencias;  
+    baseDeConocimiento.forEach(preguntaPosible => {
+        numCoincidencias = 0; 
+        preguntaPosible.palabrasClave.forEach( palabraClaveBC => {
+            if(palabrasClaveMensaje.includes(palabraClaveBC)) numCoincidencias++; 
+        }); 
+        if(numCoincidencias > 0){
+            if(posiblesPreguntas.length > 1){
+                if(numCoincidencias > posiblesPreguntas[0].numCoincidencias){
+                    posiblesPreguntas = []; 
+                    posiblesPreguntas.unshift({numCoincidencias: numCoincidencias, pregunta: preguntaPosible.pregunta, respuesta: preguntaPosible.repuesta})
+                }else if(numCoincidencias === posiblesPreguntas[0].numCoincidencias ){
+                    posiblesPreguntas.unshift({numCoincidencias: numCoincidencias, pregunta: preguntaPosible.pregunta, respuesta: preguntaPosible.repuesta})
+                }
+            }else{
+                posiblesPreguntas.unshift({numCoincidencias: numCoincidencias, pregunta: preguntaPosible.pregunta, respuesta: preguntaPosible.repuesta}); 
+            }
+        }
+    }); 
+    if(posiblesPreguntas.length === 1){
+        return posiblesPreguntas[0].respuesta; 
+    }else if(posiblesPreguntas.length > 1 ){
+        let message = `Me esta costando un poco entenderte, la duda concretamente es: \n 
+                        ${posiblesPreguntas.map( (pregunta, index) => {return "-" + index + ". ¿Quieres saber " + pregunta.pregunta + "\n"}).join("")}
+        `; 
+        message += "Introduce el numero de pregunta que deseas resolver: "
+        return message; 
+    }else{
+        return not_understood; 
+    }
+
+    
+} 
+
+
+
+const generarRespuestas = function(message){
+    let textMesagge = procesarInformacion(message); 
+    createNewConvertationLine(textMesagge, true); 
     waitingRow.classList.add('d-none'); 
     index++; 
 
@@ -132,16 +116,16 @@ const sendMensaje = function(element) {
     element.value = ""; 
     createNewConvertationLine(message, false); 
     waitingRow.classList.remove('d-none'); 
-    setTimeout(generarRespuestas,1000);  
+    setTimeout(generarRespuestas.bind(this, message),1000);  
 }
 
 
 const createNewConvertationLine = function(message, isRobot){
     let row = document.createElement('div'); 
-    row.classList.add('row', 'conversation-row'); 
+    row.classList.add('row', 'conversation-row', "gx-2"); 
     let imageCol = document.createElement('div'); 
     imageCol.classList.add('col-2'); 
-    imageCol.innerHTML = `<img height="40px" width="40px" class="head-icon" src="./pics/${isRobot ? "robotpic" : "userpic"}.png" alt="">`
+    imageCol.innerHTML = `<img height="35x" width="35px" class="head-icon" src="${isRobot ? "./financeLogo" : "./pics/userpic"}.png" alt="">`
 
     let chatCol = document.createElement('div'); 
     chatCol.classList.add('col-10', 'conversation-dialog'); 
@@ -150,7 +134,10 @@ const createNewConvertationLine = function(message, isRobot){
     row.insertAdjacentElement('afterbegin', chatCol); 
     row.insertAdjacentElement((isRobot) ? 'afterbegin' : 'beforeend', imageCol); 
 
-    conversation.insertAdjacentElement('beforeend', row); 
+    conversation.insertAdjacentElement('beforeend', row);  
+}
 
-    
+const procesaTecla = function (event){
+    if(event.key !== "Enter") return; 
+    sendMensaje(event.target); 
 }

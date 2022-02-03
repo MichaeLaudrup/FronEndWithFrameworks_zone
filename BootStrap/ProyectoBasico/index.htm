@@ -199,15 +199,15 @@
 
     <div class="container-fluid position-fixed fixed-bottom ">
       <div class="row justify-content-end position-relative">
-        <div class="col-10 col-md-4 p-3 justify-content-center position-relative col-card">
+        <div class="col-12 col-md-8 col-lg-5 p-3 justify-content-center position-relative col-card">
           <div class="card chat-card w-75 chat-hide" style="width: 18rem;">
             <div class="chat-header">
               <h5 class="">Bienvenido al chat</h5>
             </div>
             <div class="conversation-container container-fluid">
-              <div class="row conversation-row">
+              <div class="row conversation-row gx-2">
                 <div class="col-2">
-                  <img height="35px" width="35px" class="head-icon" src="./pics/robotpic.png" alt="">
+                  <img height="35px" width="35px" class="head-icon" src="./financeLogo.png" alt="">
                 </div>
                 <div class="col-10 conversation-dialog">
                   ¡Hola! ¿En que puedo ayudarte? 
@@ -226,8 +226,8 @@
               </div>
           </div>
             <div class="d-flex align-items-center chat-footer">
-              <input type="text" class="w-100 form-control 2">
-              <i class="las la-paper-plane fs-3 px-2" style="color:var(--color-terciario)" onclick="sendMensaje( this.parentElement.children[0])"></i>
+              <input type="text" class="w-100 form-control 2" onkeyup="procesaTecla(event)">
+              <i class="las la-paper-plane fs-3 px-2" style="color:var(--color-terciario)" onclick="sendMensaje( this.previousElementSibling)"></i>
             </div>
           </div>
           <button onclick="displayChat()" id="chat" class="btn btn-chat">
