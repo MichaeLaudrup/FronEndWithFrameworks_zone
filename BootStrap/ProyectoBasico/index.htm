@@ -200,16 +200,34 @@
     <div class="container-fluid position-fixed fixed-bottom ">
       <div class="row justify-content-end position-relative">
         <div class="col-10 col-md-4 p-3 justify-content-center position-relative col-card">
-          <div class="card chat-card" style="width: 18rem;">
-            <div class="">
+          <div class="card chat-card w-75 chat-hide" style="width: 18rem;">
+            <div class="chat-header">
               <h5 class="">Bienvenido al chat</h5>
             </div>
-            <div class="conversation-container">
-
+            <div class="conversation-container container-fluid">
+              <div class="row conversation-row">
+                <div class="col-2">
+                  <img height="35px" width="35px" class="head-icon" src="./pics/robotpic.png" alt="">
+                </div>
+                <div class="col-10 conversation-dialog">
+                  ¡Hola! ¿En que puedo ayudarte? 
+                </div>
+              </div>
+              
             </div>
-            <div class="d-flex align-items-center">
-              <i class="las la-paper-plane fs-3 p-2" style="color:var(--color-terciario)"></i>
-              <input type="text" class="w-100 form-control p-1">
+            <div class="row conversation-row thinking d-none">
+              <div class="col-2">
+                <div class="spinner-border" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+              </div>
+              <div class="col-10">
+                <p >Robotico está pensando...</p>
+              </div>
+          </div>
+            <div class="d-flex align-items-center chat-footer">
+              <input type="text" class="w-100 form-control 2">
+              <i class="las la-paper-plane fs-3 px-2" style="color:var(--color-terciario)" onclick="sendMensaje( this.parentElement.children[0])"></i>
             </div>
           </div>
           <button onclick="displayChat()" id="chat" class="btn btn-chat">
