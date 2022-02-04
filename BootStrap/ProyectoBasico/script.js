@@ -8,14 +8,12 @@ const baseDeConocimiento = [
         pregunta: "cuales son los metodos de pago?",
         repuesta: "Puedes pagar con tarjeta de crédito o mediante transferencia bancaria",
         palabrasClave: ["pagar", "pago", "metodo de pago", "forma de pago", "forma de pagar", "tarjeta", "credito", "tarjeta credito", "metodo", "forma"],
-        respuestaConPregunta: true,
     },
     ///2
     {
         pregunta: "que tipo de servicios o productos puedo ofrecerte? ",
         repuesta: "Entre nuestros productos o servicios mas destacados están asesoramiento financiero y el core inteligente Zeus que predice comportamientos en bolsa.",
         palabrasClave: ["servicios", "productos", "ofertas", "oferta", "servicio", "producto"],
-        respuestaConPregunta: true,
     },
     ///3
     {
@@ -33,8 +31,19 @@ const baseDeConocimiento = [
     { 
         pregunta: "Saludo",
         repuesta: "¡Hola! Bienvenido, ¿En que puedo ayudarte? ",
-        palabrasClave: ["hola", "buenos", "dias", "saludos", "ey", "eyy", "ey!"],
-        respuestaConPregunta: true,
+        palabrasClave: ["hola", "buenos","buenas", "dias", "saludos", "ey", "eyy", "ey!"],
+    },
+    ///6
+    { 
+        pregunta: "Despedida",
+        repuesta: "¡Adios! Disfruta de lo que queda de día",
+        palabrasClave: ["adios", "hasta luego", "hasta nunca", "nos vemos", "bye", "xao", "besos"],
+    },
+    ///7
+    { 
+        pregunta: "hablar con uno de nuestros profesionales?",
+        repuesta: "¡Hola! Bienvenido, ¿En que puedo ayudarte? ",
+        palabrasClave: ["operador", "humano","persona", "no robot", "humana", "hombre", "mujer", "profesional"],
     },
     
 ]
@@ -55,20 +64,33 @@ const cleanMessage = function(message){
     return palabras; 
 }
 
+let posiblesPreguntas; 
+let modoMenu = false; 
+
 
 const procesarInformacion = function (message) {
-    console.log(message); 
+    console.log(posiblesPreguntas)
+    if(modoMenu){
+        if(message.match(/[0-9]/) && ((+message) > 0) && ((+message) < (posiblesPreguntas.length+1))){
+            modoMenu = false; 
+            return posiblesPreguntas[+message - 1].respuesta; 
+        }else{
+            return `Por favor, introduce un número entre 1 y ${posiblesPreguntas.length}`; 
+        }     
+    }
     let palabrasClaveMensaje = cleanMessage(message);
 
-    let posiblesPreguntas = []; 
+    posiblesPreguntas = []; 
     let numCoincidencias;  
     baseDeConocimiento.forEach(preguntaPosible => {
         numCoincidencias = 0; 
         preguntaPosible.palabrasClave.forEach( palabraClaveBC => {
             if(palabrasClaveMensaje.includes(palabraClaveBC)) numCoincidencias++; 
         }); 
+
+
         if(numCoincidencias > 0){
-            if(posiblesPreguntas.length > 1){
+            if(posiblesPreguntas.length >= 1){
                 if(numCoincidencias > posiblesPreguntas[0].numCoincidencias){
                     posiblesPreguntas = []; 
                     posiblesPreguntas.unshift({numCoincidencias: numCoincidencias, pregunta: preguntaPosible.pregunta, respuesta: preguntaPosible.repuesta})
@@ -83,16 +105,15 @@ const procesarInformacion = function (message) {
     if(posiblesPreguntas.length === 1){
         return posiblesPreguntas[0].respuesta; 
     }else if(posiblesPreguntas.length > 1 ){
-        let message = `Me esta costando un poco entenderte, la duda concretamente es: \n 
-                        ${posiblesPreguntas.map( (pregunta, index) => {return "-" + index + ". ¿Quieres saber " + pregunta.pregunta + "\n"}).join("")}
+        let message = `Necesito un poco más de información, la duda concretamente es: \n 
+                        ${posiblesPreguntas.map( (pregunta, index) => {return "-" + (index+1) + ". ¿Quieres saber " + pregunta.pregunta + "\n"}).join("")}
         `; 
-        message += "Introduce el numero de pregunta que deseas resolver: "
+        message += "Introduce el numero de pregunta que deseas resolver: "; 
+        modoMenu = true; 
         return message; 
     }else{
         return not_understood; 
     }
-
-    
 } 
 
 
