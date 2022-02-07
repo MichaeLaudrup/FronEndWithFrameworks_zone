@@ -45,6 +45,24 @@ const baseDeConocimiento = [
         repuesta: "¡Hola! Bienvenido, ¿En que puedo ayudarte? ",
         palabrasClave: ["operador", "humano","persona", "no robot", "humana", "hombre", "mujer", "profesional"],
     },
+    ///8
+    { 
+        pregunta: "invertir en ibex 35?",
+        repuesta: "¡Hola! Bienvenido, ¿En que puedo ayudarte? ",
+        palabrasClave: ["invertir", "invertir en ibex","ibex35", "35", "ibex"],
+    },
+    ///9
+    { 
+        pregunta: "invertir en forex?",
+        repuesta: "El forex no es recomendable utilizarlo en un primer momento, para invertir en forex necesitas un broker o intermediario.",
+        palabrasClave: ["invertir", "invertir en forex","forex", "divisas", "invertir en divisas", "monedas", "invertir en monedas", "invertir en divisa"],
+    },
+    //10
+    { 
+        pregunta: "invertir en criptomonedas?",
+        repuesta: "¡Hola! Bienvenido, ¿En que puedo ayudarte? ",
+        palabrasClave: ["invertir", "invertir en forex","forex", "divisas", "invertir en divisas", "monedas", "invertir en monedas", "invertir en divisa"],
+    },
     
 ]
 
@@ -104,13 +122,15 @@ const procesarInformacion = function (message) {
     }); 
     if(posiblesPreguntas.length === 1){
         return posiblesPreguntas[0].respuesta; 
-    }else if(posiblesPreguntas.length > 1 ){
+    }else if(posiblesPreguntas.length > 1 && posiblesPreguntas.length < 4 ){
         let message = `Necesito un poco más de información, la duda concretamente es: \n 
                         ${posiblesPreguntas.map( (pregunta, index) => {return "-" + (index+1) + ". ¿Quieres saber " + pregunta.pregunta + "\n"}).join("")}
         `; 
         message += "Introduce el numero de pregunta que deseas resolver: "; 
         modoMenu = true; 
         return message; 
+    }else if(posiblesPreguntas.length > 4){
+        return "Tengo una idea de lo que puedes necesitar, pero ahora mismo necesito más información para estar más seguro. ¿puedes ser más explicito? "; 
     }else{
         return not_understood; 
     }
@@ -137,7 +157,7 @@ const sendMensaje = function(element) {
     element.value = ""; 
     createNewConvertationLine(message, false); 
     waitingRow.classList.remove('d-none'); 
-    setTimeout(generarRespuestas.bind(this, message),1000);  
+    setTimeout(generarRespuestas.bind(this, message),2000);  
 }
 
 
