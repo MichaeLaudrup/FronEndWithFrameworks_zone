@@ -1,0 +1,11 @@
+<nav class="navegador">
+    <span class="toggler only-phone" (click)="conmuteClose()" style="background-color: red; padding:.5rem">X</span>
+    <ul class="link_list" [ngClass]="{'mobile-visible': close}">
+        <li>
+            <a href="#">Mapa de precios</a>
+        </li>
+        <li>
+            <a href="#">Precios a futuro</a>
+        </li>
+    </ul>
+</nav>

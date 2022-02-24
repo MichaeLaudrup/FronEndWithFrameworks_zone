@@ -1,0 +1,559 @@
+section {
+    margin-bottom: 35px;
+}
+
+
+/* 
+    Document   : common
+    Created on : 28/02/2012, 11:01:35 AM
+    Author     : Simon Elvery
+*/
+
+table {
+    width: 100%;
+    color: #333333;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+}
+
+td,
+th {
+    text-align: left;
+}
+
+td.numeric,
+th.numeric {
+    text-align: right;
+}
+
+.table-bordered {
+    border: 1px solid #ddd;
+    border-collapse: separate;
+    *border-collapse: collapsed;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.table-bordered th+th,
+.table-bordered td+td,
+.table-bordered th+td,
+.table-bordered td+th {
+    border-left: 1px solid #ddd;
+}
+
+.table-bordered thead:first-child tr:first-child th,
+.table-bordered tbody:first-child tr:first-child th,
+.table-bordered tbody:first-child tr:first-child td {
+    border-top: 0;
+}
+
+.table-bordered thead:first-child tr:first-child th:first-child,
+.table-bordered tbody:first-child tr:first-child td:first-child {
+    -webkit-border-radius: 4px 0 0 0;
+    -moz-border-radius: 4px 0 0 0;
+    border-radius: 4px 0 0 0;
+}
+
+.table-bordered thead:first-child tr:first-child th:last-child,
+.table-bordered tbody:first-child tr:first-child td:last-child {
+    -webkit-border-radius: 0 4px 0 0;
+    -moz-border-radius: 0 4px 0 0;
+    border-radius: 0 4px 0 0;
+}
+
+.table-bordered thead:last-child tr:last-child th:first-child,
+.table-bordered tbody:last-child tr:last-child td:first-child {
+    -webkit-border-radius: 0 0 0 4px;
+    -moz-border-radius: 0 0 0 4px;
+    border-radius: 0 0 0 4px;
+}
+
+.table-bordered thead:last-child tr:last-child th:last-child,
+.table-bordered tbody:last-child tr:last-child td:last-child {
+    -webkit-border-radius: 0 0 4px 0;
+    -moz-border-radius: 0 0 4px 0;
+    border-radius: 0 0 4px 0;
+}
+
+.table-striped tbody tr:nth-child(odd) td,
+.table-striped tbody tr:nth-child(odd) th {
+    background-color: #f9f9f9;
+}
+
+.table-condensed th,
+.table-condensed td {
+    padding: 4px 5px;
+}
+
+
+/* 
+    Document   : unseen
+    Created on : 28/02/2012, 11:01:35 AM
+    Author     : Simon Elvery
+    Description: 
+		Demonstration of the responsive tables method described at 
+		http://www.irishstu.com/stublog/2011/12/13/tables-responsive-design-part-2-nchilds/
+		and
+		http://filamentgroup.com/lab/responsive_design_approach_for_complex_multicolumn_data_tables/
+*/
+
+.menos-de-800px,
+.menos-de-640px {
+    display: none;
+}
+
+@media only screen and (max-width: 800px) {
+    #unseen table td:nth-child(2) {
+        display: none;
+    }
+    #unseen table th:nth-child(2) {
+        display: none;
+    }
+    .menos-de-800px {
+        display: inline;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    #unseen table td:nth-child(4),
+    #unseen table th:nth-child(4),
+    #unseen table td:nth-child(7),
+    #unseen table th:nth-child(7),
+    #unseen table td:nth-child(8),
+    #unseen table th:nth-child(8) {
+        display: none;
+    }
+    .menos-de-640px {
+        display: inline;
+    }
+}
+
+
+/* 
+    Document   : flip-scroll
+    Created on : 28/02/2012, 11:01:45 AM
+    Author     : Simon Elvery
+    Description:
+        Demonstration of the responsive tables method described at by David Bushell
+		at http://dbushell.com/2012/01/05/responsive-tables-2/
+*/
+
+@media only screen and (max-width: 800px) {
+    #flip-scroll .cf:after {
+        visibility: hidden;
+        display: block;
+        font-size: 0;
+        content: " ";
+        clear: both;
+        height: 0;
+    }
+    #flip-scroll * html .cf {
+        zoom: 1;
+    }
+    #flip-scroll *:first-child+html .cf {
+        zoom: 1;
+    }
+    #flip-scroll table {
+        width: 100%;
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+    #flip-scroll th,
+    #flip-scroll td {
+        margin: 0;
+        vertical-align: top;
+    }
+    #flip-scroll th {
+        text-align: left;
+    }
+    #flip-scroll table {
+        display: block;
+        position: relative;
+        width: 100%;
+    }
+    #flip-scroll thead {
+        display: block;
+        float: left;
+    }
+    #flip-scroll tbody {
+        display: block;
+        width: auto;
+        position: relative;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    #flip-scroll thead tr {
+        display: block;
+    }
+    #flip-scroll th {
+        display: block;
+        text-align: right;
+    }
+    #flip-scroll tbody tr {
+        display: inline-block;
+        vertical-align: top;
+    }
+    #flip-scroll td {
+        display: block;
+        min-height: 1.25em;
+        text-align: left;
+    }
+    /* sort out borders */
+    #flip-scroll th {
+        border-bottom: 0;
+        border-left: 0;
+    }
+    #flip-scroll td {
+        border-left: 0;
+        border-right: 0;
+        border-bottom: 0;
+    }
+    #flip-scroll tbody tr {
+        border-left: 1px solid #babcbf;
+    }
+    #flip-scroll th:last-child,
+    #flip-scroll td:last-child {
+        border-bottom: 1px solid #babcbf;
+    }
+}
+
+
+/* 
+    Document   : no-more-tables
+    Created on : 28/02/2012, 11:01:54 AM
+    Author     : Simon Elvery
+    Description:
+        Demonstration of the responsive tables method described at by Chris Coyier
+		at http://css-tricks.com/responsive-data-tables/
+*/
+
+@media only screen and (max-width: 800px) {
+    /* Force table to not be like tables anymore */
+    #no-more-tables table,
+    #no-more-tables thead,
+    #no-more-tables tbody,
+    #no-more-tables th,
+    #no-more-tables td,
+    #no-more-tables tr {
+        display: block;
+    }
+    /* Hide table headers (but not display: none;, for accessibility) */
+    #no-more-tables thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    #no-more-tables tr {
+        border: 1px solid #ccc;
+    }
+    #no-more-tables td {
+        /* Behave  like a "row" */
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+        white-space: normal;
+        text-align: left;
+    }
+    #no-more-tables td:before {
+        /* Now like a table header */
+        position: absolute;
+        /* Top/left values mimic padding */
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: bold;
+    }
+    /*
+	Label the data
+	*/
+    #no-more-tables td:before {
+        content: attr(data-title);
+    }
+}
+
+
+/* very rough approximation of the 2 column style from CSS Tricks
+ * with DTs in place of generated content 
+ *
+ * for the very lowest case that doesn't even understand CSS, browser
+ * default definition lists will be displayed. assuming at least very
+ * basic CSS support we can dress it up a bit.
+ */
+
+#arixic {
+    font-size: 13px;
+}
+
+#arixic dt,
+#arixic dd {
+    margin: 0;
+    padding: 0;
+    width: 49%;
+    float: left;
+}
+
+
+/* this is pretty advanced CSS striaght from the CSS Tricks article
+ * but since we're in the style block aimed at our simplest devices
+ * we may wanna find a simpler way to pull off a visual cue from 
+ * one DL to the next. or maybe we don't worry about it.
+ */
+
+#arixic dl:nth-of-type(odd) dt,
+#arixic dl:nth-of-type(odd) dd {
+    background: #eee;
+}
+
+
+/* we have to clone the 1st DL element since it contains 2 rows of
+ * data for our faux table. ideally .clone should be generated via 
+ * js only as needed rather than in the actual markup. since i'm a 
+ * cheap hack we'll hide it like this instead.
+ */
+
+#arixic .clone {
+    display: none;
+}
+
+
+/* the break point */
+
+@media (min-width: 800px) {
+    /* override the defaults from above and set up some quasi-
+	 * table cell type padding and border styles.
+	 */
+    #arixic dt,
+    #arixic dd {
+        padding: .25em;
+        border-right: 1px solid #808080;
+        border-bottom: 1px solid #808080;
+        border: 1px solid #808080;
+        width: auto;
+        float: none;
+    }
+    /* another hacky solution for the sake of building a demo in some
+	 * situations we could use a semanticly meaningful element
+	 * instead of this poop
+	 */
+    #arixic .faux-table {
+        display: table;
+        position: relative;
+        border-top: 1px solid #808080;
+        border-left: 1px solid #808080;
+    }
+    /* may need a better solution here for the sake of accessiblity
+	 */
+    #arixic dt,
+    #arixic dl.clone dd {
+        display: none;
+    }
+    #arixic dl,
+    #arixic dl.clone {
+        display: table-row;
+    }
+    #arixic dl.clone dt,
+    #arixic dd {
+        display: table-cell;
+    }
+    /* styling our faux table header row
+	 */
+    #arixic dl.clone dt {
+        color: #FFFFFF;
+        background: #808080;
+        text-align: center;
+        font-weight: bold;
+    }
+}
+
+
+/* seo friendly tables */
+
+.table {
+    display: table;
+    /* Defines a Table */
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    border-bottom: 2px solid #dddddd;
+    color: #8d8d8d;
+    margin: 10px 0;
+    width: 100%;
+}
+
+.table-head {
+    display: table-header-group;
+    /* Defines a table header group */
+}
+
+.table-head .column {
+    /* Column inside the table-head */
+    background: #333333;
+    color: white;
+    border-right: 1px solid #5d5d5d;
+    border-bottom: none;
+}
+
+.table-head .column:hover {
+    /* Column hover inside the table-head */
+    background: #222222;
+}
+
+.row {
+    display: table-row;
+    /* Defines a table row */
+}
+
+.row .column:nth-child(1) {
+    /* First column in a row */
+    border-left: 1px solid #eeeeee;
+}
+
+.row:last-child .column {
+    /* column in a last row */
+    border-bottom: none;
+}
+
+.column {
+    display: table-cell;
+    /* Defines a table cell */
+    padding: 10px 20px;
+    border-bottom: 1px solid #eeeeee;
+    border-right: 1px solid #eeeeee;
+}
+
+.column:hover {
+    background: #f9f9f9;
+}
+
+
+/* Responsive table */
+
+@media all and (max-width: 800px) {
+    .table,
+    .row,
+    .column,
+    .column:before {
+        display: block;
+        /* Converts a table, table row, table column and table column:before into a block element */
+    }
+    .table,
+    .row .column:last-child {
+        border-bottom: none;
+    }
+    .table-head {
+        position: absolute;
+        /* Hides table head but not using display none */
+        top: -1000em;
+        left: -1000em;
+    }
+    .row {
+        border: 1px solid #eeeeee;
+        border-top: 2px solid #dddddd;
+        border-bottom: 2px solid #dddddd;
+        margin: 20px 0;
+    }
+    .row .column:nth-child(1) {
+        /* first column of the row */
+        border-left: none;
+    }
+    .row .column:last-child {
+        /* last column of the row */
+        border-right: none;
+    }
+    .row:last-child .column,
+    .column {
+        /* Column in the last row and column */
+        border-bottom: 1px solid #eeeeee;
+    }
+    .column:before {
+        /* prints the value of data-label attribute before the column data */
+        font-weight: bold;
+        padding-right: 20px;
+        font-size: 12px;
+        content: " "attr(data-label)" //";
+        /* call the attribute value of data-label and adds a string // */
+    }
+}
+
+
+/* Responsive Table hawidu */
+
+#hawidu table,
+#hawidu td,
+#hawidu th {
+    border: 1px solid #DDDDDD;
+}
+
+@media screen and (max-width:800px) {
+    #hawidu table,
+    #hawidu td,
+    #hawidu th {
+        border: none;
+    }
+    #hawidu table {
+        display: block;
+    }
+    #hawidu td,
+    #hawidu th {
+        border-color: #444;
+        border-style: solid;
+        border-width: 0 2px 0 0;
+        display: inline;
+        float: left;
+        padding: 0 3px;
+    }
+    #hawidu td:last-child,
+    #hawidu th:last-child {
+        border-right: 0 none;
+    }
+    #hawidu th {
+        background: transparent;
+        font-size: 1.1em;
+    }
+    #hawidu tr {
+        display: block;
+        float: left;
+        clear: left;
+        padding: 6px 0;
+        width: 100%;
+    }
+    #hawidu thead tr {
+        border-bottom: 4px solid #444;
+        margin: 0 0 .3em 0;
+        padding: 0 0 .2em 0;
+    }
+    #hawidu tbody tr:nth-child(even) {
+        background: #e6e6e6;
+        /* Grey 10% */
+    }
+    #hawidu td:nth-child(4n+1),
+    #hawidu th:nth-child(4n+1) {
+        background: #ffb6c1;
+        /* LightPink */
+    }
+    #hawidu td:nth-child(4n+2),
+    #hawidu th:nth-child(4n+2) {
+        background: #98fb98;
+        /* PaleGreen */
+    }
+    #hawidu td:nth-child(4n+3),
+    #hawidu th:nth-child(4n+3) {
+        background: #87ceeb;
+        /* SkyBlue */
+    }
+    #hawidu td:nth-child(4n+4),
+    #hawidu th:nth-child(4n+4) {
+        background: #ffa07a;
+        /* LightSalmon */
+    }
+    #hawidu td:nth-child(4n+5),
+    #hawidu th:nth-child(4n+5) {
+        background: #ee82ee;
+        /* Violet */
+    }
+}
