@@ -1,5 +1,17 @@
-section {
-    margin-bottom: 35px;
+.text-center {
+    text-align: center;
+}
+
+.green-header-cell {
+    background: linear-gradient(0deg, #c4f1ce, #b4e1bc);
+}
+
+.blue-header-cell {
+    background: linear-gradient(0deg, #c4d0f1, #b4c6e1);
+}
+
+.orange-header-cell {
+    background: linear-gradient(0deg, #ffcf63, #efbf53);
 }
 
 
@@ -9,12 +21,19 @@ section {
     Author     : Simon Elvery
 */
 
+#no-more-tables {
+    max-width: 95vw;
+    overflow-x: scroll;
+    margin: 0 auto;
+}
+
 table {
     width: 100%;
     color: #333333;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 13px;
     line-height: 18px;
+    border-spacing: 0;
 }
 
 td,
@@ -27,56 +46,6 @@ th.numeric {
     text-align: right;
 }
 
-.table-bordered {
-    border: 1px solid #ddd;
-    border-collapse: separate;
-    *border-collapse: collapsed;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
-}
-
-.table-bordered th+th,
-.table-bordered td+td,
-.table-bordered th+td,
-.table-bordered td+th {
-    border-left: 1px solid #ddd;
-}
-
-.table-bordered thead:first-child tr:first-child th,
-.table-bordered tbody:first-child tr:first-child th,
-.table-bordered tbody:first-child tr:first-child td {
-    border-top: 0;
-}
-
-.table-bordered thead:first-child tr:first-child th:first-child,
-.table-bordered tbody:first-child tr:first-child td:first-child {
-    -webkit-border-radius: 4px 0 0 0;
-    -moz-border-radius: 4px 0 0 0;
-    border-radius: 4px 0 0 0;
-}
-
-.table-bordered thead:first-child tr:first-child th:last-child,
-.table-bordered tbody:first-child tr:first-child td:last-child {
-    -webkit-border-radius: 0 4px 0 0;
-    -moz-border-radius: 0 4px 0 0;
-    border-radius: 0 4px 0 0;
-}
-
-.table-bordered thead:last-child tr:last-child th:first-child,
-.table-bordered tbody:last-child tr:last-child td:first-child {
-    -webkit-border-radius: 0 0 0 4px;
-    -moz-border-radius: 0 0 0 4px;
-    border-radius: 0 0 0 4px;
-}
-
-.table-bordered thead:last-child tr:last-child th:last-child,
-.table-bordered tbody:last-child tr:last-child td:last-child {
-    -webkit-border-radius: 0 0 4px 0;
-    -moz-border-radius: 0 0 4px 0;
-    border-radius: 0 0 4px 0;
-}
-
 .table-striped tbody tr:nth-child(odd) td,
 .table-striped tbody tr:nth-child(odd) th {
     background-color: #f9f9f9;
@@ -85,6 +54,7 @@ th.numeric {
 .table-condensed th,
 .table-condensed td {
     padding: 4px 5px;
+    white-space: nowrap;
 }
 
 
@@ -127,95 +97,6 @@ th.numeric {
     }
     .menos-de-640px {
         display: inline;
-    }
-}
-
-
-/* 
-    Document   : flip-scroll
-    Created on : 28/02/2012, 11:01:45 AM
-    Author     : Simon Elvery
-    Description:
-        Demonstration of the responsive tables method described at by David Bushell
-		at http://dbushell.com/2012/01/05/responsive-tables-2/
-*/
-
-@media only screen and (max-width: 800px) {
-    #flip-scroll .cf:after {
-        visibility: hidden;
-        display: block;
-        font-size: 0;
-        content: " ";
-        clear: both;
-        height: 0;
-    }
-    #flip-scroll * html .cf {
-        zoom: 1;
-    }
-    #flip-scroll *:first-child+html .cf {
-        zoom: 1;
-    }
-    #flip-scroll table {
-        width: 100%;
-        border-collapse: collapse;
-        border-spacing: 0;
-    }
-    #flip-scroll th,
-    #flip-scroll td {
-        margin: 0;
-        vertical-align: top;
-    }
-    #flip-scroll th {
-        text-align: left;
-    }
-    #flip-scroll table {
-        display: block;
-        position: relative;
-        width: 100%;
-    }
-    #flip-scroll thead {
-        display: block;
-        float: left;
-    }
-    #flip-scroll tbody {
-        display: block;
-        width: auto;
-        position: relative;
-        overflow-x: auto;
-        white-space: nowrap;
-    }
-    #flip-scroll thead tr {
-        display: block;
-    }
-    #flip-scroll th {
-        display: block;
-        text-align: right;
-    }
-    #flip-scroll tbody tr {
-        display: inline-block;
-        vertical-align: top;
-    }
-    #flip-scroll td {
-        display: block;
-        min-height: 1.25em;
-        text-align: left;
-    }
-    /* sort out borders */
-    #flip-scroll th {
-        border-bottom: 0;
-        border-left: 0;
-    }
-    #flip-scroll td {
-        border-left: 0;
-        border-right: 0;
-        border-bottom: 0;
-    }
-    #flip-scroll tbody tr {
-        border-left: 1px solid #babcbf;
-    }
-    #flip-scroll th:last-child,
-    #flip-scroll td:last-child {
-        border-bottom: 1px solid #babcbf;
     }
 }
 
@@ -319,56 +200,6 @@ th.numeric {
 
 #arixic .clone {
     display: none;
-}
-
-
-/* the break point */
-
-@media (min-width: 800px) {
-    /* override the defaults from above and set up some quasi-
-	 * table cell type padding and border styles.
-	 */
-    #arixic dt,
-    #arixic dd {
-        padding: .25em;
-        border-right: 1px solid #808080;
-        border-bottom: 1px solid #808080;
-        border: 1px solid #808080;
-        width: auto;
-        float: none;
-    }
-    /* another hacky solution for the sake of building a demo in some
-	 * situations we could use a semanticly meaningful element
-	 * instead of this poop
-	 */
-    #arixic .faux-table {
-        display: table;
-        position: relative;
-        border-top: 1px solid #808080;
-        border-left: 1px solid #808080;
-    }
-    /* may need a better solution here for the sake of accessiblity
-	 */
-    #arixic dt,
-    #arixic dl.clone dd {
-        display: none;
-    }
-    #arixic dl,
-    #arixic dl.clone {
-        display: table-row;
-    }
-    #arixic dl.clone dt,
-    #arixic dd {
-        display: table-cell;
-    }
-    /* styling our faux table header row
-	 */
-    #arixic dl.clone dt {
-        color: #FFFFFF;
-        background: #808080;
-        text-align: center;
-        font-weight: bold;
-    }
 }
 
 
@@ -477,83 +308,5 @@ th.numeric {
         font-size: 12px;
         content: " "attr(data-label)" //";
         /* call the attribute value of data-label and adds a string // */
-    }
-}
-
-
-/* Responsive Table hawidu */
-
-#hawidu table,
-#hawidu td,
-#hawidu th {
-    border: 1px solid #DDDDDD;
-}
-
-@media screen and (max-width:800px) {
-    #hawidu table,
-    #hawidu td,
-    #hawidu th {
-        border: none;
-    }
-    #hawidu table {
-        display: block;
-    }
-    #hawidu td,
-    #hawidu th {
-        border-color: #444;
-        border-style: solid;
-        border-width: 0 2px 0 0;
-        display: inline;
-        float: left;
-        padding: 0 3px;
-    }
-    #hawidu td:last-child,
-    #hawidu th:last-child {
-        border-right: 0 none;
-    }
-    #hawidu th {
-        background: transparent;
-        font-size: 1.1em;
-    }
-    #hawidu tr {
-        display: block;
-        float: left;
-        clear: left;
-        padding: 6px 0;
-        width: 100%;
-    }
-    #hawidu thead tr {
-        border-bottom: 4px solid #444;
-        margin: 0 0 .3em 0;
-        padding: 0 0 .2em 0;
-    }
-    #hawidu tbody tr:nth-child(even) {
-        background: #e6e6e6;
-        /* Grey 10% */
-    }
-    #hawidu td:nth-child(4n+1),
-    #hawidu th:nth-child(4n+1) {
-        background: #ffb6c1;
-        /* LightPink */
-    }
-    #hawidu td:nth-child(4n+2),
-    #hawidu th:nth-child(4n+2) {
-        background: #98fb98;
-        /* PaleGreen */
-    }
-    #hawidu td:nth-child(4n+3),
-    #hawidu th:nth-child(4n+3) {
-        background: #87ceeb;
-        /* SkyBlue */
-    }
-    #hawidu td:nth-child(4n+4),
-    #hawidu th:nth-child(4n+4) {
-        background: #ffa07a;
-        /* LightSalmon */
-    }
-    #hawidu td:nth-child(4n+5),
-    #hawidu th:nth-child(4n+5) {
-        background: #ee82ee;
-        /* Violet */
     }
 }

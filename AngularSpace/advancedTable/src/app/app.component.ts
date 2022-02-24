@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'advancedTable';
+  toLeft:boolean = false; 
+
+  moveApplicationLayout(){
+    this.toLeft = !this.toLeft;
+  }
 }
