@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-xs-12">
-        <a *ngFor="let recipe of recipes; let i = index" href="#" class="list-group-item clearfix" (click)="itemSelected($event)" [attr.data-index]="i">
+        <a *ngFor="let recipe of recipes; let i = index" class="list-group-item clearfix" routerLink={{i}} routerLinkActive="active">
             <app-recipe-item [name]="recipe.name" [description]="recipe.description" [imagePath]="recipe.imagePath"></app-recipe-item>
         </a>
     </div>
