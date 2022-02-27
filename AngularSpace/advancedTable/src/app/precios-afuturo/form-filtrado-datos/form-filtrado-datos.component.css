@@ -1,0 +1,102 @@
+/* ESTILOS GENERICOS DEL LAYOUT DEL FORM */
+
+.btn-black {
+    background-color: black;
+    color: white;
+    padding: .25rem .5rem;
+    border: none;
+}
+
+.form-container {
+    background-color: var(--color-principal);
+    font-family: "Open Sans", sans-serif;
+    padding: 2rem 0rem;
+}
+
+
+/* Una fila generica del formulario recibe estos estilos */
+
+.form-row {
+    margin: 0 auto;
+    display: flex;
+    max-width: 1350px;
+    padding: .75rem 1rem;
+}
+
+
+/* Estilos aplicables unicamente a la primera fila */
+
+.form-row:nth-child(1) {
+    justify-content: flex-end;
+    padding-bottom: 0;
+}
+
+.form-row:nth-child(1) .btn-black {
+    margin-right: 25px;
+}
+
+
+/* Estilos aplicables unicamente a la segunda fila */
+
+.form-row:nth-child(2) {
+    justify-content: center;
+    padding-bottom: 0;
+}
+
+form .special-input-box {
+    flex-basis: 100%;
+}
+
+form .special-input-box legend,
+form .date-input label {
+    font-size: 1rem;
+    color: white;
+}
+
+
+/* Se estiliza un tipo especial de input que esta compuesto por codigo y descripcion */
+
+form .special-input-box input,
+.date-input input {
+    padding: .25rem;
+}
+
+form .special-input-box .code-input {
+    width: 15%;
+    margin-right: 5px;
+}
+
+form .special-input-box .txt-input {
+    width: calc(85% - 30px);
+    margin-right: 25px;
+}
+
+
+/* Estilos aplicables unicamente a la tercera fila */
+
+form .date-input label {
+    margin-bottom: 8px;
+    display: block;
+}
+
+form .date-input input {
+    width: 70%;
+    height: 36px;
+}
+
+.form-row:nth-child(3) .fieldset-inner-row {
+    display: flex;
+    gap: 10px;
+    margin-right: 25px;
+}
+
+.form-row:nth-child(3) .fieldset-inner-row input {
+    flex-basis: 100%;
+}
+
+@media screen and (max-width:520px) {
+    .form-row,
+    .fieldset-inner-row {
+        flex-direction: column;
+    }
+}

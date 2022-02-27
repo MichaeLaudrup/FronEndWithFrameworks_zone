@@ -74,6 +74,8 @@
         width: 390px;
         flex-direction: column;
         justify-content: flex-start;
+        align-items: center;
+        align-content: center;
         transition: all 1s ease-in-out;
     }
     .only-phone {
@@ -123,5 +125,8 @@
     .toggler-div.menu-open .toggler::after {
         transform: rotate(-30deg);
         transform-origin: 50%;
+    }
+    .toggler-div.menu-open~.link_list .brand1 {
+        display: inline-block !important;
     }
 }
