@@ -1,3 +1,7 @@
+.table-container {
+    padding: 2.3rem var(--lateral-app-padding) 7rem;
+}
+
 .text-center {
     text-align: center;
 }
@@ -14,6 +18,10 @@
     background: linear-gradient(0deg, #ffcf63, #efbf53);
 }
 
+.hidden {
+    display: none;
+}
+
 
 /* 
     Document   : common
@@ -22,13 +30,12 @@
 */
 
 #no-more-tables {
-    max-width: 95vw;
+    max-width: 100%;
     overflow-x: scroll;
     margin: 0 auto;
 }
 
 table {
-    width: 100%;
     color: black;
     font-family: "Open Sans", sans-serif;
     font-size: 15px;
@@ -130,16 +137,28 @@ th.numeric {
         position: absolute;
         top: -9999px;
         left: -9999px;
+        max-height: 90vw;
     }
     #no-more-tables tr {
+        position: relative;
         border: 1px solid #ccc;
+        margin-top: 10px;
+    }
+    #no-more-tables tr::before {
+        content: 'Registro ' attr(aria-rowindex);
+        display: block;
+        color: white;
+        background-color: black;
+        padding: .5rem;
+        padding-right: 1rem;
+        text-align: right;
     }
     #no-more-tables td {
         /* Behave  like a "row" */
         border: none;
         border-bottom: 1px solid #eee;
         position: relative;
-        padding-left: 50%;
+        padding: 35px 0px 10px 10px;
         white-space: normal;
         text-align: left;
     }
@@ -148,7 +167,7 @@ th.numeric {
         position: absolute;
         /* Top/left values mimic padding */
         top: 6px;
-        left: 6px;
+        left: 10px;
         width: 45%;
         padding-right: 10px;
         white-space: nowrap;

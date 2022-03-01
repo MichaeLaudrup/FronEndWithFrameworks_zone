@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-form-filtrado-datos',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./form-filtrado-datos.component.css']
 })
 export class FormFiltradoDatosComponent implements OnInit {
-
+  @ViewChild('myForm', {static:true}) miFormulario: NgForm; 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  submitForm(form:NgForm){
+  }
+
+  resetForm(){
+    this.miFormulario.reset(); 
   }
 
 }

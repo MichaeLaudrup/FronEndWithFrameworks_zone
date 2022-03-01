@@ -1,9 +1,10 @@
+.bg-green {
+    background-color: var(--color-principal);
+    padding: 0rem 3rem;
+}
+
 h2 {
     text-align: center;
-    text-transform: uppercase;
     color: white;
-    font-weight: 400;
     background-color: var(--color-principal);
-    margin: 0;
-    padding: 2rem 0rem;
 }

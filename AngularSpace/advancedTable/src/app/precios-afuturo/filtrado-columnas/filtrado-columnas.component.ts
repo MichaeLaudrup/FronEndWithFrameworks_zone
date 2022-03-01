@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { preciosService } from '../precios.service';
 
 @Component({
   selector: 'app-filtrado-columnas',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FiltradoColumnasComponent implements OnInit {
 
-  constructor() { }
+  constructor(private servicioPrecio: preciosService) { }
 
   ngOnInit(): void {
+  }
+
+  conmutaVisibilidadColumna(numeroGrupo:number){
+    this.servicioPrecio.ocultarGrupo(numeroGrupo); 
   }
 
 }
