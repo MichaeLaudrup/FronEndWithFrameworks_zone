@@ -18,6 +18,10 @@ export class TablaComponent implements OnInit {
          celda.classList.toggle(`hidden`)
        })
     }); 
+
+    this.servicioTabla.eventoOcultaCampoFecha.subscribe( () => {
+      this.tabla.nativeElement.querySelector(`#fecha`).style.display = 'none'; 
+    }); 
   }
 
 }

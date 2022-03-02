@@ -18,3 +18,7 @@
     padding: .3rem .75rem;
     margin-top: 5px;
 }
+
+.columna-seleccionada {
+    background-color: red !important;
+}

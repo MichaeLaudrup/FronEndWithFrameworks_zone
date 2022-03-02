@@ -13,8 +13,13 @@ export class FiltradoColumnasComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  conmutaVisibilidadColumna(numeroGrupo:number){
+  conmutaVisibilidadColumna(numeroGrupo:number, columna: HTMLElement){
     this.servicioPrecio.ocultarGrupo(numeroGrupo); 
+    columna.classList.toggle('columna-seleccionada'); 
+    columna.querySelector('i').classList.toggle('la-check'); 
+    columna.querySelector('i').classList.toggle('la-times'); 
   }
+
+
 
 }
