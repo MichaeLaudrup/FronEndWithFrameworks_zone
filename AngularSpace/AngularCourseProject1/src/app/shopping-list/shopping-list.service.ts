@@ -1,16 +1,16 @@
 import { Ingredient } from "../shared/ingredient.model";
 import { Subject } from "rxjs";
 export class ShoppingListService{
-    eventNewIngredientAdded = new Subject<Ingredient[]>(); 
+    listIngredientsChanged = new Subject<Ingredient[]>(); 
     private ingredients:Ingredient[] = [
         new Ingredient('Apples', 5),
         new Ingredient('Tomatoes', 10),
         new Ingredient('Orange', 3)];
+    startedEditing = new Subject<number>(); 
         
     addNewIngredient(newIngredient:Ingredient){
-        console.log(newIngredient)
         this.ingredients.push(newIngredient); 
-        this.eventNewIngredientAdded.next(this.ingredients.slice()); 
+        this.listIngredientsChanged.next(this.ingredients.slice()); 
     }
     getIngredients(){
         return this.ingredients.slice(); 
@@ -18,6 +18,20 @@ export class ShoppingListService{
 
     addNewIngredients(newIngredients:Ingredient[]){
         this.ingredients = this.ingredients.concat(newIngredients); 
-        this.eventNewIngredientAdded.next(this.ingredients.slice()); 
+        this.listIngredientsChanged.next(this.ingredients.slice()); 
+    }
+
+    getIngredient( index:number){
+        return this.ingredients[index]; 
+    }
+
+    updateIngredient( index:number, ingredient: Ingredient){
+        this.ingredients[index] = ingredient;
+        this.listIngredientsChanged.next(this.ingredients.slice());  
+    }
+    deleteIngredient(id:number){
+        this.ingredients.splice(id,1); 
+        this.listIngredientsChanged.next(this.ingredients.slice()); 
+
     }
 }

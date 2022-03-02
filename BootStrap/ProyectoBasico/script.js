@@ -1,5 +1,40 @@
 
 
+
+console.log(document.getElementById('link-1')); 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const not_understood = "No te he entendido, ¿Podrías reformular la pregunta? "; 
 
 const baseDeConocimiento = [
