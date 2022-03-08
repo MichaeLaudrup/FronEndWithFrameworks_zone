@@ -10,7 +10,6 @@ import { FiltradoColumnasComponent } from './precios-afuturo/filtrado-columnas/f
 import { FormFiltradoDatosComponent } from './precios-afuturo/form-filtrado-datos/form-filtrado-datos.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
-
 @NgModule({
   declarations: [
     AppComponent,
