@@ -10,7 +10,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SeccionBienvenidaComponent } from './gestionNuevoUsuario/seccion-bienvenida/seccion-bienvenida.component';
 import { HeaderComponent } from './generalDesign/header/header.component';
 import { FooterComponent } from './generalDesign/footer/footer.component';
-import { RouterOutlet } from '@angular/router';
 
 @NgModule({
   declarations: [

@@ -1,10 +1,17 @@
 
 
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 const ESTILO_COMUN = './hoja-formulario.component.scss'; 
 
-abstract class hojaFormularioAbstracta {
-  //COSAS COMUNES DE TODOS LOS COMPONENTES
+class hojaFormularioAbstracta {
+  constructor( private navegador:Router){
+
+  } 
+  
+  navigateTo(){
+    //this.navegador.navigate('')
+  }
 }
 
 @Component({
@@ -13,7 +20,9 @@ abstract class hojaFormularioAbstracta {
   styleUrls: [ESTILO_COMUN]
 })
 export class HojaSeleccionObjetivo extends hojaFormularioAbstracta {
-
+  constructor( navegador:Router){
+    super(navegador)
+  } 
 }
 
 @Component({
@@ -22,5 +31,7 @@ export class HojaSeleccionObjetivo extends hojaFormularioAbstracta {
   styleUrls: [ESTILO_COMUN]
 })
 export class HojaMBC_IMC extends hojaFormularioAbstracta  {
-
+  constructor( navegador:Router){
+    super(navegador)
+  } 
 }

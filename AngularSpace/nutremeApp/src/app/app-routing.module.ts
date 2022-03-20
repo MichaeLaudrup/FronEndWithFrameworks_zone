@@ -5,8 +5,8 @@ import { SeccionBienvenidaComponent } from './gestionNuevoUsuario/seccion-bienve
 
 const routes: Routes = [ 
   {path:'bienvenida', component: SeccionBienvenidaComponent, children:[
-    {path: 'objetivo', component: HojaSeleccionObjetivo},
-    {path:'MBA_IMC', component: HojaMBC_IMC}
+    {path: 'objetivo', component: HojaSeleccionObjetivo, data:{animation:'fromLeft'}},
+    {path:'MBA_IMC', component: HojaMBC_IMC, data:{animation:'fromLeft'}}
   ]
 }];
 

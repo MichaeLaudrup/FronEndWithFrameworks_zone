@@ -28,11 +28,16 @@ legend {
     border-radius: 5px;
     &__generic-row {
         position: relative;
+        width: 100%;
         &.with-selector {
             display: flex;
             justify-content: flex-start;
             align-items: center;
-            gap: 3rem;
+            gap: 2.5rem;
+        }
+        &.centered {
+            display: flex;
+            justify-content: center;
         }
     }
     &__generic-col {
@@ -45,7 +50,7 @@ legend {
         color: white;
         border-bottom: 2px solid var(--color-principal);
         &.small-input {
-            width: 100px;
+            width: 80px;
         }
         &:focus,
         &:active {
@@ -68,7 +73,7 @@ legend {
         transition: all .5s ease-in-out;
     }
     &__units-selector-input {
-        width: 120%;
+        width: 200px;
         font-family: inherit;
         option {
             color: black;
@@ -81,6 +86,7 @@ legend {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    width: 200px;
     gap: 1rem;
     border-radius: 5px;
     border: none;
@@ -114,4 +120,14 @@ legend {
         font-weight: 900;
         transition: 0.3s;
     }
+}
+
+.btn {
+    padding: .5rem 3rem;
+    border-radius: 5px;
+    background-color: transparent;
+    border: solid 1px var(--color-principal);
+    color: white;
+    font-family: inherit;
+    font-size: inherit;
 }
