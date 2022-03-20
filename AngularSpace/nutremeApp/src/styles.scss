@@ -1,0 +1,31 @@
+:root {
+    --color-principal: #69db7c;
+    --color-principal-claro: #b2f2bb;
+    --color-principal-oscuro: #2f9e44;
+    --border-radius: 5px;
+    --color-principal-transparente: rgba(150, 150, 150, 0.432);
+    --color-principal-oscuro-transparente: rgba(139, 139, 139, 0.322);
+    --default-ff: 'Merienda', cursive;
+    --color-fuente-claro: #b8ebc1;
+}
+
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    font-size: 16px;
+    font-family: 'merienda', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    app-root {
+        height: 100%;
+    }
+}

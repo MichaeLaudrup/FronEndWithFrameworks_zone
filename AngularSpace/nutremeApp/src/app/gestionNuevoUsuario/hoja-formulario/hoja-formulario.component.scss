@@ -1,0 +1,117 @@
+/* ESTILIZACION GENERAL */
+
+input,
+label,
+select,
+option,
+legend {
+    font-size: 1.2rem;
+}
+
+.contenedor-componente {
+    background: transparent;
+    height: calc(100vh - 50px);
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3rem;
+    background-image: linear-gradient( to bottom right, rgb(24, 24, 24), rgb(34, 34, 34));
+    padding: 3rem;
+    border-radius: 5px;
+    &__generic-row {
+        position: relative;
+        &.with-selector {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 3rem;
+        }
+    }
+    &__generic-col {
+        position: relative;
+    }
+    &__generic-input,
+    &__units-selector-input {
+        background-color: transparent;
+        border: none;
+        color: white;
+        border-bottom: 2px solid var(--color-principal);
+        &.small-input {
+            width: 100px;
+        }
+        &:focus,
+        &:active {
+            outline: none;
+        }
+    }
+    &__generic-input {
+        padding: .25rem;
+    }
+    &__generic-input:hover+&__label,
+    &__generic-input:focus+&_label {
+        transform: scale(.9) translateY(-160%);
+    }
+    &__label {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        color: white;
+        transition: all .5s ease-in-out;
+    }
+    &__units-selector-input {
+        width: 120%;
+        font-family: inherit;
+        option {
+            color: black;
+            background-color: transparent;
+        }
+    }
+}
+
+.radio_container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1rem;
+    border-radius: 5px;
+    border: none;
+    .radio-title {
+        position: absolute;
+        left: 0;
+        top: 0;
+        color: white;
+        transform: translateY(-100%);
+    }
+    label {
+        font-family: inherit;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: inherit;
+        width: 100px;
+        height: 40px;
+        transition: ease-in-out 0.7s;
+        color: white;
+    }
+    input[type="radio"] {
+        appearance: none;
+        display: none;
+    }
+    input[type="radio"]:checked+label {
+        *background-color: var(--color-principal);
+        border-bottom: 2px solid var(--color-principal);
+        ;
+        color: var(--color-principal);
+        font-weight: 900;
+        transition: 0.3s;
+    }
+}

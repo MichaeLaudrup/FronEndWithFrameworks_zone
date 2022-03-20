@@ -1,0 +1,18 @@
+header {
+    background: linear-gradient(to right, var(--color-principal), var(--color-principal-oscuro));
+    position: sticky;
+    height: 50px;
+}
+
+main {
+    height: calc(100vh - 50px);
+    background-color: white;
+}
+
+footer {
+    position: relative;
+    top: 100%;
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(to right, var(--color-principal), var(--color-principal-oscuro));
+}
