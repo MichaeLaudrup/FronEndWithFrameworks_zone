@@ -5,7 +5,7 @@ import { RecipeService } from './recipes/recipes.service';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers:[RecipeService]
+  providers:[]
 })
 export class AppComponent {
   title = 'AngularCourseProject1';
