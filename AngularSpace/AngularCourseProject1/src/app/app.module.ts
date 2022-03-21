@@ -15,13 +15,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { NoRecipeSelectedComponent } from './recipes/no-recipe-selected/no-recipe-selected.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-<<<<<<< HEAD
 
-
-=======
 import { RecipeService } from './recipes/recipes.service';
 import { AuthComponent } from './auth/auth.component';
->>>>>>> fde159edc365094e3c37ae48f72d64c60474929d
+import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 
 
 @NgModule({
@@ -37,6 +34,8 @@ import { AuthComponent } from './auth/auth.component';
     DropdownDirective,
     NoRecipeSelectedComponent,
     RecipeEditComponent,
+    AuthComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,
