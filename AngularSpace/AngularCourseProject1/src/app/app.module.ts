@@ -15,7 +15,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { NoRecipeSelectedComponent } from './recipes/no-recipe-selected/no-recipe-selected.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RecipeService } from './recipes/recipes.service';
 import { AuthComponent } from './auth/auth.component';
+
 
 @NgModule({
   declarations: [
