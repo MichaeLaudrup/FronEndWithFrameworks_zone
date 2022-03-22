@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from './auth/auth.service';
 import { RecipeService } from './recipes/recipes.service';
 
 @Component({
@@ -7,6 +8,10 @@ import { RecipeService } from './recipes/recipes.service';
   styleUrls: ['./app.component.css'],
   providers:[]
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'AngularCourseProject1';
+  constructor(private authService: AuthService) {}
+  ngOnInit(){
+    this.authService.autologin(); 
+  }
 }

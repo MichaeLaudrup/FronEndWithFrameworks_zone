@@ -4,10 +4,10 @@ export class User {
     }
 
     get token() {
-        if(this._tokenExpirationDate || new Date() > this._tokenExpirationDate){
+        if(!this._tokenExpirationDate || (new Date() > this._tokenExpirationDate)){
             return null; 
         }else{
-            return this._tokenExpirationDate; 
+            return this._token; 
         }   
     }
 }

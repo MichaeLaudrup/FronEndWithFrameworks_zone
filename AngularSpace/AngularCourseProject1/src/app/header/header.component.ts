@@ -1,4 +1,5 @@
 import { Component, OnInit, EventEmitter, Output, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { AuthService } from '../auth/auth.service';
 import { RecipeService } from '../recipes/recipes.service';
@@ -11,11 +12,12 @@ import { DataStorageService } from '../shared/data-storage.service';
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   @Output() featureSelected = new EventEmitter<string>(); 
-  constructor(private dataStorageService: DataStorageService, private authService: AuthService, private recipesService: RecipeService) { }
+  constructor(private dataStorageService: DataStorageService, private authService: AuthService, private recipesService: RecipeService, private router: Router) { }
   private subscriptions: Subscription[] = [];
   isAuthenticated = false;  
   ngOnInit(): void {
     this.subscriptions.push(this.authService.user.subscribe( (userData) => {
+      console.log(userData)
       this.isAuthenticated = !!userData; 
     })); 
   }
@@ -38,6 +40,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
       console.log(recipes); 
       this.recipesService.addRecipes(recipes); 
     }); 
+  }
+
+  logout(){
+    this.authService.logout(); 
+
   }
 
 }

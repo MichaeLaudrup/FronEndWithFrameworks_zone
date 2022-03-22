@@ -4,7 +4,6 @@ import { Injectable } from "@angular/core";
 import { exhaustMap, map, take } from "rxjs/operators";
 import { AuthService } from "../auth/auth.service";
 import { Recipe } from "../recipes/recipe.model";
-import { RecipesComponent } from "../recipes/recipes.component";
 import { RecipeService } from "../recipes/recipes.service";
 
 @Injectable({providedIn:'root'}) export class DataStorageService {
@@ -22,14 +21,9 @@ import { RecipeService } from "../recipes/recipes.service";
     }
 
     fetchRecipes(){
-        return this.servicioAuth.user.pipe( take(1), exhaustMap((user) => {
-            console.log('usuerio' ,user);
-            return this.httpClient.get<Recipe[]>(
-                
-                'https://ng-course-recipe-book-b365d-default-rtdb.europe-west1.firebasedatabase.app/recipes.json',
-                { params: new HttpParams().set('auth', user.token+"")}
-            );
-        }), map( recipes => {
+        return this.httpClient.get<Recipe[]>('https://ng-course-recipe-book-b365d-default-rtdb.europe-west1.firebasedatabase.app/recipes.json').
+            pipe(
+            map( recipes => {
                 return recipes.map(recipe => {return { ...recipe, ingredients: recipe.ingredients ? recipe.ingredients : []}})
         })); 
     }
