@@ -6,7 +6,7 @@ import { Recipe } from "./recipe.model";
 export class RecipeService {
     recipeSelected = new EventEmitter<Recipe>(); 
     updateRecipeListView = new Subject<Recipe[]>(); 
-    recipes: Recipe[] = [
+    recipes: Recipe[] /* = [
         new Recipe(
             "Pecado Carnal Mediterraneo",
              "Probar un vocado de este alimento puede ser un pecado, su salsa de champiñones, verduras sofreidas a fuego lento hacen que sea una tentación", 
@@ -20,7 +20,7 @@ export class RecipeService {
             "Pasta recien horneada."
             , "https://www.cocinacaserayfacil.net/wp-content/uploads/2020/03/Recetas-faciles-de-cocinar-y-sobrevivir-en-casa-al-coronavirus_2.jpg",
             [ new Ingredient('masa de pizza', 1),new Ingredient('salsa de tomate', 2), new Ingredient('Queso', 2)]  )
-      ];
+      ]; */
     
     getRecipes(){
         return this.recipes.slice(); //Devuelve array por copia y no por referencia de objeto
@@ -47,6 +47,10 @@ export class RecipeService {
     deleteRecipe(index:number){
         this.recipes.splice(index, 1); 
         this.updateRecipeListView.next(this.recipes.slice()); 
+    }
+    addRecipes( recipes: Recipe[]){
+        this.recipes = recipes; 
+        this.updateRecipeListView.next(this.recipes.slice());
     }
 
 }

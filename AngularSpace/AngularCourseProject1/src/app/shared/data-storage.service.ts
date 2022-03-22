@@ -1,24 +1,37 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+
+import { exhaustMap, map, take } from "rxjs/operators";
+import { AuthService } from "../auth/auth.service";
 import { Recipe } from "../recipes/recipe.model";
+import { RecipesComponent } from "../recipes/recipes.component";
 import { RecipeService } from "../recipes/recipes.service";
 
 @Injectable({providedIn:'root'}) export class DataStorageService {
-    constructor(private httpClient: HttpClient, private servicioRecetas: RecipeService){
+    constructor(private httpClient: HttpClient, private servicioRecetas: RecipeService, private servicioAuth: AuthService){
 
     }
 
     storeRecipes(){
+        
         const recipes = this.servicioRecetas.getRecipes(); 
+
         this.httpClient.put('https://ng-course-recipe-book-b365d-default-rtdb.europe-west1.firebasedatabase.app/recipes.json', recipes).subscribe( (response)=> {
             console.log(response); 
         } ); 
     }
 
     fetchRecipes(){
-        this.httpClient.get<Recipe[]>('https://ng-course-recipe-book-b365d-default-rtdb.europe-west1.firebasedatabase.app/recipes.json').subscribe( (response) => {
-            this.servicioRecetas.updateRecipeListView.next(response);  
-        })
+        return this.servicioAuth.user.pipe( take(1), exhaustMap((user) => {
+            console.log('usuerio' ,user);
+            return this.httpClient.get<Recipe[]>(
+                
+                'https://ng-course-recipe-book-b365d-default-rtdb.europe-west1.firebasedatabase.app/recipes.json',
+                { params: new HttpParams().set('auth', user.token+"")}
+            );
+        }), map( recipes => {
+                return recipes.map(recipe => {return { ...recipe, ingredients: recipe.ingredients ? recipe.ingredients : []}})
+        })); 
     }
 
 }
