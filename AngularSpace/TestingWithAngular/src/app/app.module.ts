@@ -7,7 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ComponentFromTest } from './componentFromTest/ComponentFromTest.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ComponentFromTest
   ],
   imports: [
     BrowserModule,
