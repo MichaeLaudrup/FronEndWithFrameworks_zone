@@ -1,57 +1,39 @@
 <div class="contenedor-componente">
     <form class="form">
-
-        <div class="form__generic-row with-selector">
-            <div class="form__generic-col">
-                <input class="form__generic-input small-input" id="altura" type="number">
-                <label class="form__label" for="altura">Altura</label>
-            </div>
-            <div class="form__generic-col">
-                <select class="form__units-selector-input" name="unidad_altura" id="unidad_altura" aria-label="Unidades de altura, eliga entre centrimetros, metros o pies">
-                    <option value="cm">Centímetros</option>
-                    <option value="m">Metros</option>
-                    <option value="ft">Pies</option>
-                </select>
-            </div>
-
-        </div>
-        <div class="form__generic-row with-selector">
-            <div class="form__generic-col">
-                <input class="form__generic-input small-input" id="peso" type="number">
-                <label class="form__label" for="peso">Peso</label>
-            </div>
-
-            <div class="form__generic-col">
-                <select class="form__units-selector-input" name="unidad_peso" id="unidad_peso" aria-label="Unidades de peso, eliga entre kilogramos o libras">
-                    <option value="kg">Kilogramos</option>
-                    <option value="lb">Libras</option>
-                </select>
-            </div>
+        <div class="form__row">
+            <input type="number" id="altura">
+            <label for="altura">Altura (cm)</label>
         </div>
 
-        <div class="form__generic-row with-selector">
-            <div class="form__generic-col">
-                <input class="form__generic-input small-input" id="edad" type="number">
-                <label class="form__label " for="edad">Edad</label>
-            </div>
-
-            <div class="form__generic-col">
-                <div class="radio_container">
-                    <span class="radio-title">Genero</span>
-                    <input type="radio" name="radio" id="one" checked>
-                    <label for="one">Hombre</label>
-                    <input type="radio" name="radio" id="two">
-                    <label for="two">Mujer</label>
-                </div>
-            </div>
-        </div>
-        <div class="form__generic-row centered">
-
-        </div>
-        <div class="form__generic-row centered">
-            <button class="submit-btn btn" type="button" (click)="navigateTo()" routerLink="../MBA_IMC">Listo</button>
+        <div class="form__row">
+            <input type="number" id="peso">
+            <label for="peso">Peso (Kg)</label>
         </div>
 
+        <div class="form__row">
+            <input type="number" id="edad">
+            <label for="edad">Edad</label>
+        </div>
 
+        <div class="form__row">
+            <label class="selector-label" for="gemero">Genero</label>
+            <select name="genero" id="genero">
+                <option value="Hombre" name="genero">Hombre</option>
+                <option value="Hombre" name="genero">Mujer</option>
+            </select>
+        </div>
+
+        <div class="form__row">
+            <label for="actividad" class="selector-label">Actividad</label>
+            <select id="actividad" size="1" name="actividad"> 
+                <option selected="true" value="1.2">Sedentario</option> 
+                <option value="1.375">Actividad ligera</option> 
+                <option value="1.55">Actividad moderada</option> 
+                <option value="1.725">Actividad intensa</option> 
+                <option value="1.9">Actividad muy intensa</option> 
+              </select>
+        </div>
+
+        <button class="btn" type="button" routerLink="../MBA_IMC">Hecho</button>
     </form>
 </div>

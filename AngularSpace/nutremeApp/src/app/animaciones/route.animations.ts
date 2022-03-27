@@ -4,31 +4,102 @@ import {
     style,
     query,
     group,
-    animateChild,
     animate,
-    keyframes
 } from '@angular/animations'; 
-import { AbsoluteSourceSpan } from '@angular/compiler';
 
 
 export const fader = trigger('routeAnimations', [
-    transition('* <=> *', [
-        query(':enter , :leave', [
+    transition('void => pagina_objetivo', [
+        style({ position:'relative'}),
+        query(':enter, :leave', [
             style({
                 position: 'absolute',
-                left: 0, 
+                left: '0%', 
                 width: '100%',
-                opacity:0,
-                transform: 'translateX(-100%)'
+                opacity: 0,
+                transform: 'translateX(100%) scale(.3)'
             })
         ]),
-        query(':enter', [ animate('1200ms ease-in-out',
+        query(':enter', [
+            animate('1000ms ease', 
             style({
-               opacity:1,
-               transform: 'translateX(0)' 
-            })
-        )])
+                opacity:1,
+                transform: 'translateX(0%) scale(1)'
+            }) )
+        ])
     ]),
-
-
+    transition('pagina_objetivo => pagina_MBA_IMC', [
+        query(':enter', [
+            style({
+                position: 'absolute',
+                left: '0%', 
+                width: '100%',
+                opacity: 0,
+                transform: 'translateX(100%) scale(.3)'
+            })
+        ]),
+        query(':leave', [
+            style({
+                position: 'absolute',
+                left: '0%', 
+                width: '100%',
+                opacity: 1,
+                transform: 'translateX(0%) scale(1)'
+            })
+        ]),
+        group([
+            query(':enter', [
+                animate('1000ms ease', 
+                style({
+                    opacity:1,
+                    transform: 'translateX(0%) scale(1)'
+                }) )
+            ]),
+            query(':leave', [
+                animate('1000ms ease', 
+                style({
+                    opacity:1,
+                    transform: 'translateX(-100%) scale(.3)'
+                }) )
+            ])
+        ])
+        
+    ]),
+    transition('pagina_MBA_IMC => pagina_objetivo', [
+        query(':enter', [
+            style({
+                position: 'absolute',
+                left: '0%', 
+                width: '100%',
+                opacity: 0,
+                transform: 'translateX(-100%) scale(.3)'
+            })
+        ]),
+        query(':leave', [
+            style({
+                position: 'absolute',
+                left: '0%', 
+                width: '100%',
+                opacity: 1,
+                transform: 'translateX(0%) scale(1)'
+            })
+        ]),
+        group([
+            query(':enter', [
+                animate('1000ms ease', 
+                style({
+                    opacity:1,
+                    transform: 'translateX(0%) scale(1)'
+                }) )
+            ]),
+            query(':leave', [
+                animate('1000ms ease', 
+                style({
+                    opacity:0,
+                    transform: 'translateX(100%) scale(.3)'
+                }) )
+            ])
+        ])
+        
+    ])
 ]); 

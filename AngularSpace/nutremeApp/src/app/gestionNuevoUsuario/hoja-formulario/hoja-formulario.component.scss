@@ -1,133 +1,71 @@
 /* ESTILIZACION GENERAL */
 
-input,
-label,
-select,
-option,
-legend {
-    font-size: 1.2rem;
-}
-
 .contenedor-componente {
-    background: transparent;
     height: calc(100vh - 50px);
-    width: 100vw;
     display: flex;
-    align-items: center;
+    width: 100%;
     justify-content: center;
+    align-items: center;
 }
 
-.form {
-    width: 30%;
+form {
+    width: 25%;
+    padding: 3rem 2rem;
+    background-color: black;
+    color: white;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 3rem;
-    background-image: linear-gradient( to bottom right, rgb(24, 24, 24), rgb(34, 34, 34));
-    padding: 3rem;
-    border-radius: 5px;
-    &__generic-row {
-        position: relative;
+    gap: 2.5rem;
+    font-size: 1.1rem;
+    .form__row {
         width: 100%;
-        &.with-selector {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            gap: 2.5rem;
-        }
-        &.centered {
-            display: flex;
-            justify-content: center;
-        }
-    }
-    &__generic-col {
         position: relative;
-    }
-    &__generic-input,
-    &__units-selector-input {
-        background-color: transparent;
-        border: none;
-        color: white;
-        border-bottom: 2px solid var(--color-principal);
-        &.small-input {
-            width: 80px;
-        }
-        &:focus,
-        &:active {
-            outline: none;
-        }
-    }
-    &__generic-input {
-        padding: .25rem;
-    }
-    &__generic-input:hover+&__label,
-    &__generic-input:focus+&_label {
-        transform: scale(.9) translateY(-160%);
-    }
-    &__label {
-        position: absolute;
-        left: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        color: white;
-        transition: all .5s ease-in-out;
-    }
-    &__units-selector-input {
-        width: 200px;
-        font-family: inherit;
-        option {
-            color: black;
+        input {
+            width: 100%;
+            padding: .25rem .25rem;
+            font-size: inherit;
+            color: white;
+            font-family: inherit;
             background-color: transparent;
+            border: none;
+            border-bottom: 3px solid var(--color-principal);
+            &:focus {
+                outline: none;
+            }
+            &:focus+label,
+            &:hover+label {
+                transform: translateY(-100%) scale(.9);
+            }
         }
-    }
-}
-
-.radio_container {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 200px;
-    gap: 1rem;
-    border-radius: 5px;
-    border: none;
-    .radio-title {
-        position: absolute;
-        left: 0;
-        top: 0;
-        color: white;
-        transform: translateY(-100%);
-    }
-    label {
-        font-family: inherit;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: inherit;
-        width: 100px;
-        height: 40px;
-        transition: ease-in-out 0.7s;
-        color: white;
-    }
-    input[type="radio"] {
-        appearance: none;
-        display: none;
-    }
-    input[type="radio"]:checked+label {
-        *background-color: var(--color-principal);
-        border-bottom: 2px solid var(--color-principal);
-        ;
-        color: var(--color-principal);
-        font-weight: 900;
-        transition: 0.3s;
+        label:not(.selector-label) {
+            transition: all .4s ease-in-out;
+            position: absolute;
+            left: 0%;
+            top: 0%;
+        }
+        select {
+            width: 100%;
+            color: white;
+            background-color: transparent;
+            border: none;
+            border-bottom: 3px solid var(--color-principal);
+            margin-top: .5rem;
+            display: block;
+            padding: .25rem .5rem;
+            font-family: inherit;
+            font-size: inherit;
+            option {
+                color: black;
+            }
+        }
     }
 }
 
 .btn {
-    padding: .5rem 3rem;
-    border-radius: 5px;
+    padding: .5rem 2rem;
     background-color: transparent;
-    border: solid 1px var(--color-principal);
+    border: 3px solid var(--color-principal);
     color: white;
-    font-family: inherit;
     font-size: inherit;
+    font-family: inherit;
 }

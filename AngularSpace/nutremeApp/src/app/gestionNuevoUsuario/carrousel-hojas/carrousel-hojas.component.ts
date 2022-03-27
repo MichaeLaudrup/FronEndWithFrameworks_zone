@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {  RouterOutlet } from '@angular/router';
+import {  ChildrenOutletContexts, RouterOutlet } from '@angular/router';
 import { fader } from 'src/app/animaciones/route.animations';
 @Component({
   selector: 'app-carrousel-hojas',
@@ -11,14 +11,14 @@ import { fader } from 'src/app/animaciones/route.animations';
 })
 export class CarrouselHojasComponent implements OnInit {
 
-  constructor() { }
+  constructor(private contexts:ChildrenOutletContexts) { }
 
   ngOnInit(): void {
   }
 
 
-  prepareRoute(outlet:RouterOutlet){
-    return outlet && outlet.activatedRouteData; 
+  prepareRoute(){
+    return this.contexts.getContext('primary')?.route?.snapshot?.data?.['animation']; 
   }
 
 }

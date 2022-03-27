@@ -10,7 +10,7 @@ class hojaFormularioAbstracta {
   } 
   
   navigateTo(){
-    //this.navegador.navigate('')
+    this.navegador.navigate(['MBA_IMC'])
   }
 }
 

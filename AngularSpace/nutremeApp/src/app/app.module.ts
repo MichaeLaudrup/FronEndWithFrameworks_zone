@@ -7,7 +7,7 @@ import { CarrouselHojasComponent } from './gestionNuevoUsuario/carrousel-hojas/c
 import { HojaMBC_IMC, HojaSeleccionObjetivo } from './gestionNuevoUsuario/hoja-formulario/hoja-formulario.component';
 import { PanelDatosUsuarioComponent } from './gestionNuevoUsuario/panel-datos-usuario/panel-datos-usuario.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SeccionBienvenidaComponent } from './gestionNuevoUsuario/seccion-bienvenida/seccion-bienvenida.component';
+import { SeccionBienvenidaComponent } from './seccion-bienvenida/seccion-bienvenida.component';
 import { HeaderComponent } from './generalDesign/header/header.component';
 import { FooterComponent } from './generalDesign/footer/footer.component';
 
