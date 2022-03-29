@@ -1,11 +1,11 @@
 
 
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 const ESTILO_COMUN = './hoja-formulario.component.scss'; 
 
 class hojaFormularioAbstracta {
-  constructor( private navegador:Router){
+  constructor( public navegador:Router, public rutaActiva: ActivatedRoute){
 
   } 
   
@@ -20,9 +20,13 @@ class hojaFormularioAbstracta {
   styleUrls: [ESTILO_COMUN]
 })
 export class HojaSeleccionObjetivo extends hojaFormularioAbstracta {
-  constructor( navegador:Router){
-    super(navegador)
+  constructor( navegador:Router , rutaActiva: ActivatedRoute){
+    super(navegador, rutaActiva)
   } 
+
+  seleccionarObjetivo( objetivo:string){
+    this.navegador.navigate(['../MBA_IMC'], {relativeTo: this.rutaActiva})
+  }
 }
 
 @Component({
@@ -31,7 +35,7 @@ export class HojaSeleccionObjetivo extends hojaFormularioAbstracta {
   styleUrls: [ESTILO_COMUN]
 })
 export class HojaMBC_IMC extends hojaFormularioAbstracta  {
-  constructor( navegador:Router){
-    super(navegador)
-  } 
+  constructor( navegador:Router, rutaActiva: ActivatedRoute){
+      super(navegador, rutaActiva)
+    }
 }

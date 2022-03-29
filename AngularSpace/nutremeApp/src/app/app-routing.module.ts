@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HojaMBC_IMC, HojaSeleccionObjetivo } from './gestionNuevoUsuario/hoja-formulario/hoja-formulario.component';
+import { HojaMBC_IMC, HojaSeleccionObjetivo } from './FormularioNutricional/hoja-formulario/hoja-formulario.component';
 import { SeccionBienvenidaComponent } from './seccion-bienvenida/seccion-bienvenida.component';
 
 const routes: Routes = [ 

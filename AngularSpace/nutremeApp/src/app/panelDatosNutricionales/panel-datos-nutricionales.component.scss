@@ -1,0 +1,179 @@
+.panel {
+    background: linear-gradient(-30deg, black, rgb(48, 48, 48));
+    display: block;
+    width: 100%;
+    max-height: calc(100vh - 50px);
+    display: grid;
+    grid-template-columns: repeat( 8, 1fr);
+    grid-template-rows: repeat( 4, 1fr);
+    row-gap: 3rem;
+    color: white;
+    padding: 2rem;
+    column-gap: 1.2rem;
+}
+
+.caja {
+    position: relative;
+    border-radius: 5px;
+    border: 3px solid var(--color-principal);
+    padding: 1rem;
+    transition: all 1s ease-in-out;
+    text-align: center;
+    &::before {
+        content: attr(data-title);
+        color: black;
+        position: absolute;
+        left: 6%;
+        top: 0;
+        transform: translateY(-60%) skew(-12deg);
+        font-size: 1rem;
+        background-color: var(--color-principal-claro);
+        padding: .2rem .5rem;
+    }
+    &.caja-1 {
+        grid-column: 1/4;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: .5rem;
+        justify-content: center;
+        img {
+            filter: invert(1);
+            width: 75px;
+            height: auto;
+        }
+    }
+    &.caja-2 {
+        grid-column: 1/5;
+        grid-row: 2/3;
+        i {
+            font-size: 4rem;
+            color: blue;
+        }
+    }
+    &.caja-3 {
+        font-size: 1.5rem;
+        grid-column: 4/9;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        [class*="fila"] {
+            gap: 1rem;
+            padding: .5rem;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        .img-1,
+        .img-2 {
+            position: relative;
+            width: 20%;
+        }
+        .img-1::before {
+            content: "hello";
+            color: white;
+            display: block;
+            position: absolute;
+            z-index: 4;
+        }
+        .img-1 {
+            filter: invert(1);
+        }
+        .unidad {
+            font-weight: bold;
+            color: var(--color-principal)
+        }
+    }
+    &.caja-4 {
+        grid-column: 1/9;
+        .container {
+            // the chart
+            $color-red: #f22;
+            $color-blue: #56a;
+            $color-green: #2a5;
+            $color-label: #FFF;
+            $color-background: #222;
+            .chart {
+                position: relative;
+                padding: 1em;
+                background: $color-background;
+                border-radius: 5px;
+                font-size: 16px;
+                * {
+                    box-sizing: border-box;
+                }
+                // the line
+                &:after {
+                    content: '';
+                    position: absolute;
+                    left: 25%;
+                    top: 7.5%;
+                    transform: translateX(100%);
+                    width: 4px;
+                    background: #FFF;
+                    height: 86%;
+                    border-radius: 2px;
+                }
+                .part {
+                    display: flex;
+                    height: 3em;
+                    >.label {
+                        flex: 1;
+                        flex-basis: 25%;
+                        text-align: right;
+                        padding-right: 1em;
+                        margin: 0.5em 0;
+                        height: 2em;
+                        line-height: 2em;
+                        color: $color-label;
+                        font-weight: 600;
+                    }
+                    .bar {
+                        flex: 3;
+                        flex-basis: 75%;
+                        position: relative;
+                        margin: 0.5em 0;
+                        &:after {
+                            content: '';
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            height: 100%;
+                            border-radius: 0 2px 2px 0;
+                            animation: grow 0.5s;
+                        }
+                        // the colors!
+                        &.red:after {
+                            background: $color-red;
+                        }
+                        &.blue:after {
+                            background: $color-blue;
+                        }
+                        &.green:after {
+                            background: $color-green;
+                        }
+                        .label {
+                            position: absolute;
+                            top: 50%;
+                            left: 0.5em;
+                            transform: translateX(0%) translateY(-50%);
+                            z-index: 1;
+                            color: #FFF;
+                            font-weight: 600;
+                        }
+                    }
+                    @for $i from 1 through 100 {
+                        &.percent-#{$i} .bar:after {
+                            width: $i * 1%;
+                        }
+                    }
+                }
+            }
+            @keyframes grow {
+                from {
+                    width: 0;
+                }
+            }
+        }
+    }
+}

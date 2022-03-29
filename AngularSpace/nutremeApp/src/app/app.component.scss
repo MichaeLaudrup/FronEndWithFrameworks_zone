@@ -1,10 +1,17 @@
+.contenedor-app {
+    position: relative
+}
+
 header {
-    background: linear-gradient(to right, var(--color-principal), var(--color-principal-oscuro));
-    position: sticky;
-    height: 50px;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    right: 0;
+    top: 0;
 }
 
 main {
+    margin-top: 50px;
     height: calc(100vh - 50px);
     background-color: white;
 }
