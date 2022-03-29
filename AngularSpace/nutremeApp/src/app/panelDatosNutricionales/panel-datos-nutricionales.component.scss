@@ -1,11 +1,31 @@
+.contenedor-componente {
+    position: relative;
+}
+
+.barra-interactiva {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 100%;
+    min-width: 50px;
+    background-color: #222;
+    font-size: 2rem;
+    text-align: center;
+    i {
+        padding: .5rem;
+        color: var(--color-principal);
+        cursor: pointer;
+    }
+}
+
 .panel {
     background: linear-gradient(-30deg, black, rgb(48, 48, 48));
     display: block;
     width: 100%;
-    max-height: calc(100vh - 50px);
+    height: calc(100vh - 50px);
     display: grid;
     grid-template-columns: repeat( 8, 1fr);
-    grid-template-rows: repeat( 8, 1fr);
+    grid-template-rows: repeat( 4, 25%);
     row-gap: 3rem;
     color: white;
     padding: 2rem;
@@ -189,6 +209,6 @@
         transform: translate(-100%);
     }
     .panel.panel-opened {
-        transform: translate(-10%);
+        transform: translate(0%);
     }
 }
