@@ -9,6 +9,7 @@ import { HeaderComponent } from './generalDesign/header/header.component';
 import { FooterComponent } from './generalDesign/footer/footer.component';
 import { FormularioNutricionalModule } from './FormularioNutricional/formularioNutricional.module';
 import { PanelDatosNutricionalesComponent } from './panelDatosNutricionales/panel-datos-nutricionales.component';
+import { SpeedmeterComponent } from './panelDatosNutricionales/speedmeter/speedmeter.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { PanelDatosNutricionalesComponent } from './panelDatosNutricionales/pane
     SeccionBienvenidaComponent,
     HeaderComponent,
     FooterComponent,
-    PanelDatosNutricionalesComponent
+    PanelDatosNutricionalesComponent,
+    SpeedmeterComponent
   ],
   imports: [
     BrowserModule,

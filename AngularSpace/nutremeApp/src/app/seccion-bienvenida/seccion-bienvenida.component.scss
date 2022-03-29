@@ -9,13 +9,41 @@
 .panel {
     position: absolute;
     z-index: 2;
-    width: 35%;
+    width: 30%;
     overflow-y: auto;
 }
 
 .form-carrousel {
     position: absolute;
-    width: 65%;
+    width: 70%;
     right: 0;
     z-index: 1;
+}
+
+@media screen and (min-width: 200px) {
+    .panel {
+        width: 100%;
+    }
+    .form-carrousel {
+        width: 93%;
+    }
+}
+
+@media screen and (min-width: 850px) {
+    .panel {
+        width: 45%;
+    }
+    .form-carrousel {
+        width: 55%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .panel {
+        max-width: 650px;
+        width: 40%;
+    }
+    .form-carrousel {
+        width: 60%;
+    }
 }

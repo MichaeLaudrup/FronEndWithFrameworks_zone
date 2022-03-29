@@ -9,7 +9,8 @@
 }
 
 .form {
-    width: 40%;
+    width: 45%;
+    max-width: 450px;
     padding: 3rem 2rem;
     background: linear-gradient(-30deg, black, rgb(27, 27, 27));
     color: white;
@@ -71,5 +72,23 @@
     &:hover {
         background-color: var(--color-principal);
         color: black;
+    }
+}
+
+@media screen and (min-width: 200px) {
+    .form {
+        width: 80%;
+    }
+}
+
+@media screen and (min-width: 850px) {
+    .form {
+        width: 70%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .form {
+        width: 60%;
     }
 }
