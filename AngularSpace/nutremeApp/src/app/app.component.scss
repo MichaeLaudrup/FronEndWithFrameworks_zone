@@ -23,3 +23,14 @@ footer {
     height: 50px;
     background: linear-gradient(to right, var(--color-principal), var(--color-principal-oscuro));
 }
+
+@keyframes fromLeft_light {
+    0% {
+        transform: translateX(-10%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
