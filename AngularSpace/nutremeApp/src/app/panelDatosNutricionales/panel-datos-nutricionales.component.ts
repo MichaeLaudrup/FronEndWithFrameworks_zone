@@ -14,4 +14,9 @@ export class PanelDatosNutricionalesComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  openPanel( panel:HTMLElement, contenedor: HTMLElement): void {
+    panel.classList.toggle('panel-opened'); 
+    contenedor.classList.toggle('component-opened')
+  }
+
 }

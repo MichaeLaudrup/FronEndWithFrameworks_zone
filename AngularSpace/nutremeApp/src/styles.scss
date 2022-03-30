@@ -6,7 +6,7 @@
     --color-principal-transparente: rgba(150, 150, 150, 0.432);
     --color-principal-oscuro-transparente: rgba(139, 139, 139, 0.322);
     --default-ff: 'Merienda', cursive;
-    --color-fuente-claro: #b8ebc1;
+    --color-fuente-claro: #daf7e0;
 }
 
 *,
@@ -27,6 +27,17 @@ body {
     min-height: 100vh;
     app-root {
         height: 100%;
+    }
+}
+
+@keyframes fromLeft_light {
+    0% {
+        transform: translateX(12%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
     }
 }
 

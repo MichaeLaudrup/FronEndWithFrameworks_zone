@@ -1,8 +1,8 @@
-<div class="contenedor-componente">
-    <div class="panel">
+<div class="contenedor-componente" #contenedor>
+    <div class="panel" #panel>
         <div class="caja-1 caja" data-title="Objetivo" data-delay="5">
             <img src="/assets/targetPng.png" alt="">
-            <span class="value">Subir de peso</span>
+            <span class="value">Aumentar músculo</span>
         </div>
 
         <div class="caja caja-2" data-title="Cantidad Agua diaria">
@@ -27,32 +27,11 @@
                 </div>
             </div>
         </div>
-        <div class="caja caja-5" data-title="Distribución de Macronutrientes">
-            <div class="container">
-                <div class="chart">
-                    <div class="part percent-65">
-                        <div class="label">Hidratos</div>
-                        <div class="bar red">
-                            <div class="label">75%</div>
-                        </div>
-                    </div>
-                    <div class="part percent-25">
-                        <div class="label">Proteinas</div>
-                        <div class="bar blue">
-                            <div class="label">25%</div>
-                        </div>
-                    </div>
-                    <div class="part percent-38">
-                        <div class="label">Grasas</div>
-                        <div class="bar green">
-                            <div class="label">38%</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="caja caja-5" data-title="Macronutrientes">
         </div>
     </div>
     <div class="barra-interactiva" style="color:White">
-        <i class="las la-bars"></i>
+        <i class="las la-bars" (click)="openPanel(panel, contenedor)"></i>
     </div>
+
 </div>

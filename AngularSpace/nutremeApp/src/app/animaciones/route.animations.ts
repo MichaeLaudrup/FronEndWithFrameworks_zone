@@ -14,8 +14,8 @@ export const fader = trigger('routeAnimations', [
         query(':enter, :leave', [
             style({
                 position: 'absolute',
-                left: '0%', 
-                width: '100%',
+                left: '0%',
+                width:'100%',
                 opacity: 0,
                 transform: 'translateX(100%) scale(.3)'
             })
@@ -29,6 +29,7 @@ export const fader = trigger('routeAnimations', [
         ])
     ]),
     transition('pagina_objetivo => pagina_MBA_IMC', [
+        style({ position:'relative'}),
         query(':enter', [
             style({
                 position: 'absolute',
