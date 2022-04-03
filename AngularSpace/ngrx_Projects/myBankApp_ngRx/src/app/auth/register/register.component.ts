@@ -1,7 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { Subscription } from 'rxjs';
+import { AppState } from 'src/app/app.reducer';
 import { AuthService } from 'src/app/services/auth.service';
+import { estaCargando, pararCargar } from 'src/app/shared/ui.actions';
 import Swal from 'sweetalert2'
 
 @Component({
@@ -9,9 +13,11 @@ import Swal from 'sweetalert2'
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent implements OnInit, OnDestroy{
   registroForm!: FormGroup;
-  constructor(private authService: AuthService, private router: Router) { }
+  uiSubcription!: Subscription;
+  cargando : boolean; 
+  constructor(private authService: AuthService, private router: Router, private store: Store<AppState>) { }
 
   ngOnInit(): void {
     this.registroForm = new FormGroup({
@@ -19,21 +25,25 @@ export class RegisterComponent implements OnInit {
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', Validators.required)
     })
+
+    this.uiSubcription = this.store.select('ui').subscribe( ui => {
+      this.cargando = ui.isLoading; 
+    })
+  }
+
+  ngOnDestroy(): void {
+    this.uiSubcription.unsubscribe(); 
   }
 
   crearUsuario(){
-    if(this.registroForm.invalid) return; 
-    Swal.fire({
-      title: 'Iniciando sesion!',
-      didOpen: () => {
-        Swal.showLoading()
-      }
-    })
+    if(this.registroForm.invalid) return;
+    this.store.dispatch(estaCargando()); 
     const {nombre, email, password} = this.registroForm.value; 
     this.authService.crearUsuario(nombre, email, password).then( data => {
-      Swal.close(); 
+      this.store.dispatch(pararCargar()) 
       this.router.navigate(['/'])
     }).catch( error => {
+      this.store.dispatch(pararCargar()) 
       Swal.fire({
         title: 'Error!',
         text: error.message,

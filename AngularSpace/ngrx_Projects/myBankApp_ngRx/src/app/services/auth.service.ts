@@ -4,13 +4,15 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { map } from 'rxjs/operators';
 import { Usuario } from '../models/usuario.model';
 import 'firebase/firestore'; 
+import { Store } from '@ngrx/store';
+import { AppState } from '../app.reducer';
+import { desActivarUsuario, establecerUsuario } from '../auth/auth.actions';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-
-  constructor( private anFireAuth: AngularFireAuth, public angularFireDB: AngularFirestore) { 
+  constructor( private anFireAuth: AngularFireAuth, public angularFireDB: AngularFirestore, private store: Store<AppState>) { 
     this.initAuthListener(); 
   }
 
@@ -32,7 +34,15 @@ export class AuthService {
   }
 
   initAuthListener(){
-    this.anFireAuth.authState.subscribe( (user) => {
+    this.anFireAuth.authState.subscribe( (fbUser) => {
+      if(fbUser){
+        let suscription = this.angularFireDB.doc(`${fbUser.uid}/usuario`).valueChanges().subscribe( (fireStoreUser:any) => {
+          this.store.dispatch(establecerUsuario({user: <Usuario>Usuario.newFromFB(fireStoreUser)})); 
+          suscription.unsubscribe(); 
+        })
+      }else{
+        this.store.dispatch(desActivarUsuario())
+      }
     })
   }
 
