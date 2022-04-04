@@ -7,18 +7,20 @@ import 'firebase/firestore';
 import { Store } from '@ngrx/store';
 import { AppState } from '../app.reducer';
 import { desActivarUsuario, establecerUsuario } from '../auth/auth.actions';
+import { quitarTransacciones } from '../ingresosGastos/flujo.actions';
+import { Subscription } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-
+  private _user:Usuario; 
+  private userSuscription: Subscription; 
   constructor( private anFireAuth: AngularFireAuth, public angularFireDB: AngularFirestore, private store: Store<AppState>) { 
     this.initAuthListener(); 
   }
 
 
   crearUsuario(nombre: string, email: string, password:string ){
-
     return this.anFireAuth.createUserWithEmailAndPassword(email,password).then(({user}) => {
       let usuario = new Usuario(user!.uid, nombre, email);
       return this.angularFireDB.doc(`${user!.uid}/usuario`).set({...usuario});
@@ -36,12 +38,17 @@ export class AuthService {
   initAuthListener(){
     this.anFireAuth.authState.subscribe( (fbUser) => {
       if(fbUser){
-        let suscription = this.angularFireDB.doc(`${fbUser.uid}/usuario`).valueChanges().subscribe( (fireStoreUser:any) => {
-          this.store.dispatch(establecerUsuario({user: <Usuario>Usuario.newFromFB(fireStoreUser)})); 
-          suscription.unsubscribe(); 
+        this.userSuscription = this.angularFireDB.doc(`${fbUser.uid}/usuario`).valueChanges().subscribe( (fireStoreUser:any) => {
+          const user= <Usuario>Usuario.newFromFB(fireStoreUser)
+          this.store.dispatch(establecerUsuario({user})); 
+          this._user = user; 
+          
         })
       }else{
+        this.userSuscription.unsubscribe(); 
+        this._user = null; 
         this.store.dispatch(desActivarUsuario())
+        this.store.dispatch(quitarTransacciones())
       }
     })
   }
@@ -51,5 +58,9 @@ export class AuthService {
       map( fuser => {
         return fuser != null; 
       }))
+  }
+
+  get user(){
+    return { ...this._user}
   }
 }
