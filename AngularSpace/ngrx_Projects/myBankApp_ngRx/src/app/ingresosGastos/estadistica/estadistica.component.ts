@@ -30,7 +30,7 @@ export class EstadisticaComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.store.select('flujo').subscribe(({transacciones}) => {
+    this.suscripcion = this.store.select('flujo').subscribe(({transacciones}) => {
       if(transacciones.length === 0){
         this.sumaGastos = 0; 
         this.sumaIngresos = 0; 
@@ -52,13 +52,5 @@ export class EstadisticaComponent implements OnInit, OnDestroy {
 
 
 
-  // events
-  public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {
-    console.log(event, active);
-  }
-
-  public chartHovered({ event, active }: { event: MouseEvent, active: {}[] }): void {
-    console.log(event, active);
-  }
 
 }

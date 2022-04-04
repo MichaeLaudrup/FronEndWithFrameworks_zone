@@ -45,7 +45,7 @@ export class AuthService {
           
         })
       }else{
-        this.userSuscription.unsubscribe(); 
+        this.userSuscription?.unsubscribe(); 
         this._user = null; 
         this.store.dispatch(desActivarUsuario())
         this.store.dispatch(quitarTransacciones())
