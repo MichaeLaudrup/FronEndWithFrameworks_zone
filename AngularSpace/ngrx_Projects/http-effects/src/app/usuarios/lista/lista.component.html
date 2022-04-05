@@ -1,0 +1,15 @@
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    <div *ngFor="let usuario of listaUsuarios" class="col">
+        <div class="card">
+            <img [src]="usuario.imgUrl" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{ usuario.nombre}} {{ usuario.apellido}}</h5>
+                <ul class="card-text">
+                    <li>Id: {{ usuario.id}}</li>
+                    <li>Email: {{ usuario.email}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
