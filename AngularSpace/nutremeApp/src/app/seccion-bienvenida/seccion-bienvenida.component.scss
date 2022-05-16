@@ -8,44 +8,21 @@
 
 .panel {
     position: absolute;
-    width: 30%;
+    width: 100%;
     z-index: 2;
 }
 
 .form-carrousel {
+    width: 90%;
+    left: 50%;
+    right: 50%;
+    transform: translateX(-50%);
     position: absolute;
-    width: 70%;
-    right: 0;
     z-index: 1;
 }
 
-@media screen and (min-width: 200px) {
-    .panel {
-        width: auto;
-        transform: translateX(calc(-100%));
-    }
-    .form-carrousel {
-        width: calc(100% - 50px);
-    }
-}
+@media screen and (min-width: 200px) {}
 
-@media screen and (min-width: 850px) {
-    .panel {
-        width: 45%;
-        transform: translateX(0%);
-    }
-    .form-carrousel {
-        width: 55%;
-    }
-}
+@media screen and (min-width: 850px) {}
 
-@media screen and (min-width: 1200px) {
-    .panel {
-        max-width: 650px;
-        transform: translateX(0%);
-        width: 45%;
-    }
-    .form-carrousel {
-        width: 55%;
-    }
-}
+@media screen and (min-width: 1200px) {}
