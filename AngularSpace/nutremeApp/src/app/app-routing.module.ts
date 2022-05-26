@@ -1,14 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HojaMBC_IMC, HojaSeleccionObjetivo } from './FormularioNutricional/hoja-formulario/hoja-formulario.component';
-import { SeccionBienvenidaComponent } from './seccion-bienvenida/seccion-bienvenida.component';
 
 const routes: Routes = [ 
-  {path:'bienvenida', component: SeccionBienvenidaComponent, children:[
-    {path: 'objetivo', component: HojaSeleccionObjetivo, data:{animation:'pagina_objetivo'}},
-    {path:'MBA_IMC', component: HojaMBC_IMC, data:{animation:'pagina_MBA_IMC'}}
-  ]
-}];
+  /* En este caso se implementa lazy-load, cuando la ruta sea nutri-form se cargara el modulo de formulario nutricional, con sus rutas...etc. */
+ {path:'nutri-form', loadChildren: () => import('./FormularioNutricional/formularioNutricional.module').then( m =>  m.FormularioNutricionalModule)},
+ /*Cualquier ruta que no este contemplada en los anteriores objetos de tipo ruta redireccionara a "nutri-form"*/
+/*  {path: '**', redirectTo: '', pathMatch: 'full'}  */
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

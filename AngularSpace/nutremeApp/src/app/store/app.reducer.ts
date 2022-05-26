@@ -1,0 +1,1 @@
+/* Este documento contendra todos los reducers de la aplicacion */

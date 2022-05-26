@@ -1,3 +1,9 @@
 .slider-hojas {
+    height: calc(100vh - 50px); //El contenedor que tiene el slider de hojas de formulario tiene una altura del 100% de la pantalla - 50px del footer
+    padding-top: calc(50px + 2rem); //Se insertan 50px porque el header flota y ocupa 50px
+    padding-bottom: 2rem;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
