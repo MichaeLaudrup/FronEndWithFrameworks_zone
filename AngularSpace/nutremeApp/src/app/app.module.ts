@@ -3,17 +3,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HeaderComponent } from './generalDesign/header/header.component';
-import { FooterComponent } from './generalDesign/footer/footer.component';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
+import { appReducers } from './store/app.reducer';
+import { PruebaComponent } from './prueba/prueba.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    FooterComponent,
+    PruebaComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,7 +23,7 @@ import { environment } from '../environments/environment';
       pero como "no se sabe" que "modulos se cargaran primero, cuales si, o cuales no" entonces se deja vacio
       y se delega la responsabilidad a ngrx junto con lazy-load
     */
-    StoreModule.forRoot({}),
+    StoreModule.forRoot(appReducers),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
   providers: [],

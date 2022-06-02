@@ -8,6 +8,7 @@
     --default-ff: 'Merienda', cursive;
     --color-fuente-claro: #daf7e0;
     --global-border-radius: 7.5px;
+    --margin-btm-high: 2rem;
 }
 
 *,
@@ -21,7 +22,7 @@
 html,
 body {
     font-size: 16px;
-    font-family: 'merienda', sans-serif;
+    font-family: sans-serif;
 }
 
 body {
