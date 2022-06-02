@@ -5,8 +5,8 @@ import { NutriHomeComponent } from './nutri-home.component';
 const routes: Routes = [
   {
     path: '', component: NutriHomeComponent,
-    children: [ {path:'bienvenida', loadChildren: () => import('./modules/FormularioNutricional/formularioNutricional.module').then( m => m.FormularioNutricionalModule)},
-                {path:'**', redirectTo: 'bienvenida'}]
+    children: [ {path:'nutri-form', loadChildren: () => import('./modules/FormularioNutricional/formularioNutricional.module').then( m => m.FormularioNutricionalModule)},
+                {path:'**', redirectTo: 'nutri-form'}]
   }
 ];
 

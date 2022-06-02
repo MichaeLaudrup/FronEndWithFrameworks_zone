@@ -2,17 +2,17 @@
 
  import { ActionReducerMap, createReducer } from "@ngrx/store";
 
-export interface User {
-        variableDeRaizDeaplicacion: string
+export interface GlobalState {
+        nombreAplicacion: string
 }
 
 
 export interface AppState {
-    prueba: User
+    prueba: GlobalState
 }
 
 export const initialState = {
-    variableDeRaizDeaplicacion: 'lo que sea'
+    nombreAplicacion: 'Nutreme app'
 }; 
 
 

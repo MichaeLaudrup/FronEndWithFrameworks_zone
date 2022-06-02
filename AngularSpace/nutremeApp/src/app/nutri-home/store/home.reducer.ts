@@ -1,25 +1,25 @@
 import { createReducer, on } from '@ngrx/store';
+import { FisiologicData } from 'src/app/shared/models/fisiologicData.model';
+import { GlobalState } from 'src/app/store/app.reducer';
 import * as SharedActions from './home.actions';
 
 export interface NutriAppState {
     objetivo:string,
-    datos_fisiologicos: {
-        altura: number,
-        peso: number,
-        edad: number,
-        sexo: string,
-        actividad_diaria: number
-    }
+    datos_fisiologicos: FisiologicData
+}
+export interface GlobalStateWithNutriApp extends GlobalState{
+    nutriapp: NutriAppState; 
 }
 
+
 export const initialState: NutriAppState = {
-   objetivo: '',
+   objetivo: 'Bailar la conga',
    datos_fisiologicos: {
-    altura: 0,
-    peso: 0,
-    edad: 0,
-    sexo: 'hombre',
-    actividad_diaria: 0
+    altura: 1.76,
+    peso: 89,
+    edad: 25,
+    genero: 'Mujer',
+    nivel_actividad: 1.2
 }
 
 }
