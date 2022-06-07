@@ -11,9 +11,9 @@ const routes : Routes = [
       component: CarrouselHojasComponent,
       children: [
         /* En caso de que la ruta sea "/nutri-form/objetivo" se carga la primera hoja del formulario */
-        {path: 'objetivo', component: HojaSeleccionObjetivo, data:{animation:'pagina_objetivo'}},
+        {path: 'objetivo', component: HojaSeleccionObjetivo, data:{animation:'pagina_objetivo', name:'hoja_1'}},
         /* En caso de que la ruta sea "/nutri-form/MBC_IMC" se carga la hoja para calcular MBA e IMC */
-        {path:'MBA_IMC', component: HojaMBC_IMC, data:{animation:'pagina_MBA_IMC'}},
+        {path:'MBA_IMC', component: HojaMBC_IMC, data:{animation:'pagina_MBA_IMC', name:'hoja_2'}},
         /* En caso de que la ruta sea "nutri-form/" se redirigira a "nutri-form/objetivo" */
         { path: '**', redirectTo: 'objetivo'}
       ]}

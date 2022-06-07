@@ -4,7 +4,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { ignoreElements, Observable } from 'rxjs';
 import { GlobalStateWithNutriApp } from 'src/app/nutri-home/store/home.reducer';
 import { FisiologicData } from 'src/app/shared/models/fisiologicData.model';
 import * as nutriAppActions from '../../../store/home.actions';
@@ -32,7 +32,7 @@ export class HojaSeleccionObjetivo extends hojaFormularioAbstracta {
   } 
 
   seleccionarObjetivo( objetivo:string){
-    this._store.dispatch(nutriAppActions.introducirObjetivo({objetivo}))
+    this._store.dispatch(nutriAppActions.setTarget({objetivo}))
     this.navegador.navigate(['../MBA_IMC'], {relativeTo: this.rutaActiva})
   }
 }
@@ -60,8 +60,13 @@ export class HojaMBC_IMC extends hojaFormularioAbstracta implements OnInit, OnDe
   }
 
   ngOnInit(): void {
-     this.datosFisioForm.value(this.datos_fisiologicos$); 
   }
   ngOnDestroy(): void {
+  }
+
+  comprobe_send_data(){
+    if(!this.datosFisioForm.valid) return; 
+    this._store.dispatch(nutriAppActions.putFisiologicData({datos_fisiologicos: this.datosFisioForm.value}))
+
   }
 }

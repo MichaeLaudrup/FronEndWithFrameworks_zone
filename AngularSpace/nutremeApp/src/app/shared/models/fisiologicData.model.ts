@@ -3,5 +3,8 @@ export class FisiologicData {
                 public peso: number,
                 public edad: number,
                 public genero: string, 
-                public nivel_actividad: number){}
+                public nivel_actividad: number,
+                public mba?: number,
+                public mbaWithActivity?:number,
+                public imc?: number){}
 }

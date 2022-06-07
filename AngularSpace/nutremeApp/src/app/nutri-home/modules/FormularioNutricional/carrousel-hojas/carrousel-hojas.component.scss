@@ -1,9 +1,37 @@
-.slider-hojas {
-    height: calc(100vh - 50px); //El contenedor que tiene el slider de hojas de formulario tiene una altura del 100% de la pantalla - 50px del footer
-    padding-top: calc(50px + 2rem); //Se insertan 50px porque el header flota y ocupa 50px
-    padding-bottom: 2rem;
+.slider {
+    background-image: url('/assets/fondos/fondoPCForm.jpg');
+    background-repeat: none;
+    background-size: cover;
+    background-position: center center;
+    height: 100vh; //El contenedor que tiene el slider de hojas de formulario tiene una altura del 100% de la pantalla - 50px del footer
+    width: 100%;
+    overflow-x: hidden;
+    padding-top: 2rem; //Se insertan 50px porque el header flota y ocupa 50px
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 2rem;
+}
+
+.slider__icon {
+    padding: .5rem 1rem;
+    background-color: black;
+    color: white;
+    border-radius: 7px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    opacity: .7;
+    &:hover {
+        opacity: 1;
+        transform: translateY(-10%);
+    }
+}
+
+.slider__sheet {
+    position: relative;
+    height: 100%;
+    width: 30vw;
 }

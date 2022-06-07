@@ -1,5 +1,5 @@
 <div class="contenedor-componente">
-    <form class="form" [formGroup]="datosFisioForm" [connectForm]="datos_fisiologicos$ | async">
+    <form class="form" [formGroup]="datosFisioForm" [connectForm]="datos_fisiologicos$ | async" (ngSubmit)="comprobe_send_data()">
         <div class="form__row">
             <input type="number" id="altura" formControlName="altura">
             <label for="altura">Altura (cm)</label>
@@ -34,6 +34,6 @@
               </select>
         </div>
 
-        <button class="btn" type="button" routerLink="../MBA_IMC">Hecho</button>
+        <button class="btn" type="submit" routerLink="../MBA_IMC">Hecho</button>
     </form>
 </div>

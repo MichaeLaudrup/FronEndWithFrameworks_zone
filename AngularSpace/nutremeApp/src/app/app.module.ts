@@ -8,6 +8,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { appReducers } from './store/app.reducer';
 import { PruebaComponent } from './prueba/prueba.component';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,8 @@ import { PruebaComponent } from './prueba/prueba.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
+    CoreModule,
     BrowserAnimationsModule,
     /* Para que los reducers se carguen segun se van cargando modulos con el lazy-load se deja un objeto vacio
       Antes, sin lazy-load habia que aglomerar todos los reducers de la aplicacion en un archivo o definirlos aqui

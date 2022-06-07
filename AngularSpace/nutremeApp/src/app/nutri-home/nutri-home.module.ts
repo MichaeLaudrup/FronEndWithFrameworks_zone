@@ -16,7 +16,6 @@ import { PanelDatosModule } from './modules/panel-datos/panel-datos.module';
 @NgModule({
   declarations: [
     NutriHomeComponent,
-    PanelDatosComponent
   ],
   imports: [
     CommonModule,

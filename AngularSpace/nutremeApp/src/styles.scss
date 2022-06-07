@@ -1,4 +1,8 @@
+@import 'material-icons/iconfont/material-icons.css';
 :root {
+    /* Fondos */
+    --fondo-claro: #b2f2bb;
+    --fondo-oscuro: #8ce99a;
     --color-principal: #69db7c;
     --color-principal-claro: #b2f2bb;
     --color-principal-oscuro: #2f9e44;
@@ -8,6 +12,7 @@
     --default-ff: 'Merienda', cursive;
     --color-fuente-claro: #daf7e0;
     --global-border-radius: 7.5px;
+    /* Margenes */
     --margin-btm-high: 2rem;
 }
 
