@@ -1,7 +1,7 @@
 
 
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { ignoreElements, Observable } from 'rxjs';
@@ -45,16 +45,16 @@ export class HojaSeleccionObjetivo extends hojaFormularioAbstracta {
 export class HojaMBC_IMC extends hojaFormularioAbstracta implements OnInit, OnDestroy  {
 
   datos_fisiologicos$ : Observable<FisiologicData>; 
-  datosFisioForm: FormGroup; 
+  datosFisioForm: UntypedFormGroup; 
   constructor( navegador:Router, rutaActiva: ActivatedRoute, store: Store<GlobalStateWithNutriApp>){
     super(navegador,rutaActiva,store); 
     this.datos_fisiologicos$ = this._store.pipe( select( nutriAppSelectors.getDatosFisio));
-    this.datosFisioForm = new FormGroup({
-      'altura': new FormControl(null),
-      'peso': new FormControl(null),
-      'edad': new FormControl(null),
-      'genero': new FormControl(null),
-      'nivel_actividad': new FormControl(null)
+    this.datosFisioForm = new UntypedFormGroup({
+      'altura': new UntypedFormControl(null),
+      'peso': new UntypedFormControl(null),
+      'edad': new UntypedFormControl(null),
+      'genero': new UntypedFormControl(null),
+      'nivel_actividad': new UntypedFormControl(null)
     });; 
 
   }
