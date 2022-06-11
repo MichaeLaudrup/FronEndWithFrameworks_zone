@@ -13,10 +13,10 @@
     height: 100%;
     max-width: 450px;
     padding: 4rem 2rem;
-    background-color: #f4fce3;
+    background-color: var(--background-components-light);
     display: flex;
     flex-direction: column;
-    gap: 2.5rem;
+    gap: 2rem;
     font-size: 1rem;
     border-radius: var(--global-border-radius);
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
@@ -32,7 +32,7 @@
             font-family: inherit;
             background-color: transparent;
             border: none;
-            border-bottom: 3px solid var(--color-principal);
+            border-bottom: 3px solid var(--main-color);
             &:focus {
                 outline: none;
             }
@@ -56,7 +56,7 @@
             width: 100%;
             background-color: transparent;
             border: none;
-            border-bottom: 3px solid var(--color-principal);
+            border-bottom: 3px solid var(--main-color);
             margin-top: .5rem;
             display: block;
             padding: .25rem .5rem;
@@ -82,14 +82,15 @@
 }
 
 .btn {
-    padding: .75rem 2rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    padding: .5rem 2rem;
     background-color: transparent;
-    border: 3px solid var(--color-principal);
+    border: 3px solid var(--main-color);
     font-size: inherit;
     font-family: inherit;
     border-radius: var(--border-radius);
     &:hover {
-        background-color: var(--color-principal);
-        color: black;
+        background-color: #fff;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     }
 }

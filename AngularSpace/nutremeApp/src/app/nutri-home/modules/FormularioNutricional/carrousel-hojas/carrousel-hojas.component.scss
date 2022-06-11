@@ -3,10 +3,9 @@
     background-repeat: none;
     background-size: cover;
     background-position: center center;
-    height: 100vh; //El contenedor que tiene el slider de hojas de formulario tiene una altura del 100% de la pantalla - 50px del footer
+    height: 100%; //El contenedor que tiene el slider de hojas de formulario tiene una altura del 100% de la pantalla - 50px del footer
     width: 100%;
     overflow-x: hidden;
-    padding-top: 2rem; //Se insertan 50px porque el header flota y ocupa 50px
     position: relative;
     display: flex;
     justify-content: center;
@@ -16,8 +15,8 @@
 
 .slider__icon {
     padding: .5rem 1rem;
-    background-color: black;
-    color: white;
+    background-color: var(--fondo-componentes);
+    color: black;
     border-radius: 7px;
     text-align: center;
     display: flex;

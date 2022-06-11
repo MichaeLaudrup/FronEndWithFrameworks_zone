@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { PanelDatosRoutingModule } from './panel-datos-routing.module';
 import { FormsModule } from '@angular/forms';
 import { PanelDatosComponent } from './panel-datos.component';
+import { RouterModule } from '@angular/router';
 
 const components =  [
   PanelDatosComponent]
@@ -11,8 +11,8 @@ const components =  [
   declarations: components,
   imports: [
     CommonModule,
-    PanelDatosRoutingModule,
-    FormsModule
+    FormsModule,
+    RouterModule
   ],
   exports: components
 })

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PanelDatosComponent } from './panel-datos.component';
+import { MbaBoxComponent } from './mba-box.component';
 
-describe('PanelDatosComponent', () => {
-  let component: PanelDatosComponent;
-  let fixture: ComponentFixture<PanelDatosComponent>;
+describe('MbaBoxComponent', () => {
+  let component: MbaBoxComponent;
+  let fixture: ComponentFixture<MbaBoxComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PanelDatosComponent ]
+      declarations: [ MbaBoxComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PanelDatosComponent);
+    fixture = TestBed.createComponent(MbaBoxComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

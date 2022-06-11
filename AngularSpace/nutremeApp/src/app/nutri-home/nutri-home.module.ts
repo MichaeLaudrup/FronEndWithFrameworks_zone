@@ -8,8 +8,7 @@ import { NutriHomeRoutingModule } from './nutri-home-routing.module';
 import { NutriHomeComponent } from './nutri-home.component';
 import { StoreModule } from '@ngrx/store';
 import { nutriAppReducer } from './store/home.reducer';
-import { PanelDatosComponent } from './modules/panel-datos/panel-datos.component';
-import { PanelDatosModule } from './modules/panel-datos/panel-datos.module';
+import { PanelDatosModule } from './modules/asidebar-menu/panel-datos.module';
 
 
 

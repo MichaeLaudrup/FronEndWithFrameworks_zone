@@ -15,7 +15,7 @@ export interface GlobalStateWithNutriApp extends GlobalState{
 export const initialState: NutriAppState = {
    objetivo: 'Bailar la conga',
    datos_fisiologicos: {
-    altura: 1.76,
+    altura: 176,
     peso: 89,
     edad: 25,
     genero: 'Mujer',

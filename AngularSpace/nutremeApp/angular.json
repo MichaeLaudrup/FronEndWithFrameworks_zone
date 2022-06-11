@@ -104,5 +104,8 @@
             }
         }
     },
-    "defaultProject": "nutremeApp"
+    "defaultProject": "nutremeApp",
+    "cli": {
+      "analytics": "382605a8-d084-4f66-8acf-9436c2196186"
+    }
 }

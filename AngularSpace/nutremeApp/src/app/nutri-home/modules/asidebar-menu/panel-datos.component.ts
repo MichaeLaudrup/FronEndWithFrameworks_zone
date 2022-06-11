@@ -14,8 +14,9 @@ export class PanelDatosComponent implements OnInit {
   objetivo$ ?: Observable<string>; 
 
   datos_fisiologicos$ ?: Observable<FisiologicData>; 
-
+  resultado?: string; 
   alimento: string = ''; 
+  isMenuOpened: boolean = false; 
   constructor(private store: Store<GlobalStateWithNutriApp>, private apiService: ApiRequestService) {
     
    }
@@ -30,7 +31,8 @@ export class PanelDatosComponent implements OnInit {
   searchShow(){
     console.log(this.alimento)
     this.apiService.getFoodData(this.alimento).subscribe( (responseData) => {
-      console.log(responseData)
+      this.resultado = responseData; 
+      console.log(this.resultado)
     })
   }
 
