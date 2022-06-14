@@ -1,19 +1,19 @@
 <div class="contenedor-componente">
     <div class="form">
         <h2 style="text-align:center">¿Cual es tu objetivo? </h2>
-        <button class="btn" type="button" (click)="seleccionarObjetivo('Subir de peso')">
+        <button class="btn" type="button" (click)="seleccionarObjetivo(NutritionTarget.gainWeight)">
             <span>Subir de peso</span>
         </button>
-        <button class="btn" type="button" (click)="seleccionarObjetivo('Aumentar musculo')">
+        <button class="btn" type="button" (click)="seleccionarObjetivo(NutritionTarget.hypertrophy)">
             <span>Aumentar músculo</span>
         </button>
-        <button class="btn" type="button" (click)="seleccionarObjetivo('mantener')">
+        <button class="btn" type="button" (click)="seleccionarObjetivo(NutritionTarget.maintainWeight)">
             <span>Mantener peso</span>
         </button>
-        <button class="btn" type="button" (click)="seleccionarObjetivo('Definir')">
+        <button class="btn" type="button" (click)="seleccionarObjetivo(NutritionTarget.define)">
             <span>Definir</span>
         </button>
-        <button class="btn" type="button" (click)="seleccionarObjetivo('Bajar de peso')">
+        <button class="btn" type="button" (click)="seleccionarObjetivo(NutritionTarget.lostWeight)">
             <span>Bajar de peso</span>
         </button>
     </div>

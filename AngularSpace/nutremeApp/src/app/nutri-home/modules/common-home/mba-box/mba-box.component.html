@@ -1,12 +1,10 @@
 <div class="box">
-    <ul>
-        <li>MBA: {{ mba}}</li>
-        <li>MBA with activity: {{ mbaWithActivity}} </li>
-        <li>MBA with activity and Objetive: {{ mbaWithActAndObjetive}}</li>
-    </ul>
+    <div class="chart-container">
+        <div class="card">
+            <h3>Índice de metabolismo basal</h3>
+            <h5>Cantidad calorias díarias para {{ objetive }}</h5>
+            <p-chart type="bar" [data]="data" [options]="options"></p-chart>
+        </div>
 
-
-    <ngx-charts-bar-vertical-normalized [view]="view" [results]="multi" [gradient]="gradient" [xAxis]="showXAxis" [yAxis]="showYAxis" [legend]="showLegend" [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel"
-        (select)="onSelect($event)">
-    </ngx-charts-bar-vertical-normalized>
+    </div>
 </div>

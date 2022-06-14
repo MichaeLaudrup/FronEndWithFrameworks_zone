@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { ApiRequestService } from 'src/app/core/services/APIResquests.service';
+import { NutritionTarget } from 'src/app/shared/enums/nutrition-target.enum';
 import { FisiologicData } from 'src/app/shared/models/fisiologicData.model';
 import { GlobalStateWithNutriApp, NutriAppState } from '../../store/home.reducer';
 import * as homeSelectors from '../../store/home.selectors'
@@ -11,8 +12,8 @@ import * as homeSelectors from '../../store/home.selectors'
   styleUrls: ['./panel-datos.component.scss']
 })
 export class PanelDatosComponent implements OnInit {
-  objetivo$ ?: Observable<string>; 
-
+  NutritionTarget = NutritionTarget; 
+  objetivo$ ?: Observable<NutritionTarget>; 
   datos_fisiologicos$ ?: Observable<FisiologicData>; 
   resultado?: string; 
   alimento: string = ''; 

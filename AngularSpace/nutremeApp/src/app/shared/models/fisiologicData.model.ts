@@ -6,5 +6,6 @@ export class FisiologicData {
                 public nivel_actividad: number,
                 public mba?: number,
                 public mbaWithActivity?:number,
-                public imc?: number){}
+                public imc?: number,
+                public mbaWithActivityAndObjetive?: number){}
 }

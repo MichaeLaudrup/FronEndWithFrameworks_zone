@@ -31,7 +31,9 @@
                             "src/assets"
                         ],
                         "styles": [
-                            "src/styles.scss"
+                            "src/styles.scss",
+                            "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
+                            "node_modules/primeng/resources/primeng.min.css"
                         ],
                         "scripts": []
                     },
@@ -106,6 +108,6 @@
     },
     "defaultProject": "nutremeApp",
     "cli": {
-      "analytics": "382605a8-d084-4f66-8acf-9436c2196186"
+        "analytics": "382605a8-d084-4f66-8acf-9436c2196186"
     }
 }

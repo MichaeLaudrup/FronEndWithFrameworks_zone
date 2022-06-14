@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { PanelDatosComponent } from './panel-datos.component';
 import { RouterModule } from '@angular/router';
+import { NutritionTarget } from 'src/app/shared/enums/nutrition-target.enum';
 
 const components =  [
   PanelDatosComponent]
@@ -12,7 +13,8 @@ const components =  [
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule
+    RouterModule, 
+
   ],
   exports: components
 })

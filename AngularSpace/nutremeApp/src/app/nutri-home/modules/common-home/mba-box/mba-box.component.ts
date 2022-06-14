@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { NutritionTarget } from 'src/app/shared/enums/nutrition-target.enum';
 
 @Component({
   selector: 'app-mba-box',
@@ -8,106 +9,48 @@ import { Component, Input, OnInit } from '@angular/core';
 export class MbaBoxComponent implements OnInit {
   @Input('mba') mba: number = 0; 
   @Input('mba-with-activity') mbaWithActivity: number = 0; 
-  @Input('mba-with-act-objetive') mbaWithActAndObjetive?: number = 0; 
-
-
-
-
-  multi = [
-    {
-      "name": "Germany",
-      "series": [
-        {
-          "name": "2010",
-          "value": 73000000
-        },
-        {
-          "name": "2011",
-          "value": 89400000
-        }, 
-        {
-          "name": "1990",
-          "value": 62000000
-        }
-      ]
-    },
-  
-    {
-      "name": "USA",
-      "series": [
-        {
-          "name": "2010",
-          "value": 309000000
-        },
-        {
-          "name": "2011",
-          "value": 311000000
-        },
-        {
-          "name": "1990",
-          "value": 250000000
-        }
-      ]
-    },
-  
-    {
-      "name": "France",
-      "series": [
-        {
-          "name": "2010",
-          "value": 50000020
-        },
-        {
-          "name": "2011",
-          "value": 58000000
-        },
-        {
-          "name": "1990",
-          "value": 58000000
-        }
-      ]
-    },
-    {
-      "name": "UK",
-      "series": [
-        {
-          "name": "2010",
-          "value": 62000000
-        },
-        {
-          "name": "1990",
-          "value": 57000000
-        }
-      ]
-    }
-  ];
-  
-  view :[number, number]= [700, 400];
-
-  // options
-  showXAxis: boolean = true;
-  showYAxis: boolean = true;
-  gradient: boolean = true;
-  showLegend: boolean = true;
-  showXAxisLabel: boolean = true;
-
-  
-  xAxisLabel: string = 'Country';
-  showYAxisLabel: boolean = true;
-  yAxisLabel: string = 'Normalized Population';
-
-  colorScheme = {
-    domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
-  };
-
-
+  @Input('mba-with-act-objetive') mbaWithActAndObjetive: number = 0; 
+  @Input('objetive') objetive : NutritionTarget; 
+  data: any;
+  options: any; 
   constructor() {
   }
 
-  onSelect(event: Event) {
-    console.log(event);
-  }
   ngOnInit(): void {
+    this.data = {
+      labels: ['MBA en reposo', 'MBA con deporte', 'MBA con objetivo'],
+      datasets: [
+          {
+              grouped: true,
+              data: [this.mba, this.mbaWithActivity, this.mbaWithActAndObjetive],
+              backgroundColor: [
+                '#c3fae8',
+                '#96f2d7',
+                '#63e6be',
+                '#38d9a9',
+              ],
+          },
+      ],
+      
+    }
+
+    this.options = {
+      plugins: {
+        legend: false,
+      },
+      indexAxis: 'y',
+      tooltips: {
+        callbacks: {
+           label: function(tooltipItem) {
+                  return tooltipItem.yLabel;
+           }
+        }
+      }
+    }
+  } 
+
+  update(event: Event) {
+    
   }
 
 }

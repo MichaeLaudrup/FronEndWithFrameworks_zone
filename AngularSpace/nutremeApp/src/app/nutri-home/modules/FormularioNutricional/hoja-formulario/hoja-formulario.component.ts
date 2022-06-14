@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { ignoreElements, Observable } from 'rxjs';
 import { GlobalStateWithNutriApp } from 'src/app/nutri-home/store/home.reducer';
+import { NutritionTarget } from 'src/app/shared/enums/nutrition-target.enum';
 import { FisiologicData } from 'src/app/shared/models/fisiologicData.model';
 import * as nutriAppActions from '../../../store/home.actions';
 import * as nutriAppSelectors from '../../../store/home.selectors'
@@ -27,11 +28,12 @@ class hojaFormularioAbstracta {
   styleUrls: [ESTILO_COMUN]
 })
 export class HojaSeleccionObjetivo extends hojaFormularioAbstracta {
+  NutritionTarget = NutritionTarget; 
   constructor( navegador:Router , rutaActiva: ActivatedRoute, store: Store<GlobalStateWithNutriApp>){
     super(navegador,rutaActiva,store)
   } 
 
-  seleccionarObjetivo( objetivo:string){
+  seleccionarObjetivo( objetivo:NutritionTarget){
     this._store.dispatch(nutriAppActions.setTarget({objetivo}))
     this.navegador.navigate(['../MBA_IMC'], {relativeTo: this.rutaActiva})
   }

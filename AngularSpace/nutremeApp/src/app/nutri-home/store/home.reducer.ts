@@ -1,10 +1,11 @@
 import { createReducer, on } from '@ngrx/store';
+import { NutritionTarget } from 'src/app/shared/enums/nutrition-target.enum';
 import { FisiologicData } from 'src/app/shared/models/fisiologicData.model';
 import { GlobalState } from 'src/app/store/app.reducer';
 import * as SharedActions from './home.actions';
 
 export interface NutriAppState {
-    objetivo:string,
+    objetivo:NutritionTarget,
     datos_fisiologicos: FisiologicData
 }
 export interface GlobalStateWithNutriApp extends GlobalState{
@@ -13,13 +14,16 @@ export interface GlobalStateWithNutriApp extends GlobalState{
 
 
 export const initialState: NutriAppState = {
-   objetivo: 'Bailar la conga',
+   objetivo: NutritionTarget.lostWeight,
    datos_fisiologicos: {
-    altura: 176,
-    peso: 89,
-    edad: 25,
-    genero: 'Mujer',
-    nivel_actividad: 1.2
+    altura: 178,
+    peso: 79,
+    edad: 28,
+    genero: 'Hombre',
+    nivel_actividad: 1.375,
+    mba: 1854,
+    mbaWithActivity: 2550,
+    imc: 23.67
 }
 
 }
@@ -32,8 +36,9 @@ export const nutriAppReducer = createReducer(initialState,
         let {nivel_actividad} = datos_fisiologicos; 
         let mba = calcMBA(datos_fisiologicos); 
         let mbaWithActivity = mba * nivel_actividad; 
+        let mbaWithActivityAndObjetive = calcMBAWithObjetive( mbaWithActivity, state.objetivo); 
         let imc = calcIMC(datos_fisiologicos); 
-        return ({...state, datos_fisiologicos: {...datos_fisiologicos, mba, mbaWithActivity, imc}})
+        return ({...state, datos_fisiologicos: {...datos_fisiologicos, mba, mbaWithActivity, imc, mbaWithActivityAndObjetive}})
     })
 );
 
@@ -50,5 +55,20 @@ const calcMBA = function ({ altura, peso, edad, genero}: FisiologicData ) : numb
 
 const calcIMC = function ({altura, peso}: FisiologicData) : number {
     return ((peso) / (altura/100)**2); 
+}
+
+function calcMBAWithObjetive(mbaWithActivity: number, objetive: NutritionTarget) : number{
+    switch(objetive){
+        case NutritionTarget.maintainWeight:
+            return mbaWithActivity; 
+        case NutritionTarget.lostWeight: 
+            return mbaWithActivity * 0.85;
+        case NutritionTarget.gainWeight:
+            return mbaWithActivity * 1.15; 
+        case NutritionTarget.define: 
+            return mbaWithActivity * 0.80; 
+        default: 
+            return mbaWithActivity * 1.20;  
+    }
 }
 
