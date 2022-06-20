@@ -1,8 +1,12 @@
 @import 'material-icons/iconfont/material-icons.css';
 :root {
     /* Fondos */
-    --background-components-light: #f4fce3;
+    --background-components-gradient: linear-gradient(0deg, #0a2844, #0a2844);
+    --background-components-light: #0a2844;
     --background-components-light-dark: #8ce99a;
+    --dark-background: #051422;
+    /* Colores tipografia */
+    --font-color: #99e9f2;
     --main-color: #69db7c;
     --main-color-light: #b2f2bb;
     --main-color-dark: #2f9e44;
@@ -14,6 +18,13 @@
     --global-border-radius: 7.5px;
     /* Margenes */
     --margin-btm-high: 2rem;
+    --primary-color: #1864ab;
+    --primary-color-d1: #0c3256;
+    --primary-color-d2: #0a2844;
+    /*  */
+    --secondary-color: #94d82d;
+    --secondary-color-d3: #1c123b;
+    --tertiary-color: #ffd43b;
 }
 
 *,

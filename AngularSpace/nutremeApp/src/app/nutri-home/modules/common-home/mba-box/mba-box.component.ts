@@ -1,6 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Chart } from 'chart.js';
 import { NutritionTarget } from 'src/app/shared/enums/nutrition-target.enum';
 
+
+Chart.defaults.elements.bar.borderWidth = 2;
 @Component({
   selector: 'app-mba-box',
   templateUrl: './mba-box.component.html',
@@ -18,7 +21,7 @@ export class MbaBoxComponent implements OnInit {
 
   ngOnInit(): void {
     this.data = {
-      labels: ['MBA en reposo', 'MBA con deporte', 'MBA con objetivo'],
+      labels: ['En reposo', 'Haciendo deporte', `Para ` + this.objetive],
       datasets: [
           {
               grouped: true,
@@ -29,14 +32,16 @@ export class MbaBoxComponent implements OnInit {
                 '#63e6be',
                 '#38d9a9',
               ],
+              color: ['white']
           },
       ],
       
     }
 
     this.options = {
+     
       plugins: {
-        legend: false,
+        legend: false
       },
       indexAxis: 'y',
       tooltips: {
@@ -45,7 +50,25 @@ export class MbaBoxComponent implements OnInit {
                   return tooltipItem.yLabel;
            }
         }
-      }
+      },
+      scales: {
+        x: {
+            ticks: {
+                color: '#99e9f2'
+            },
+            grid: {
+                color: '#99e9f266'
+            }
+        },
+        y: {
+            ticks: {
+                color: '#99e9f2'
+            },
+            grid: {
+                color: 'transparent'
+            }
+        }
+    }
     }
   } 
 

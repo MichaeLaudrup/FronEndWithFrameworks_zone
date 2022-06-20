@@ -14,7 +14,7 @@ export interface GlobalStateWithNutriApp extends GlobalState{
 
 
 export const initialState: NutriAppState = {
-   objetivo: NutritionTarget.lostWeight,
+   objetivo: NutritionTarget.hypertrophy,
    datos_fisiologicos: {
     altura: 178,
     peso: 79,
@@ -23,7 +23,9 @@ export const initialState: NutriAppState = {
     nivel_actividad: 1.375,
     mba: 1854,
     mbaWithActivity: 2550,
-    imc: 23.67
+    mbaWithActivityAndObjetive: 3059.1,
+    imc: 23.67,
+    diaryWater: 2.82
 }
 
 }
@@ -33,12 +35,13 @@ export const nutriAppReducer = createReducer(initialState,
 
 
     on(SharedActions.putFisiologicData, (state, {datos_fisiologicos}) => {
-        let {nivel_actividad} = datos_fisiologicos; 
+        let {nivel_actividad, peso} = datos_fisiologicos; 
         let mba = calcMBA(datos_fisiologicos); 
         let mbaWithActivity = mba * nivel_actividad; 
         let mbaWithActivityAndObjetive = calcMBAWithObjetive( mbaWithActivity, state.objetivo); 
         let imc = calcIMC(datos_fisiologicos); 
-        return ({...state, datos_fisiologicos: {...datos_fisiologicos, mba, mbaWithActivity, imc, mbaWithActivityAndObjetive}})
+        let diaryWater = (peso / 7 * 250) / 1000; 
+        return ({...state, datos_fisiologicos: {...datos_fisiologicos, mba, mbaWithActivity, imc, mbaWithActivityAndObjetive, diaryWater}})
     })
 );
 

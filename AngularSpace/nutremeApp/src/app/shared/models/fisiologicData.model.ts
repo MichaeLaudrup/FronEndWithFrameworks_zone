@@ -7,5 +7,6 @@ export class FisiologicData {
                 public mba?: number,
                 public mbaWithActivity?:number,
                 public imc?: number,
-                public mbaWithActivityAndObjetive?: number){}
+                public mbaWithActivityAndObjetive?: number,
+                public diaryWater?: number){}
 }
