@@ -4,19 +4,28 @@ import { CommonModule } from '@angular/common';
 import { DashboardDataRoutingModule } from './dashboard-data-routing.module';
 import { DashboardDataComponent } from './dashboard-data.component';
 import { CommonHomeModule } from '../common-home/common-home.module';
-
-const components = [DashboardDataComponent]
+import { MacronutrientsChartComponent } from './components/macronutrients-chart/macronutrients-chart.component';
+import {ChartModule} from 'primeng/chart';
+import { AppConfigService } from './services/AppConfigurationService';
+const components = [DashboardDataComponent,  MacronutrientsChartComponent]
 
 @NgModule({
   declarations: [
-    components
+    components,
   ],
   imports: [
     CommonModule,
     DashboardDataRoutingModule,
-    CommonHomeModule
+    CommonHomeModule,
+    ChartModule
 
   ],
+  providers: [ AppConfigService],
   exports: [components]
 })
-export class DashboardDataModule { }
+export class DashboardDataModule { 
+
+
+
+  
+}

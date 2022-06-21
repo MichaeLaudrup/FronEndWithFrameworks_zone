@@ -6,7 +6,7 @@ import * as SharedActions from './home.actions';
 
 export interface NutriAppState {
     objetivo:NutritionTarget,
-    datos_fisiologicos: FisiologicData
+    datos_fisiologicos: FisiologicData,
 }
 export interface GlobalStateWithNutriApp extends GlobalState{
     nutriapp: NutriAppState; 
@@ -16,17 +16,17 @@ export interface GlobalStateWithNutriApp extends GlobalState{
 export const initialState: NutriAppState = {
    objetivo: NutritionTarget.hypertrophy,
    datos_fisiologicos: {
-    altura: 178,
-    peso: 79,
-    edad: 28,
-    genero: 'Hombre',
-    nivel_actividad: 1.375,
-    mba: 1854,
-    mbaWithActivity: 2550,
-    mbaWithActivityAndObjetive: 3059.1,
-    imc: 23.67,
-    diaryWater: 2.82
-}
+        altura: 178,
+        peso: 83,
+        edad: 28,
+        genero: 'Hombre',
+        nivel_actividad: 1.375,
+        mba: 1909,
+        mbaWithActivity: 2624.875,
+        mbaWithActivityAndObjetive: 3149.85,
+        imc: 26.19,
+        diaryWater: 2.96
+    }
 
 }
 
@@ -40,8 +40,18 @@ export const nutriAppReducer = createReducer(initialState,
         let mbaWithActivity = mba * nivel_actividad; 
         let mbaWithActivityAndObjetive = calcMBAWithObjetive( mbaWithActivity, state.objetivo); 
         let imc = calcIMC(datos_fisiologicos); 
-        let diaryWater = (peso / 7 * 250) / 1000; 
-        return ({...state, datos_fisiologicos: {...datos_fisiologicos, mba, mbaWithActivity, imc, mbaWithActivityAndObjetive, diaryWater}})
+        let diaryWater = (peso / 7 * 250) / 1000;
+        let { diaryCarbohydrates, diaryProtein, diaryFats} = calcMacroNutriensDistribution(mbaWithActivityAndObjetive, state.objetivo); 
+        return ({...state, 
+            datos_fisiologicos: {...datos_fisiologicos,
+                mba,
+                mbaWithActivity, 
+                imc, 
+                mbaWithActivityAndObjetive,
+                diaryWater,
+                diaryCarbohydrates,
+                diaryProtein,
+                diaryFats}})
     })
 );
 
@@ -73,5 +83,21 @@ function calcMBAWithObjetive(mbaWithActivity: number, objetive: NutritionTarget)
         default: 
             return mbaWithActivity * 1.20;  
     }
+}
+
+function calcMacroNutriensDistribution(mbaWithActivityAndObjetive: number, objetivo: NutritionTarget): { diaryCarbohydrates: number; diaryProtein: number; diaryFats: number; } 
+{
+    // 1.6 -2.5 gr de proteina por kg de peso
+    // .5 - 1gr de grasa por kg de peso
+    // El resto hidratos
+    
+    let proteinsCal = (83*2)*4; 
+    let fatCal = (83*1) * 9;
+    let hidrates = mbaWithActivityAndObjetive - proteinsCal -fatCal;  
+    console.log(proteinsCal, fatCal, hidrates)
+
+    return {diaryCarbohydrates: (mbaWithActivityAndObjetive * .55),
+             diaryFats:  (mbaWithActivityAndObjetive * .25),
+              diaryProtein: (mbaWithActivityAndObjetive * .20)}; 
 }
 

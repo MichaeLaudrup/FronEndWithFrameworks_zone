@@ -1,10 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { NutritionTarget } from 'src/app/shared/enums/nutrition-target.enum';
 import { FisiologicData } from 'src/app/shared/models/fisiologicData.model';
 import { GlobalStateWithNutriApp } from '../../store/home.reducer';
 import * as nutriStoreSelector from '../../store/home.selectors'; 
+
+
 @Component({
   selector: 'app-dashboard-data',
   templateUrl: './dashboard-data.component.html',
@@ -21,8 +23,7 @@ export class DashboardDataComponent implements OnInit {
   ngOnInit(): void {
     this.fisiologic_data$ = this.store.pipe( select( nutriStoreSelector.getDatosFisio)); 
     this.objetive$ = this.store.pipe( select(nutriStoreSelector.getObjetivo))
+
+    
   }
-
-
-
-}
+  }

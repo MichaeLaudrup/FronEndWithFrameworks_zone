@@ -4,16 +4,21 @@
     background-color: var(--dark-background);
     padding: 2rem;
     display: grid;
-    grid-gap: 2rem;
-    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: min-content;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: start;
+    gap: 1rem;
 }
 
 .dashboard__box {
+    width: 600px;
     color: var(--font-color);
-    padding: 1rem;
+    padding: 1.5rem;
+    padding-top: 1rem;
     border-radius: var(--global-border-radius);
     background: var(--background-components-gradient);
-    max-width: 500px;
     border: 1px solid rgba(255, 255, 255, 0.275);
+}
+
+.box__header {
+    min-height: 60px;
 }

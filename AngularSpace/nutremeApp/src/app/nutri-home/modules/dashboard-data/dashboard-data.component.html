@@ -1,14 +1,19 @@
 <div class="dashboard-container">
     <div class="dashboard__box">
+        <div class="box__header">
+            <h3>Metabolismo basal</h3>
+            <h4>Kilo Calorías diarias</h4>
+        </div>
+
         <app-mba-box [mba]="(fisiologic_data$ | async)?.mba" [mba-with-activity]="(fisiologic_data$ | async)?.mbaWithActivity" [mba-with-act-objetive]="(fisiologic_data$ | async)?.mbaWithActivityAndObjetive" [objetive]="(objetive$ | async)"></app-mba-box>
     </div>
-
-
     <div class="dashboard__box">
-        <h3>Agua diaria recomendada</h3>
-        <span class="material-icons-outlined">
-            water_drop
-        </span>
+        <div class="box__header">
+            <h3>Distribución Macronutrientes</h3>
+            <h4>Hidratos, proteínas y grasas.</h4>
+        </div>
+        <app-macronutrients-chart></app-macronutrients-chart>
     </div>
+
 
 </div>

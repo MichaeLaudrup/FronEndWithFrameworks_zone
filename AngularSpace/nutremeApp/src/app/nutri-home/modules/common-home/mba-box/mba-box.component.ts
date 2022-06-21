@@ -44,13 +44,6 @@ export class MbaBoxComponent implements OnInit {
         legend: false
       },
       indexAxis: 'y',
-      tooltips: {
-        callbacks: {
-           label: function(tooltipItem) {
-                  return tooltipItem.yLabel;
-           }
-        }
-      },
       scales: {
         x: {
             ticks: {
@@ -66,7 +59,7 @@ export class MbaBoxComponent implements OnInit {
             },
             grid: {
                 color: 'transparent'
-            }
+            },
         }
     }
     }
