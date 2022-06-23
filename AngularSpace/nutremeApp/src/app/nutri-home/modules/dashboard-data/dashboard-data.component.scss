@@ -4,13 +4,13 @@
     background-color: var(--dark-background);
     padding: 2rem;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     align-items: start;
     gap: 1rem;
 }
 
 .dashboard__box {
-    width: 600px;
+    width: 100%;
     color: var(--font-color);
     padding: 1.5rem;
     padding-top: 1rem;

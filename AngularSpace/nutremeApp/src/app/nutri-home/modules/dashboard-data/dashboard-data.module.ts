@@ -7,11 +7,14 @@ import { CommonHomeModule } from '../common-home/common-home.module';
 import { MacronutrientsChartComponent } from './components/macronutrients-chart/macronutrients-chart.component';
 import {ChartModule} from 'primeng/chart';
 import { AppConfigService } from './services/AppConfigurationService';
+
 const components = [DashboardDataComponent,  MacronutrientsChartComponent]
 
 @NgModule({
   declarations: [
+ 
     components,
+
   ],
   imports: [
     CommonModule,

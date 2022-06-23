@@ -9,11 +9,11 @@ import { environment } from '../environments/environment';
 import { appReducers } from './store/app.reducer';
 import { PruebaComponent } from './prueba/prueba.component';
 import { CoreModule } from './core/core.module';
-
 @NgModule({
   declarations: [
     AppComponent,
-    PruebaComponent,
+    PruebaComponent
+
   ],
   imports: [
     BrowserModule,
