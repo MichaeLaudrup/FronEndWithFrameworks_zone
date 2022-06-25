@@ -3,7 +3,7 @@
     background-repeat: none;
     background-size: cover;
     background-position: center center;
-    height: 100%; //El contenedor que tiene el slider de hojas de formulario tiene una altura del 100% de la pantalla - 50px del footer
+    min-height: 100vh;
     width: 100%;
     overflow-x: hidden;
     position: relative;

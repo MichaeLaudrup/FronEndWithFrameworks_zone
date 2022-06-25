@@ -25,7 +25,10 @@ export const initialState: NutriAppState = {
         mbaWithActivity: 2624.875,
         mbaWithActivityAndObjetive: 3149.85,
         imc: 26.19,
-        diaryWater: 2.96
+        diaryWater: 2.96,
+        diaryCarbohydrates: 1227.129,
+        diaryFats: 787.436,
+        diaryProtein: 419.98
     }
 
 }
@@ -91,10 +94,9 @@ function calcMacroNutriensDistribution(mbaWithActivityAndObjetive: number, objet
     // .5 - 1gr de grasa por kg de peso
     // El resto hidratos
     
-    let proteinsCal = (83*2)*4; 
+    /* let proteinsCal = (83*2)*4; 
     let fatCal = (83*1) * 9;
-    let hidrates = mbaWithActivityAndObjetive - proteinsCal -fatCal;  
-    console.log(proteinsCal, fatCal, hidrates)
+    let hidrates = mbaWithActivityAndObjetive - proteinsCal -fatCal;   */
 
     return {diaryCarbohydrates: (mbaWithActivityAndObjetive * .55),
              diaryFats:  (mbaWithActivityAndObjetive * .25),

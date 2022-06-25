@@ -7,8 +7,11 @@ import { CommonHomeModule } from '../common-home/common-home.module';
 import { MacronutrientsChartComponent } from './components/macronutrients-chart/macronutrients-chart.component';
 import {ChartModule} from 'primeng/chart';
 import { AppConfigService } from './services/AppConfigurationService';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { HighchartsChartModule } from 'highcharts-angular';
+import { BasicLineChartComponent } from './components/basic-line-chart/basic-line-chart.component';
 
-const components = [DashboardDataComponent,  MacronutrientsChartComponent]
+const components = [DashboardDataComponent,  MacronutrientsChartComponent, BasicLineChartComponent]
 
 @NgModule({
   declarations: [
@@ -20,7 +23,9 @@ const components = [DashboardDataComponent,  MacronutrientsChartComponent]
     CommonModule,
     DashboardDataRoutingModule,
     CommonHomeModule,
-    ChartModule
+    ChartModule,
+    SharedModule,
+    HighchartsChartModule
 
   ],
   providers: [ AppConfigService],

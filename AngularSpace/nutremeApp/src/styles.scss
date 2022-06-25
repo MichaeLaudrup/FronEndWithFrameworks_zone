@@ -1,6 +1,7 @@
 @import 'material-icons/iconfont/material-icons.css';
 :root {
     /* Fondos */
+    --elements-background: #0a2844;
     --background-components-gradient: linear-gradient(0deg, #0a2844, #0a2844);
     --background-components-light: #0a2844;
     --background-components-light-dark: #8ce99a;
@@ -38,7 +39,8 @@
 html,
 body {
     font-size: 16px;
-    font-family: sans-serif;
+    font-family: 'Merriweather', serif;
+    ;
 }
 
 body {

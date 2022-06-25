@@ -69,6 +69,8 @@ export class HojaMBC_IMC extends hojaFormularioAbstracta implements OnInit, OnDe
   comprobe_send_data(){
     if(!this.datosFisioForm.valid) return; 
     this._store.dispatch(nutriAppActions.putFisiologicData({datos_fisiologicos: this.datosFisioForm.value}))
+    this.navegador.navigate(['../../nutri-data'], {relativeTo: this.rutaActiva})
+
 
   }
 }
