@@ -41,7 +41,7 @@ export class MacronutrientsChartComponent implements OnInit {
                 pie: {
                     allowPointSelect: true,
                     cursor: 'pointer',
-                    colors: ['#96f2d7', '#63e6be', '#38d9a9'], 
+                    colors: ['var(--chart-color01)', 'var(--chart-color02)', 'var(--chart-color03)'], 
                     dataLabels: {
                         enabled: false,
                         

@@ -1,13 +1,39 @@
 @import 'material-icons/iconfont/material-icons.css';
+@import './assets/styles/responsive-mixins.scss'; 
 :root {
+
+    /* APP-COLORS */
+    --c1: #d9ed92;
+    --c2: #b5e48c;
+    --c3: #99d98c;
+    --c4: #76c893;
+    --c5: #52b69a;
+    --c6: #34a0a4;
+    --c7: #168aad;
+    --c8: #1a759f;
+    --c9: #1e6091;
+    --c10: #184e77;
+
+    /* APP-COLOR-BRIGH-VARATION */
+    --c3-light01: #d6f0d1; 
+    --c10-dark01: #081b2a;
+    --c10-dark02:  #0c273c; 
+
+
     /* Fondos */
-    --elements-background: #0a2844;
-    --background-components-gradient: linear-gradient(0deg, #0a2844, #0a2844);
-    --background-components-light: #0a2844;
-    --background-components-light-dark: #8ce99a;
-    --dark-background: #051422;
+    --elements-background: #081b2a;
+    --dark-background: #0c273c;
+    
+    /* Chart colors */
+    --chart-color01 : #76c893; 
+    --chart-color02 : #34a0a4; 
+    --chart-color03 : #1a759f; 
+    --chart-color04 : #34a0a4; 
+
+
+
     /* Colores tipografia */
-    --font-color: #b8f8ff;
+    --font-color: var(--c3-light01);
     --main-color: #69db7c;
     --main-color-light: #b2f2bb;
     --main-color-dark: #2f9e44;
@@ -19,13 +45,6 @@
     --global-border-radius: 7.5px;
     /* Margenes */
     --margin-btm-high: 2rem;
-    --primary-color: #1864ab;
-    --primary-color-d1: #0c3256;
-    --primary-color-d2: #0a2844;
-    /*  */
-    --secondary-color: #94d82d;
-    --secondary-color-d3: #1c123b;
-    --tertiary-color: #ffd43b;
 }
 
 *,
@@ -43,12 +62,10 @@ body {
     ;
 }
 
-body {
-    min-height: 100vh;
-    app-root {
-        height: 100%;
-    }
-}
+
+
+
+
 
 @keyframes fromLeft_light {
     0% {

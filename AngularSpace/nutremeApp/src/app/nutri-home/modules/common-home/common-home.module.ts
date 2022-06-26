@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MbaBoxComponent } from './mba-box/mba-box.component';
 import { ButtonModule} from 'primeng/button';
 import {ChartModule} from 'primeng/chart';
 
-const components = [MbaBoxComponent];
+const components = [];
 @NgModule({
   declarations: components,
   imports: [

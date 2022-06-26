@@ -7,7 +7,7 @@ import { FisiologicData } from 'src/app/shared/models/fisiologicData.model';
 import { GlobalStateWithNutriApp, NutriAppState } from '../../store/home.reducer';
 import * as homeSelectors from '../../store/home.selectors'
 @Component({
-  selector: 'app-panel-datos',
+  selector: 'app-asidebar-menu',
   templateUrl: './panel-datos.component.html',
   styleUrls: ['./panel-datos.component.scss']
 })

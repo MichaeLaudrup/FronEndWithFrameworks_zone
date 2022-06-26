@@ -90,6 +90,8 @@ function calcMBAWithObjetive(mbaWithActivity: number, objetive: NutritionTarget)
 
 function calcMacroNutriensDistribution(mbaWithActivityAndObjetive: number, objetivo: NutritionTarget): { diaryCarbohydrates: number; diaryProtein: number; diaryFats: number; } 
 {
+
+
     // 1.6 -2.5 gr de proteina por kg de peso
     // .5 - 1gr de grasa por kg de peso
     // El resto hidratos

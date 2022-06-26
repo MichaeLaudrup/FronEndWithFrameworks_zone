@@ -10,6 +10,8 @@ import { AppConfigService } from './services/AppConfigurationService';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { HighchartsChartModule } from 'highcharts-angular';
 import { BasicLineChartComponent } from './components/basic-line-chart/basic-line-chart.component';
+import { MbaChartComponent } from './components/mba-chart/mba-chart.component';
+import { ImcChartComponent } from './components/imc-chart/imc-chart.component';
 
 const components = [DashboardDataComponent,  MacronutrientsChartComponent, BasicLineChartComponent]
 
@@ -17,6 +19,8 @@ const components = [DashboardDataComponent,  MacronutrientsChartComponent, Basic
   declarations: [
  
     components,
+      MbaChartComponent,
+      ImcChartComponent,
 
   ],
   imports: [

@@ -12,8 +12,7 @@
             <h3>Metabolismo basal</h3>
             <h4>Kilo Calorías diarias</h4>
         </div>
-
-        <app-mba-box [mba]="(fisiologic_data$ | async)?.mba" [mba-with-activity]="(fisiologic_data$ | async)?.mbaWithActivity" [mba-with-act-objetive]="(fisiologic_data$ | async)?.mbaWithActivityAndObjetive" [objetive]="(objetive$ | async)"></app-mba-box>
+        <app-mba-chart [mba]="(fisiologic_data$ | async)?.mba" [mba-with-activity]="(fisiologic_data$ | async)?.mbaWithActivity" [mba-with-act-objetive]="(fisiologic_data$ | async)?.mbaWithActivityAndObjetive" [objetive]="(objetive$ | async)"></app-mba-chart>
     </div>
 
     <div class="dashboard__box box__imc">
@@ -22,8 +21,7 @@
             <h4>Hidratos, proteínas y grasas.</h4>
         </div>
         <div class="box__content">
-            <app-gauge [imc]="+(((fisiologic_data$ | async)?.imc )| number:'1.2-2')"></app-gauge>
-            <p>Peso normal</p>
+            <app-imc-chart [imc]="(fisiologic_data$ | async)?.imc"></app-imc-chart>
         </div>
     </div>
     <div class="dashboard__box box__water">
