@@ -1,5 +1,6 @@
-@import 'material-icons/iconfont/material-icons.css';
-@import './assets/styles/responsive-mixins.scss'; 
+@import 'material-icons/iconfont/material-icons.css'; 
+@import 'responsive.mixins'; 
+
 :root {
 
     /* APP-COLORS */
@@ -15,7 +16,7 @@
     --c10: #184e77;
 
     /* APP-COLOR-BRIGH-VARATION */
-    --c3-light01: #d6f0d1; 
+    --c3-light01: #a7f1c1; 
     --c10-dark01: #081b2a;
     --c10-dark02:  #0c273c; 
 
@@ -24,6 +25,9 @@
     --elements-background: #081b2a;
     --dark-background: #0c273c;
     
+    /* Color */
+    --prim-color: #184e77; 
+
     /* Chart colors */
     --chart-color01 : #76c893; 
     --chart-color02 : #34a0a4; 
@@ -40,9 +44,7 @@
     --border-radius: 5px;
     --color-principal-transparente: rgba(150, 150, 150, 0.432);
     --color-principal-oscuro-transparente: rgba(139, 139, 139, 0.322);
-    --default-ff: 'Merienda', cursive;
-    --color-fuente-claro: #daf7e0;
-    --global-border-radius: 7.5px;
+    --global-border-radius: 5px;
     /* Margenes */
     --margin-btm-high: 2rem;
 }

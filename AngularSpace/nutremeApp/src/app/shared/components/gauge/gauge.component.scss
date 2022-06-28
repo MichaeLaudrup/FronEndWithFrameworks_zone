@@ -22,7 +22,7 @@
     left: 0%;
     width: inherit;
     height: 100%;
-    background-color: #38d9a9;
+    background-color: var(--chart-color03);
     transform-origin: center top;
     transition: transform .2s ease-out;
 }
