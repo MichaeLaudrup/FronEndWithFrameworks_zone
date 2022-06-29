@@ -38,7 +38,8 @@
     }
     
     .navigation__item.activeItem {
-        border-right: 3px solid var(--main-color-dark);
+        background-color: var(--prim-color);
+        border-top: 3px solid var(--main-color-dark);
     }
     
     .navigation__link {

@@ -65,18 +65,26 @@
 
 
 .box__header {
-   text-align: center;
+   width: 100%;
+   display:flex; 
+   gap: 1rem; 
+   align-items: center;
+   justify-content: space-between;
+   position: relative;
    font-size: 1rem;
-   padding: 1rem .5rem; 
+   padding: .5rem; 
    color: var(--font-color); 
    margin-bottom: 1.5rem;
    background-color: var(--prim-color);
-   height: 60px;
+   height: 45px;
+   span.info{
+     padding: 1rem .5rem; 
+     cursor:pointer;
+   }
 }
 
 .box__content {
     padding: .75rem .5rem ; 
-    overflow-x: scroll;
     
 }
 
