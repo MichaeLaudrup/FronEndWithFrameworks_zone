@@ -23,7 +23,8 @@
 
     /* Fondos */
     --elements-background: #081b2a;
-    --dark-background: #0c273c;
+    --elements-bg-secondary: #0d283d; 
+    --dark-background: #06131d;
     
     /* Color */
     --prim-color: #184e77; 
@@ -38,6 +39,11 @@
 
     /* Colores tipografia */
     --font-color: var(--c3-light01);
+    --text-title-color: var(--c3); 
+
+
+
+
     --main-color: #69db7c;
     --main-color-light: #b2f2bb;
     --main-color-dark: #2f9e44;

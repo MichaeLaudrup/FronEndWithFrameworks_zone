@@ -1,3 +1,4 @@
 <div class="container">
+    <app-info-modal *ngIf="showModal$ | async"></app-info-modal>
     <router-outlet></router-outlet>
 </div>

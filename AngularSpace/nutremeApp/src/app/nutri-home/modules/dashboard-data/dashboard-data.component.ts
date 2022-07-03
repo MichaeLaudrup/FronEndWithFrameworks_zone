@@ -3,8 +3,8 @@ import { select, Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
 import { NutritionTarget } from 'src/app/shared/enums/nutrition-target.enum';
 import { FisiologicData } from 'src/app/shared/models/fisiologicData.model';
-import { GlobalStateWithNutriApp } from '../../store/home.reducer';
-import * as nutriStoreSelector from '../../store/home.selectors'; 
+import { GlobalStateWithNutriApp } from '../../store-nutri-home/home.reducer';
+import * as nutriStoreSelector from '../../store-nutri-home/home.selectors'; 
 import * as Highcharts from 'highcharts';
 
 @Component({

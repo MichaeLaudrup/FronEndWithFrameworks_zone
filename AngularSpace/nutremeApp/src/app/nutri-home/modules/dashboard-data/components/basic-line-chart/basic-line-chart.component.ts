@@ -25,15 +25,15 @@ export class BasicLineChartComponent implements OnInit {
 			yAxis: {
 				
 				title: {
-					text: "Kilo Calorías díarias",
+					text: "",
 					style: {
-						color: '#96f2d7'
+						color: 'var(--font-color)'
 					}
 				},
 
 				labels: {
 					style: {
-						color: '#96f2d7'
+						color: 'var(--font-color)'
 					}
 				}
 			},
@@ -48,7 +48,7 @@ export class BasicLineChartComponent implements OnInit {
 						return this.value;
 					},
 					style: {
-						color: '#96f2d7'
+						color: 'var(--font-color)'
 					}
 				},
 			},
@@ -59,7 +59,7 @@ export class BasicLineChartComponent implements OnInit {
 				x:0,
 				y:0,
 				itemStyle: {
-					color: '#96f2d7'
+					color: 'var(--font-color)'
 				}
 			},
 
@@ -69,11 +69,11 @@ export class BasicLineChartComponent implements OnInit {
 			series: [{
 				name: "Kilo calorías objetivo",
 				data: [3097, 3097, 3097, 3097, 3097, 3097, 3097],
-				color: `#63e6be`
+				color: 'var(--chart-color03)'
 			}, {
 				name: "Kilo calorías consumidas",
 				data: [2800, 3200, 2959, 3097, 2500, 3097, 3000],
-				color: `#38d9a9`
+				color: 'var(--chart-color01)'
 			}
 			],
 

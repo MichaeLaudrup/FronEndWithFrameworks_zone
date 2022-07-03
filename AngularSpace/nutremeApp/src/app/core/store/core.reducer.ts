@@ -12,9 +12,9 @@ user: User
 }
 
 export const initialState = {
-isLoged: false,
-userName: 'admin',
-password: 'admin'
+    isLoged: false,
+    userName: 'admin',
+    password: 'admin'
 }; 
 
 

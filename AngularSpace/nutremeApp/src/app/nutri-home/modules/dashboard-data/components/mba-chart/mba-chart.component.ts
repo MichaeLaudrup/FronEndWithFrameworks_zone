@@ -19,7 +19,7 @@ export class MbaChartComponent implements OnInit {
     this.chartOptions = {
       chart: {
           type: 'column',
-          backgroundColor: 'transparent'
+          backgroundColor: 'transparent',
       },
       title: {
           align: 'left',
