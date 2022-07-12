@@ -1,21 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { GlobalStateWithShared } from 'src/app/shared/store-shared/shared.reducer';
+import { InfoModalData } from 'src/app/shared/models/modal.model';
 import * as SharedAction from 'src/app/shared/store-shared/shared.actions'; 
+import { sharedFacadeService } from 'src/app/shared/store-shared/shared.facade';
 @Component({
   selector: 'app-modal-info-activator',
   templateUrl: './info-activator.component.html',
   styleUrls: ['./info-activator.component.scss']
 })
 export class InfoActivatorComponent implements OnInit {
-
-  constructor(private store: Store<GlobalStateWithShared>) { }
+  @Input() modalInfo: InfoModalData; 
+  constructor(private sharedFacade: sharedFacadeService) { }
 
   ngOnInit(): void {
   }
 
   showInfoModal(){
-    this.store.dispatch( SharedAction.displayModal({title: 'proving', content: 'proving 2'})); 
+    this.sharedFacade.displayInfoModal( this.modalInfo)
   }
 
 }

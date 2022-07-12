@@ -1,6 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { AppConfigService, AppConfig } from '../../services/AppConfigurationService';
 import * as Highcharts from 'highcharts'
 @Component({
   selector: 'app-macronutrients-chart',
@@ -14,7 +12,7 @@ export class MacronutrientsChartComponent implements OnInit {
     
     chartOptions = {}; 
     Highcharts = Highcharts; 
-    constructor(private configService: AppConfigService) {}
+    constructor() {}
 
     ngOnInit() {
 

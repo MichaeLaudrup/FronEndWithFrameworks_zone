@@ -8,3 +8,7 @@ export const getModalIsOpen = createSelector(
     getSharedAppSelector,  (state: sharedReducer.SharedAppState) => state.modalOpen
 );
 
+export const getModalInfo = createSelector(
+    getSharedAppSelector, ( state: sharedReducer.SharedAppState) => state.modalState
+); 
+

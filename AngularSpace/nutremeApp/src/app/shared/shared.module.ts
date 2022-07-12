@@ -8,6 +8,7 @@ import { InfoModalComponent } from './components/modals/info-modal/info-modal.co
 import { sharedReducer } from './store-shared/shared.reducer';
 import { StoreModule } from '@ngrx/store';
 import { InfoActivatorComponent } from './components/modals/modalActivators/info-activator/info-activator.component';
+import { sharedFacadeService } from './store-shared/shared.facade';
 
 const components = [
   HeaderComponent,
@@ -21,8 +22,6 @@ const components = [
 @NgModule({
   declarations: [
     components,
-
-
   ],
   imports: [
     CommonModule,
@@ -30,6 +29,9 @@ const components = [
   ],
   exports: [
     components
+  ],
+  providers: [
+    sharedFacadeService
   ]
 })
 export class SharedModule {

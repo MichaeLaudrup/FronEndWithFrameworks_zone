@@ -1,7 +1,5 @@
 import { Component } from "@angular/core";
-import { Store } from "@ngrx/store";
-import { GlobalStateWithShared } from "../../store-shared/shared.reducer";
-import * as SharedActions from "../../store-shared/shared.actions"; 
+import { sharedFacadeService } from "../../store-shared/shared.facade";
 
 
 @Component({
@@ -12,11 +10,11 @@ export class Modal {
     _title: string; 
     _content: string; 
  
-    constructor(protected store: Store<GlobalStateWithShared>){
+    constructor(protected sharedFacade: sharedFacadeService){
         
     }
     hideModal() {
-        this.store.dispatch(SharedActions.hideModal()); 
+        this.sharedFacade.hideModal(); 
     }
     public get title(): string {
         return this._title;

@@ -3,16 +3,24 @@
 
     <div class="modal-component">
         <div class="modal__header">
-            <h2>Hello modal</h2>
+            <h2>{{ (infoData$ |async).title}}</h2>
             <span class="material-icons-outlined" (click)="hideModal()">
                 close
             </span>
 
         </div>
         <div class="modal__content">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non sed quia quaerat dolores sunt earum repellat nesciunt ratione! Hic accusantium tempore ex unde neque alias ut quae quasi odit veritatis!
-            Vitae quod fugiat sequi ipsam nisi voluptate quos voluptates aut non id incidunt tempora aliquid repellat ea earum voluptatem corporis, obcaecati hic laboriosam delectus. Quo et reiciendis excepturi eius dignissimos!
+             {{ (infoData$ |async).content}}
+        </div>
 
+        <div class="modal__links">
+            <ng-container>
+                <ul>
+                    <li *ngFor="let link of (infoData$ |async).links">
+                        <a [href]="link.url">{{ link.title}}</a>
+                    </li>
+                </ul>
+            </ng-container>
         </div>
         <div class="modal__footer">
             <button class="modal__button" (click)="hideModal()">Close</button>

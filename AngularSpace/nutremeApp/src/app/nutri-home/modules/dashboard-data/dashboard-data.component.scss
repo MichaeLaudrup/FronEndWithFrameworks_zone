@@ -1,5 +1,7 @@
 @import 'responsive.mixins'; 
 
+
+
 .dashboard-container {
     background-color: var(--dark-background);
     padding: 1rem;
@@ -10,6 +12,10 @@
     
 }
 
+.kcal-history-box{
+    grid-column: 1 / -1;
+}
+
 .dashboard__box {
     animation: expandFromCenter .8s ease-in-out; 
     background-color: var(--elements-background);  
@@ -17,14 +23,6 @@
     border-radius: var(--global-border-radius); 
     overflow: hidden;
     color: var(--font-color); 
-    &.box__diary-kcal{
-        grid-column: 1 / -1;
-
-        .box__content{
-            height: 250px;
-        }
-    }
-
     &.box__water{
         grid-row: 2/3;
         grid-column: 1/3;
