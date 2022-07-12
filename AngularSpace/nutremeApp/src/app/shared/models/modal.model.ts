@@ -1,5 +1,6 @@
 export interface ModalData {
     title: string,
+    subtitle: string,
     content: string, 
 }
 
@@ -9,4 +10,5 @@ export interface InfoModalData extends ModalData{
         url: string, 
         description: string
     }>
+    device?: string,
 }

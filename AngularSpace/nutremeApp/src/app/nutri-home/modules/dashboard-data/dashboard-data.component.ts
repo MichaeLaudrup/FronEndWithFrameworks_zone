@@ -32,6 +32,7 @@ export class DashboardDataComponent implements OnInit {
       title:'Historial de consumo calórico',
       content:'El historial de consumo calórico controla el número de kilo calorías diarías que consumes (línea de color verde), frente al número de Kcal diarias \
                           que deberías consumir según tus necesidades nutricionales ',
+      subtitle: 'MBA', 
       links: [
         {
         title: '¿Qué son las kcal?',
