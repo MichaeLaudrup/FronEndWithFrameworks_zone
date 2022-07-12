@@ -9,14 +9,14 @@
         transform: translate(-50%, -50%);
         display: flex;
         align-items: center;
-        align-content: center;
+        justify-content: center;
         background-color: transparent;
     }
     
     .form {
         color: var(--font-color);
         width: 100%;
-        max-width: 450px;
+        max-width: 425px;
         min-height: 80vh;
         padding: 4rem 2rem;
         background-color: var(--elements-background);
