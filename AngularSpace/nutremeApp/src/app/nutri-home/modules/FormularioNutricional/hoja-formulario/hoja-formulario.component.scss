@@ -1,100 +1,112 @@
-/* ESTILIZACION GENERAL A TODAS LAS HOJAS DE FORMULARIO */
-
-.contenedor-componente {
-    height: 80vh;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.form {
-    color: var(--font-color);
-    width: 425px;
-    height: 100%;
-    max-width: 450px;
-    padding: 4rem 2rem;
-    background-color: var(--background-components-light);
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    font-size: 1rem;
-    border-radius: var(--global-border-radius);
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-    .form__row {
+    /* ESTILIZACION GENERAL A TODAS LAS HOJAS DE FORMULARIO */
+    
+    .contenedor-componente {
+        height: 80vh;
         width: 100%;
-        position: relative;
-        animation: fromLeft_light .4s ease-in;
-        animation-fill-mode: backwards;
-        input {
-            color: var(--font-color);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: transparent;
+    }
+    
+    .form {
+        color: var(--text-generic-color);
+        width: 100%;
+        max-width: 425px;
+        min-height: 80vh;
+        padding: 4rem 2rem;
+        background-color: var(--elements-bg-primary);
+        display: flex;
+        flex-direction: column;
+        gap: 3.5rem;
+        font-size: 1rem;
+        border-radius: var(--global-border-radius);
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        .form__row {
             width: 100%;
-            padding: .25rem .25rem;
-            font-size: inherit;
-            font-family: inherit;
-            background-color: transparent;
-            border: none;
-            border-bottom: 3px solid var(--main-color);
-            &:focus {
-                outline: none;
+            position: relative;
+            animation: fromLeft_light .4s ease-in;
+            animation-fill-mode: backwards;
+            input {
+                color: var(--text-generic-color);
+                width: 100%;
+                padding: .25rem .25rem;
+                font-size: inherit;
+                font-family: inherit;
+                background-color: transparent;
+                border: none;
+                border-bottom: 2px solid var(--text-generic-color);
+                &:focus {
+                    outline: none;
+                }
+                &:focus+label,
+                &:hover+label,
+                &:not(:placeholder-shown)+label {
+                    transform: translateY(-100%) scale(.9);
+                }
             }
-            &:focus+label,
-            &:hover+label,
-            &:not(:placeholder-shown)+label {
-                transform: translateY(-100%) scale(.9);
+            label {
+                font-size: 1.2rem;
+                font-weight: bold;
             }
-        }
-        label {
-            font-size: 1.2rem;
-            font-weight: bold;
-        }
-        label:not(.selector-label) {
-            transition: all .4s ease-in-out;
-            position: absolute;
-            left: 0%;
-            top: 0%;
-        }
-        select {
-            color: var(--font-color);
-            width: 100%;
-            background-color: transparent;
-            border: none;
-            border-bottom: 3px solid var(--main-color);
-            margin-top: .5rem;
-            display: block;
-            padding: .25rem .5rem;
-            font-family: inherit;
-            font-size: inherit;
-            option {
-                color: black;
+            label:not(.selector-label) {
+                transition: all .4s ease-in-out;
+                position: absolute;
+                left: 0%;
+                top: 0%;
             }
-        }
-        &:nth-child(1) {
-            animation-delay: 0.4s;
-        }
-        &:nth-child(2) {
-            animation-delay: 0.3s;
-        }
-        &:nth-child(3) {
-            animation-delay: 0.2s;
-        }
-        &:nth-child(4) {
-            animation-delay: 0.1s;
+            select {
+                color: var(--text-generic-color);
+                width: 100%;
+                background-color: transparent;
+                border: none;
+                border-bottom: 2px solid var(--text-generic-color);
+                margin-top: .5rem;
+                display: block;
+                padding: .25rem .5rem;
+                font-family: inherit;
+                font-size: inherit;
+                option {
+                    color: black;
+                }
+            }
+            &:nth-child(1) {
+                animation-delay: 0.4s;
+            }
+            &:nth-child(2) {
+                animation-delay: 0.3s;
+            }
+            &:nth-child(3) {
+                animation-delay: 0.2s;
+            }
+            &:nth-child(4) {
+                animation-delay: 0.1s;
+            }
         }
     }
-}
-
-.btn {
-    color: var(--font-color);
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-    padding: .5rem 2rem;
-    background-color: transparent;
-    border: 3px solid var(--main-color);
-    font-size: inherit;
-    font-family: inherit;
-    border-radius: var(--border-radius);
-    &:hover {
-        background-color: var(--font-color);
-        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    
+    .btn {
+        color: var(--text-generic-color);
+        box-shadow: rgb(0, 0, 0) 0px 5px 15px;
+        padding: .5rem 2rem;
+        background-color: transparent;
+        border: 3px solid var(--text-generic-color);
+        font-size: inherit;
+        font-family: inherit;
+        border-radius: var(--border-radius);
+        transition: all .5s ease-in-out;
+        &:hover {
+            background-color: var(--text-generic-color);
+            box-shadow: rgb(0, 0, 0) 0px 20px 30px -10px;
+            color: black;
+            transform: translateY(-4px);
+        }
+        &:active {
+            transition: transform .1s;
+            transform: translateY(0px);
+        }
     }
-}

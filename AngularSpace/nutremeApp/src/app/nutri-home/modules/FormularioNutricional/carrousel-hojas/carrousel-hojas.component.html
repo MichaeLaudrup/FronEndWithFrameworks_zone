@@ -2,18 +2,7 @@
 
 </div>
 <section class="slider" [@routeAnimations]="prepareRoute(outlet)">
-    <a class="slider__icon left" [routerLink]="previousRoute">
-        <span class="material-icons-outlined">
-            arrow_back
-        </span>
-    </a>
     <div class="slider__sheet">
         <router-outlet #outlet="outlet"></router-outlet>
     </div>
-
-    <a class="slider__icon right" [routerLink]="nextRoute">
-        <span class="material-icons-outlined">
-            east
-        </span>
-    </a>
 </section>

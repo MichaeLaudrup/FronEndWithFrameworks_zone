@@ -8,7 +8,7 @@ export class FisiologicData {
                 public mbaWithActivity?:number,
                 public imc?: number,
                 public mbaWithActivityAndObjetive?: number,
-                public diaryWater?: Number,
+                public diaryWater?: number,
                 public diaryCarbohydrates?: number,
                 public diaryProtein?: number,
                 public diaryFats?:number ){}

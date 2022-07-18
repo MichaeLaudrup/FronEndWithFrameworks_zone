@@ -1,0 +1,32 @@
+.store-layout__component {
+    min-height: calc(100vh - 50px);
+    padding: 1.5rem;
+}
+
+
+.store-layout__food-galery{
+    color: var(--text-generic-color); 
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 150px 150px 150px;
+    justify-content: center;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.empty__section{
+    border-radius: var(--global-border-radius);
+    padding: 1rem; 
+    height: 140px;
+    border: 2px dotted var(--text-generic-color); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: .25rem; 
+    flex-direction: column;
+    .icon-action {
+        font-size: 2rem;
+    }
+
+}

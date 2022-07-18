@@ -27,7 +27,7 @@ export const sliderSmoothly =
                 style({
                     position: 'absolute',
                     width: '100%',
-                    opacity: 0,
+                    opacity: .5,
                     top: '50%',
                     left: '50%',
                     transform: 'translate(100vw, -50%) scale(.1)'
@@ -50,7 +50,7 @@ export const sliderSmoothly =
                 query(':leave', [
                     animate('1000ms ease-in-out',
                     style({ 
-                        opacity:0,
+                        opacity:.5,
                         transform: 'translate(-100vw, -50%) scale(.1)' })
                     )
                 ])
@@ -63,7 +63,7 @@ export const sliderSmoothly =
                 style({
                     position: 'absolute',
                     width: '100%',
-                    opacity: 0,
+                    opacity: .5,
                     left: '50%',
                     top: '50%',
                     transform: 'translateX(-100vw) scale(.2)'
@@ -85,7 +85,7 @@ export const sliderSmoothly =
                 query(':leave', [
                     animate('1000ms ease-in-out',
                         style({ 
-                            opacity:0,
+                            opacity:.5,
                             transform: 'translate(100vw, -50%) scale(.1)' })
                         )])
             ])

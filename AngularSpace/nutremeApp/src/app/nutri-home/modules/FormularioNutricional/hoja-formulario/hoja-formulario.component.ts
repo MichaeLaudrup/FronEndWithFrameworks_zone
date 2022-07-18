@@ -5,11 +5,11 @@ import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { ignoreElements, Observable } from 'rxjs';
-import { GlobalStateWithNutriApp } from 'src/app/nutri-home/store/home.reducer';
+import { GlobalStateWithNutriApp } from 'src/app/nutri-home/store-nutri-home/home.reducer';
 import { NutritionTarget } from 'src/app/shared/enums/nutrition-target.enum';
 import { FisiologicData } from 'src/app/shared/models/fisiologicData.model';
-import * as nutriAppActions from '../../../store/home.actions';
-import * as nutriAppSelectors from '../../../store/home.selectors'
+import * as nutriAppActions from '../../../store-nutri-home/home.actions';
+import * as nutriAppSelectors from '../../../store-nutri-home/home.selectors'
 const ESTILO_COMUN = './hoja-formulario.component.scss'; 
 
 class hojaFormularioAbstracta {
@@ -69,6 +69,8 @@ export class HojaMBC_IMC extends hojaFormularioAbstracta implements OnInit, OnDe
   comprobe_send_data(){
     if(!this.datosFisioForm.valid) return; 
     this._store.dispatch(nutriAppActions.putFisiologicData({datos_fisiologicos: this.datosFisioForm.value}))
+    this.navegador.navigate(['../../nutri-data'], {relativeTo: this.rutaActiva})
+
 
   }
 }

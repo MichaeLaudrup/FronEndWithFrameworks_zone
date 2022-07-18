@@ -1,0 +1,32 @@
+
+<div class="modal-container">
+    <div class="modal-component">
+        <div class="modal__header">
+            <h2>{{ (infoData$ |async).title}}</h2>
+            <span class="material-icons-outlined" (click)="hideModal()">
+                close
+            </span>
+
+        </div>
+        <div class="modal__content">
+             {{ (infoData$ |async).content}}
+        </div>
+
+        <div class="modal__links">
+            <ul class="modal__links-list">
+                <li class="modal__links-item" *ngFor="let link of (infoData$ |async).links">
+                    <span class="material-icons-outlined">
+                        mouse
+                    </span>
+                    <a class="modal__links-link" [href]="link.url">{{ link.title}}</a>
+                </li>
+            </ul>
+        </div>
+        <div class="modal__footer">
+            <button class="modal__button" (click)="hideModal()">Close</button>
+        </div>
+       
+    </div>
+       
+</div>
+

@@ -8,7 +8,7 @@ export interface GlobalState {
 
 
 export interface AppState {
-    prueba: GlobalState
+    initState: GlobalState
 }
 
 export const initialState = {
@@ -16,9 +16,9 @@ export const initialState = {
 }; 
 
 
-export const pruebaReducer = createReducer( initialState,
+export const initStateReducer = createReducer( initialState,
     ); 
 
 export const appReducers: ActionReducerMap<AppState> = {
-    prueba: pruebaReducer
+    initState: initStateReducer
 }; 

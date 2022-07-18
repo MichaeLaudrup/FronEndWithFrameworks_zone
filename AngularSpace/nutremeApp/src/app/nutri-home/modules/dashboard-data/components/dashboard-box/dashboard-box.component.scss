@@ -1,0 +1,47 @@
+.dashboard__box {
+    width: 100%;
+    animation: expandFromCenter .8s ease-in-out; 
+    background-color: var(--elements-bg-primary);  
+    box-shadow: rgba(0, 0, 0, 0.76) 0px 3px 8px;
+    border-radius: var(--global-border-radius); 
+    overflow: hidden;
+    color: var(--text-generic-color); 
+}
+
+.box__header {
+    width: 100%;
+    display:flex; 
+    gap: 1rem; 
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    font-size: 1rem;
+    padding: .5rem 0rem .75rem 1rem; 
+    color: var(--text-generic-color); 
+    margin-bottom: 1.5rem;
+    background-color: var(--elements-bg-secondary);
+    height: 45px;
+    span.info{
+      padding: 1rem .5rem; 
+      cursor:pointer;
+    }
+ }
+ 
+ .box__content {
+     padding: .75rem .5rem ; 
+     
+ }
+
+
+ 
+@keyframes expandFromCenter {
+    0% {
+        transform: scale(.2);
+    }
+    90% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
