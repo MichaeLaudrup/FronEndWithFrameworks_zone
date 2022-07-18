@@ -9,9 +9,9 @@ import { InfoModalData } from 'src/app/shared/models/modal.model';
 export class DashboardBoxComponent implements OnInit {
   @Input() title: string; 
   @Input() modalInfo: InfoModalData; 
+
   constructor() { }
 
   ngOnInit(): void {
   }
-
 }

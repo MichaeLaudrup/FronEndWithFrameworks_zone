@@ -4,6 +4,8 @@
   "compilerOptions": {
     "paths": {
       "@shared/models": [ "src/app/shared/models" ],
+      "@shared/generic-components": ["src/app/shared/components/generic-components"],
+      "@shared/data": ["src/app/shared/global-data"]
     },
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",

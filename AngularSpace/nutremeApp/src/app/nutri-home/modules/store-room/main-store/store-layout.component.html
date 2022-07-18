@@ -1,0 +1,17 @@
+<div class="store-layout__component">
+    <div class="store-layout__food-galery">
+        <ng-container *ngFor="let title of titles; let i = index">
+            <image-target [title]="title" [imgSrc]="imgsSources[i]"></image-target>
+        </ng-container>
+        <div class="empty__section">
+            <span class="material-icons-outlined icon-action">
+                add
+            </span>
+            <span class="text-action">Añadir nueva sección</span>
+        </div>
+    </div>
+</div>
+
+
+
+

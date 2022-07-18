@@ -9,6 +9,7 @@ import { sharedReducer } from './store-shared/shared.reducer';
 import { StoreModule } from '@ngrx/store';
 import { InfoActivatorComponent } from './components/modals/modalActivators/info-activator/info-activator.component';
 import { sharedFacadeService } from './store-shared/shared.facade';
+import { ImageTargetComponent } from './components/generic-components/image-target/image-target.component';
 
 const components = [
   HeaderComponent,
@@ -17,11 +18,13 @@ const components = [
   InfoModalComponent,
   GaugeComponent,
   InfoActivatorComponent,
+  ImageTargetComponent,
 ]
 
 @NgModule({
   declarations: [
     components,
+
   ],
   imports: [
     CommonModule,

@@ -22,7 +22,7 @@
 
 
     /* Fondos */
-    --elements-background: #081b2a;
+    --elements-bg-primary: #081b2a;
     --elements-bg-secondary: #0d283d; 
     --dark-background: #06131d;
     
@@ -38,11 +38,9 @@
 
 
     /* Colores tipografia */
-    --font-color: var(--c3-light01);
+    --text-generic-color: #a7f1c1;
     --text-title-color: var(--c3); 
-
-
-
+    --text-link-color: var(--c4); 
 
     --main-color: #69db7c;
     --main-color-light: #b2f2bb;
@@ -53,6 +51,8 @@
     --global-border-radius: 5px;
     /* Margenes */
     --margin-btm-high: 2rem;
+
+    --generic-shadow: rgba(0, 0, 0, 0.801) 0px 3px 8px;; 
 }
 
 *,
@@ -67,7 +67,6 @@ html,
 body {
     font-size: 16px;
     font-family: 'Merriweather', serif;
-    ;
 }
 
 

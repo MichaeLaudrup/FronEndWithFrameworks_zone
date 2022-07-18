@@ -38,21 +38,21 @@ export class MbaChartComponent implements OnInit {
           type: 'category',
           labels: {
             style: {
-              color:'var(--font-color)'
+              color:'var(--text-generic-color)'
             }
           },
-          lineColor: 'var(--font-color)'
+          lineColor: 'var(--text-generic-color)'
       },
       yAxis: {
           title: {
               text: 'Total KCal Díarias',
               style: {
-                color:'var(--font-color)'
+                color:'var(--text-generic-color)'
               }
           },
           labels: {
             style: {
-              color:'var(--font-color)'
+              color:'var(--text-generic-color)'
             }
           }
   
@@ -65,7 +65,7 @@ export class MbaChartComponent implements OnInit {
               borderWidth: 0,
               dataLabels: {
                   enabled: true,
-                  format: `<span style="color: var(--font-color); font-size:.75rem;">{point.y:.1f} <span> Kcal/día`,
+                  format: `<span style="color: var(--text-generic-color); font-size:.75rem;">{point.y:.1f} <span> Kcal/día`,
                   style: {
                     textShadow: false,
                     textOutline: false,

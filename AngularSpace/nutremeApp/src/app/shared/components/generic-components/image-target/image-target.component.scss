@@ -1,0 +1,55 @@
+.img-target__component{
+    animation: appearFromCenter .6s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 150px;
+    overflow: hidden;
+}
+
+.img-target__title{
+    padding: .75rem 0; 
+    text-align: center;
+    background-color: var(--elements-bg-secondary);
+    font-size: 1.2rem;
+    color: var(--text-generic-color);
+    border-radius: var(--global-border-radius); 
+    box-shadow: var(--generic-shadow);
+}
+
+.img-target__img-container{
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative; 
+    width: calc( 100% - 1px + 1px);
+    height: 100px;
+    img{
+        position: absolute; 
+        top: 0; 
+        left: 0;
+        right: 0; 
+        bottom: 0;
+        transition: transform .7s ease-in-out;
+    }
+    &:hover{
+        img{
+            transform: scale(1.2);
+        }
+    }
+
+}
+
+
+@keyframes appearFromCenter {
+    0%{
+        transform: scale(.5);
+    }
+    80%{
+        transform: scale(1.05);
+    }
+    100%{
+        transform: scale(1);
+    }
+}

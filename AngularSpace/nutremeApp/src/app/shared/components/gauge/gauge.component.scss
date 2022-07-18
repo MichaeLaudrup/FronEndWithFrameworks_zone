@@ -35,12 +35,12 @@
     top: 25%;
     left: 50%;
     transform: translateX(-50%);
-    background-color: var(--elements-background);
+    background-color: var(--elements-bg-primary);
     //text
     display: flex;
     align-items: center;
     justify-content: center;
     padding-bottom: 25%;
     font-size: 1.6rem;
-    color: var(--font-color)
+    color: var(--text-generic-color)
 }

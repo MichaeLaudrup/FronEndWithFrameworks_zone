@@ -49,7 +49,7 @@ export class MacronutrientsChartComponent implements OnInit {
                 }
             },
             legend: {
-                itemStyle: {'color': 'var(--font-color)'},
+                itemStyle: {'color': 'var(--text-generic-color)'},
                 floating:true,
                 x: 10,
                 y: '100%',

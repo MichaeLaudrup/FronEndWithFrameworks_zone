@@ -1,6 +1,5 @@
 
 <div class="modal-container">
-
     <div class="modal-component">
         <div class="modal__header">
             <h2>{{ (infoData$ |async).title}}</h2>
@@ -14,13 +13,14 @@
         </div>
 
         <div class="modal__links">
-            <ng-container>
-                <ul>
-                    <li *ngFor="let link of (infoData$ |async).links">
-                        <a [href]="link.url">{{ link.title}}</a>
-                    </li>
-                </ul>
-            </ng-container>
+            <ul class="modal__links-list">
+                <li class="modal__links-item" *ngFor="let link of (infoData$ |async).links">
+                    <span class="material-icons-outlined">
+                        mouse
+                    </span>
+                    <a class="modal__links-link" [href]="link.url">{{ link.title}}</a>
+                </li>
+            </ul>
         </div>
         <div class="modal__footer">
             <button class="modal__button" (click)="hideModal()">Close</button>

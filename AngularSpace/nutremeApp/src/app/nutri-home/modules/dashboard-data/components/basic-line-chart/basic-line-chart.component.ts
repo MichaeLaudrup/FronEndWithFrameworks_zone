@@ -12,7 +12,7 @@ export class BasicLineChartComponent implements OnInit {
 	ngOnInit(){
 		this.chartOptions = {
 			chart: {
-				backgroundColor: 'var(--elements-background)',
+				backgroundColor: 'var(--elements-bg-primary)',
 			},
 			title: {
 				text: ""
@@ -27,13 +27,13 @@ export class BasicLineChartComponent implements OnInit {
 				title: {
 					text: "",
 					style: {
-						color: 'var(--font-color)'
+						color: 'var(--text-generic-color)'
 					}
 				},
 
 				labels: {
 					style: {
-						color: 'var(--font-color)'
+						color: 'var(--text-generic-color)'
 					}
 				}
 			},
@@ -48,7 +48,7 @@ export class BasicLineChartComponent implements OnInit {
 						return this.value;
 					},
 					style: {
-						color: 'var(--font-color)'
+						color: 'var(--text-generic-color)'
 					}
 				},
 			},
@@ -59,7 +59,7 @@ export class BasicLineChartComponent implements OnInit {
 				x:0,
 				y:0,
 				itemStyle: {
-					color: 'var(--font-color)'
+					color: 'var(--text-generic-color)'
 				}
 			},
 
